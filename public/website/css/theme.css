@@ -25956,13 +25956,18 @@ footer .widget select.custom-select, .widget_search .custom-select.search-field 
   padding-left: 15px;
 }
 
-
+/*Herer*/
 img.logo {
     max-width: 150px;
     height: auto;
     display: block;
     margin: 0 auto;
 }
+
+
+
+
+
 
 @media (min-width: 768px) {
   .right-sidebar:not(.woocommerce-checkout) #primary,
@@ -26106,6 +26111,27 @@ img.logo {
         flex: 0 0 25%;
     max-width: 25%;
   }
+}
+
+
+
+#site-header > div > div:nth-child(2) > div > div{
+    flex-direction: row-reverse!important;
+}
+#site-header > div > div:nth-child(2) > div > div > div.site-navigation.mr-auto.d-none.d-xl-block > ul{
+    flex-direction: row-reverse!important;
+}
+#site-header > div > div:nth-child(2) > div > div > div.site-navigation.mr-auto.d-none.d-xl-block{
+    margin-right: 0px!important;
+}
+.bg-gray-200 {
+    background-color: rgb(76, 92, 47,0.1);
+}
+body > section.space-bottom-2.space-bottom-lg-3 > div > div.d-md-flex.align-items-md-center.justify-content-md-between{
+    flex-direction: row-reverse!important;
+}
+body > section.home-latest-news.space-bottom-3 > div > header{
+    flex-direction: row-reverse!important;
 }
 
 /*------------------------------------

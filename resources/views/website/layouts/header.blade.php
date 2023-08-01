@@ -291,14 +291,7 @@
                         </ul>
                     </div>
 
-                    <div class="secondary-navigation">
-                        <ul class="nav pr-xl-4">
-                            <li class="nav-item"><a href="#" class="nav-link text-white mx-2 px-0 py-3 font-size-2 font-weight-medium">Today's Deals</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link text-white mx-2 px-0 py-3 font-size-2 font-weight-medium">Best Seller</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link text-white mx-2 px-0 py-3 font-size-2 font-weight-medium">Trending Books</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link text-white mx-2 px-0 py-3 font-size-2 font-weight-medium">Gift Cards</a></li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
         </div>

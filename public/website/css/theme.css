@@ -132,7 +132,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #161619;
-  text-align: left;
+  text-align: right;
   background-color: #fff;
 }
 
@@ -3363,8 +3363,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #f75454;
-  border-color: #f75454;
+  background-color: #4C5C2F;
+  border-color: #4C5C2F;
 }
 
 .btn-primary:hover {
@@ -5623,7 +5623,7 @@ input[type="button"].btn-block {
   margin-left: 0.125rem;
 }
 
-.dropright .dropdown-toggle::after {
+.dropright .dropdown-toggle::before {
   vertical-align: 0;
 }
 
@@ -6087,8 +6087,8 @@ footer .widget .input-group-sm > select, .widget_search .input-group-sm > .searc
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
 .shop_table.cart .input-group > .input-group-prepend:first-child > input.button:not(:first-child),
 .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .custom-control {
@@ -23195,13 +23195,13 @@ html:not(.no-transition) body,
 }
 
 /* Toggle */
-.dropdown-toggle::after {
+.dropdown-toggle::before {
   display: inline-block;
   font-family: "Font Awesome 5 Free";
   font-size: 80%;
   font-weight: 900;
   content: "";
-  margin-left: .5rem;
+  margin-right: .5rem;
 }
 
 .dropdown-toggle.dropdown-item__sub-menu::after {
@@ -26133,7 +26133,29 @@ body > section.space-bottom-2.space-bottom-lg-3 > div > div.d-md-flex.align-item
 body > section.home-latest-news.space-bottom-3 > div > header{
     flex-direction: row-reverse!important;
 }
+ul{
+    text-align: right!important;
+}
+a{
+    text-align: right!important;
+}
 
+body > footer > div.bg-dark.space-1.space-lg-1 > div > div > div.col-lg-6.mb-4.mb-md-0 > div > ul{    flex-direction: row-reverse!important;
+    flex-direction: row-reverse!important;
+}
+#site-header > div > div.container.pt-3.pt-md-4.pb-3.pb-md-5 > div{
+    flex-direction: row-reverse!important;
+}
+#site-header > div > div.container.pt-3.pt-md-4.pb-3.pb-md-5 > div > div.site-search.ml-xl-0.ml-md-auto.w-r-100.flex-grow-1.mr-md-5.mt-2.mt-md-0.order-1.order-md-0 > form > div{
+    flex-direction: row-reverse!important;
+
+}
+#inputGroupSelect01{
+    border-left: 0.1px solid rgb(76, 92, 47,0.3)!important;
+}
+#site-header > div > div.container.pt-3.pt-md-4.pb-3.pb-md-5 > div > div.site-search.ml-xl-0.ml-md-auto.w-r-100.flex-grow-1.mr-md-5.mt-2.mt-md-0.order-1.order-md-0 > form > div > input{
+    text-align: right;
+}
 /*------------------------------------
-  File for your custom SCSS style
+File for your custom SCSS style
 ------------------------------------*/

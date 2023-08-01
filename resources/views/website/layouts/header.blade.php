@@ -4,7 +4,7 @@
     <div class="masthead">
         <div class="container pt-3 pt-md-4 pb-3 pb-md-5">
             <div class="d-flex align-items-center position-relative flex-wrap">
-                <div class="site-branding pr-7">
+                <div class="site-branding pl-7">
                     <a href="index.html" class="d-block mb-1">
                         <img src="{{asset('website/img/logo/logo.png')}}" class="logo">
                     </a>
@@ -13,8 +13,8 @@
                     <form class="form-inline my-2 my-xl-0">
                         <div class="input-group input-group-borderless w-100">
                             <div class="input-group-prepend border-right mr-0 d-none d-xl-block">
-                                <select class="custom-select pr-7 pl-4 rounded-right-0 height-5 shadow-none border-0 text-dark bg-gray-200" id="inputGroupSelect01">
-                                    <option selected>All Categories</option>
+                                <select class="custom-select pl-7 pr-5 rounded-left-0 height-5 shadow-none border-0 text-dark bg-gray-200" id="inputGroupSelect01">
+                                    <option selected>جميع الأصناف</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>

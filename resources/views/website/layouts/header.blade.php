@@ -6,7 +6,7 @@
             <div class="d-flex align-items-center position-relative flex-wrap">
                 <div class="site-branding pr-7">
                     <a href="index.html" class="d-block mb-1">
-                        <img src="{{asset('website/img/logo.png')}}" class="logo">
+                        <img src="{{asset('website/img/logo/logo.png')}}" class="logo">
                     </a>
                 </div>
                 <div class="site-search ml-xl-0 ml-md-auto w-r-100 flex-grow-1 mr-md-5 mt-2 mt-md-0 order-1 order-md-0">
@@ -35,7 +35,7 @@
                 <div class="d-flex align-items-center justify-content-center position-relative">
                     <div class="site-navigation mr-auto d-none d-xl-block">
                         <ul class="nav pl-xl-4">
-                            <li class="nav-item"><a href="#" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الصفحة الرئيسية</a></li>
+                            <li class="nav-item"><a href="{{route('website.home')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الصفحة الرئيسية</a></li>
                             <li class="nav-item dropdown">
                                 <a id="homeDropdownInvoker" href="#" class="dropdown-toggle nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium d-flex align-items-center"
                                    aria-haspopup="true"
@@ -286,7 +286,8 @@
                                     <li><a href="../others/terms-conditions.html" class="dropdown-item link-black-100">Terms Conditions</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">تأسيس الدار</a></li>
+                            <li class="nav-item"><a href="{{route('website.about')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">تأسيس الدار</a></li>
+                            <li class="nav-item"><a href="{{route('website.contact')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">تواصل معنا</a></li>
                         </ul>
                     </div>
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\dashboard\DashboardPageController;
 use App\Http\Controllers\dashboard\Products\CategoryController;
 use App\Http\Controllers\dashboard\Products\ProductController;
 use App\Http\Controllers\website\AboutUsPageController;
+use App\Http\Controllers\website\ContactUsPageController;
 use App\Http\Controllers\website\HomePageController;
 use App\Http\Controllers\website\NewsPageController;
 use App\Http\Controllers\website\ProductPageController;
@@ -24,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 //---------------- Website ---------------- //
 Route::get('/', [HomePageController::class, 'index'])->name('website.home');
 Route::get('about', [AboutUsPageController::class, 'index'])->name('website.about');
+Route::get('contact', [ContactUsPageController::class, 'index'])->name('website.contact');
 
 //Route::get('/products', [ProductPageController::class, 'index'])->name('website.products');
 Route::get('/products/{category}', [ProductPageController::class, 'index'])->name('website.products');

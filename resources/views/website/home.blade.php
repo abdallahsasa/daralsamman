@@ -168,7 +168,7 @@
                                             class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
                                             <div class="woocommerce-loop-product__thumbnail">
                                                 <a href="../shop/single-product-v6.html" class="d-block"
-                                                   tabindex="0"><img src="https://placehold.it/150x225"
+                                                   tabindex="0"><img src="{{asset('website/img/products/product-1.jpeg')}}"
                                                                      class="d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid"
                                                                      alt="image-description"></a>
                                             </div>
@@ -187,35 +187,9 @@
                                                     <span class="woocommerce-Price-amount amount"><span
                                                             class="woocommerce-Price-currencySymbol">$</span>29</span>
                                                 </div>
-                                                <div
-                                                    class="d-none product__rating d-md-flex align-items-center font-size-2">
-                                                    <div class="text-yellow-darker mr-2">
-                                                        <small class="fas fa-star"></small>
-                                                        <small class="fas fa-star"></small>
-                                                        <small class="fas fa-star"></small>
-                                                        <small class="far fa-star"></small>
-                                                        <small class="far fa-star"></small>
-                                                    </div>
-                                                    <div class="">(3,714)</div>
-                                                </div>
+
                                             </div>
-                                            <div class="product__hover d-flex align-items-center">
-                                                <a href="../shop/single-product-v6.html"
-                                                   class="text-uppercase text-dark h-dark font-weight-medium mr-auto"
-                                                   tabindex="0">
-                                                    <span class="product__add-to-cart">ADD TO CART</span>
-                                                    <span class="product__add-to-cart-icon font-size-4"><i
-                                                            class="flaticon-icon-126515"></i></span>
-                                                </a>
-                                                <a href="../shop/single-product-v6.html"
-                                                   class="mr-1 h-p-bg btn btn-outline-primary border-0" tabindex="0">
-                                                    <i class="flaticon-switch"></i>
-                                                </a>
-                                                <a href="../shop/single-product-v6.html"
-                                                   class="h-p-bg btn btn-outline-primary border-0" tabindex="0">
-                                                    <i class="flaticon-heart"></i>
-                                                </a>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </li>

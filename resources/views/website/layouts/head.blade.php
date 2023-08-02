@@ -1,7 +1,7 @@
 
 <head>
     <!-- Title -->
-    <title>Home v9 | Bookworm</title>
+    <title>دار السمان للدراسات و تحقيق التراث</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">

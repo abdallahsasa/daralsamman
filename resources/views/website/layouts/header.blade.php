@@ -5,7 +5,7 @@
         <div class="container pt-3 pt-md-4 pb-3 pb-md-5">
             <div class="d-flex align-items-center position-relative flex-wrap">
                 <div class="site-branding pl-7">
-                    <a href="index.html" class="d-block mb-1">
+                    <a href="{{route('website.home')}}" class="d-block mb-1">
                         <img src="{{asset('website/img/logo/logo.png')}}" class="logo">
                     </a>
                 </div>

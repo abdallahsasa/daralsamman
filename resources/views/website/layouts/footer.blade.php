@@ -5,12 +5,6 @@
             <!-- Newsletter -->
             <div class="space-2">
                 <div class="row">
-                    <div class="col-lg-7">
-                        <div>
-                            <h5 class="font-size-7 font-weight-medium text-white">Join Our Newsletter</h5>
-                            <p class="text-white font-size-2 mb-0">Signup to be the first to hear about exclusive deals, special offers and upcoming collections</p>
-                        </div>
-                    </div>
                     <div class="col-lg-5">
                         <div class="pr-lg-10">
                             <!-- Form Group -->
@@ -30,6 +24,13 @@
                             <!-- End Form Group -->
                         </div>
                     </div>
+                    <div class="col-lg-7">
+                        <div>
+                            <h5 class="font-size-7 font-weight-medium text-white">Join Our Newsletter</h5>
+                            <p class="text-white font-size-2 mb-0">Signup to be the first to hear about exclusive deals, special offers and upcoming collections</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <!-- End  Newsletter -->

@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->index('category_id');
             $table->foreign('category_id')->references('id')->on('product_categories')->onDelete('cascade');
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->boolean('featured')->default(false);
             $table->bigInteger('sort_number')->nullable()->default('0');;
             $table->text('meta_title')->nullable();
             $table->text('meta_description')->nullable();

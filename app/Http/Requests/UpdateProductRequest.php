@@ -34,13 +34,13 @@ class UpdateProductRequest extends FormRequest
             'meta_title' => 'nullable|string',
             'meta_description' => 'nullable|string',
 
-            'image' => '',
-            'image.*' => 'image|mimes:jpg,jpeg,png,webp',
+           // 'image' => 'required',
+           // 'image.*' => 'image|mimes:jpg,jpeg,png,webp',
 
             'product_tags'=>'nullable|string',
 
            //'gallery' => 'nullable|array',
-           'gallery.*' => 'image|mimes:jpg,jpeg,png,webp',
+          // 'gallery.*' => 'image|mimes:jpg,jpeg,png,webp',
 
             'attributes' => 'array',
             'attributes.*.name' => 'required|string',

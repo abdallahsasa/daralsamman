@@ -14,6 +14,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use function PHPUnit\Framework\isEmpty;
 
 //use App\Models\UserActivity;
 
@@ -216,23 +217,48 @@ class ProductController extends Controller
         return view($this->edit_view, compact('product', 'categories'));
     }
 
-
-    public function update(UpdateProductRequest $request, $id)
+    private function UpdateValidationRules()
     {
+        return [
+            'category_id' => 'required|exists:product_categories,id',
+            'name' => 'required|string|min:3|max:200',
+            'slug' => 'required|string|min:3|max:200',
+            'sku' => 'required|string|min:3|max:200',
+            'short_description' => 'required|string|min:3',
+            'description' => 'required|string|min:3',
+            'prices' => 'nullable|numeric',
+            'status' => 'required|in:active,inactive',
 
-        $validated_data = $request->validated();
+            'meta_title' => 'nullable|string',
+            'meta_description' => 'nullable|string',
 
+            'image' => 'nullable',
+            'image.*' => 'required|image|mimes:jpg,jpeg,png,webp',
+
+            'product_tags'=>'nullable|string',
+
+            'gallery' => 'nullable|array',
+            'gallery.*' => 'image|mimes:jpg,jpeg,png,webp',
+
+            'attributes' => 'array',
+            'attributes.*.name' => 'required|string',
+            'attributes.*.value' => 'required|string',
+
+        ];
+    }
+    public function update(Request $request, $id)
+    {
+           $validated_data = $request->validate($this->UpdateValidationRules());
            // DB::beginTransaction();
+        dd($validated_data);
             $object = $this->model_instance::findOrFail($id);
 
             // Update the product details except for the images and gallery
             $object->update(Arr::except($validated_data, ['image', 'gallery']));
             // Update the images
-            if ($request->hasFile('gallery')) {
+            if ($request->hasFile('gallery') && !empty( $validated_data['gallery']) ) {
                 $productImages = $request->file('gallery');
                 if (is_array($productImages)) {
-                    // Remove old gallery images
-                    $object->media()->delete();
 
                     foreach ($productImages as $image) {
                         $img_file_path = Storage::disk('public_images')->put('products', $image);
@@ -248,9 +274,11 @@ class ProductController extends Controller
             }
 
             // Update the main image
-            if ($request->hasFile('image')) {
+            if ($request->hasFile('image') && $request['image']!=null) {
                 // Delete the old main image
-                Storage::disk('public_images')->delete($object->image_url);
+                $url = $object->image_url;
+                $filePath = str_replace(url('/'), '', $url);
+                Storage::disk('public_images')->delete($filePath);
 
                 $img_file_path = Storage::disk('public_images')->put('products', $image);
                 $image_name = $image->getClientOriginalName();
@@ -328,13 +356,21 @@ class ProductController extends Controller
     public function deleteImage($mediaId){
 
         $mediaItem = ProductMedia::findOrFail($mediaId);
-        //dd($mediaItem);
+        $url = $mediaItem->image_url;
+        $filePath = str_replace(url('/'), '', $url);
+
+        if (Storage::disk('public_images')->delete($filePath)) {
             $mediaItem->image_name = 'no image';
             $mediaItem->image_url = asset('/images/noimage.jpg');
             $mediaItem->save();
-
-        return response()->json([
-            'success' => 'Image deleted successfully!',
-        ]);
+            return response()->json([
+                'success' => 'Image deleted successfully!',
+            ]);
+        }
+        else{
+            return response()->json([
+                'error' => 'Something went wrong',
+            ]);
+        }
     }
 }

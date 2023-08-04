@@ -13,7 +13,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pe-0 float-start float-sm-end">
-                    <li class="breadcrumb-item"><a href="/backoffice/dashboard" class="default-color">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/backoffice/dashboard/index" class="default-color">Home</a></li>
                     <li class="breadcrumb-item active ps-0">Add New Product</li>
                 </ol>
             </div>
@@ -128,30 +128,15 @@
                                 </div>
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
-                                        <div class="mb-3">
-                                            <label class="form-label">Product State</label>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status"
-                                                       id="activeState"
-                                                       value="active" {{ old('status') === 'active' ? 'checked' : '' }}>
-
-                                                <label class="form-check-label" for="activeState">
-                                                    Active
+                                        <h5 class="card-title">Product Status</h5>
+                                        <div class="form-group mb-3">
+                                            <div class="checkbox checbox-switch switch-success">
+                                                <label>
+                                                    <input type="checkbox" name="status" id="switchCheckbox" checked="" value="active">
+                                                    <span></span>
+                                                    Active/Inactive
                                                 </label>
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status"
-                                                       id="activeState"
-                                                       value="inactive" {{ old('status') === 'inactive' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="inactiveState">
-                                                    Inactive
-                                                </label>
-                                            </div>
-                                            @if($errors->has('status'))
-                                                <div class="alert alert-danger" role="alert">
-                                                    {{ $errors->first('status') }}
-                                                </div>
-                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -295,7 +280,18 @@
         });
 
     </script>
-
+    <script>
+        $(document).ready(function () {
+            // Add an event listener to update the checkbox value when the switch is toggled
+            $("#switchCheckbox").on("change", function () {
+                if ($(this).prop("checked")) {
+                    $(this).val("active");
+                } else {
+                    $(this).val("inactive");
+                }
+            });
+        });
+    </script>
 @endsection
 
 

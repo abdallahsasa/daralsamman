@@ -147,32 +147,25 @@
                                 </div>
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
-                                        <div class="mb-3">
-                                            <label class="form-label">Product State</label>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status"
-                                                       id="activeState"
-                                                       value="active" {{ $product->status == 'active' ? 'checked' : '' }} {{ old('status') === 'active' ? 'checked' : '' }}>
-
-                                                <label class="form-check-label" for="activeState">
-                                                    Active
+                                        <h5 class="card-title">Product State</h5>
+                                        <div class="form-group mb-3">
+                                            <div class="checkbox checbox-switch switch-success">
+                                                <label>
+                                                    <input type="checkbox" name="state" id="switchCheckbox" checked="" value="{{$product->state}}">
+                                                    <span></span>
+                                                    Active/Inactive
                                                 </label>
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status"
-                                                       id="inactiveState"
-                                                       value="inactive" {{ $product->status == 'inactive' ? 'checked' : '' }} {{ old('status') === 'inactive' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="inactiveState">
-                                                    Inactive
-                                                </label>
-                                            </div>
-                                            @if($errors->has('status'))
-                                                <div class="alert alert-danger" role="alert">
-                                                    {{ $errors->first('status') }}
-                                                </div>
-                                            @endif
                                         </div>
-
+                                    </div>
+                                </div>
+                                <div class="card card-statistics h-10">
+                                    <div class="card-body datepicker-form">
+                                        <h5 class="card-title">Created At</h5>
+                                        <div class="input-group date display-years" data-date-format="dd-mm-yyyy" data-date="{{$product->created_at}}">
+                                            <input name="created_at" id="datepicker-input" value="{{$product->created_at}}" class="form-control" type="text" placeholder="{{$product->created_at}}">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card card-statistics h-10">
@@ -401,6 +394,52 @@
                 });
 
         })
+    </script>
+    <script>
+        $(document).ready(function () {
+
+        // Fetch the product state from the server and store it in a variable (e.g., productState)
+        var productState = "{{$product->status}}"; // Replace this with your dynamic value from the server
+        // Update the checkbox value based on the product state
+        $("#switchCheckbox").val(productState);
+
+        // Set the checkbox state based on the product state
+        if (productState === "active") {
+            $("#switchCheckbox").prop("checked", true);
+        } else {
+            $("#switchCheckbox").prop("checked", false);
+        }
+
+        // Add an event listener to update the checkbox value when the switch is toggled
+        $("#switchCheckbox").on("change", function () {
+            if ($(this).prop("checked")) {
+                $(this).val("active");
+            } else {
+                $(this).val("inactive");
+            }
+        });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Assuming $product->created_at is a valid date string from the database
+            var formattedDateTime = "{{$product->created_at}}";
+
+            $('#datepicker-input').datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                orientation: "bottom",
+                templates: {
+                    leftArrow: '<i class="fa fa-angle-left"></i>',
+                    rightArrow: '<i class="fa fa-angle-right"></i>'
+                }
+            }).on('change', function (e) {
+                // Update the input value when the datepicker date changes
+                var selectedDate = $('#datepicker-input').val();
+                console.log(selectedDate)
+                $('#datepicker-input').val(selectedDate);
+            });
+        });
     </script>
 
 @endsection

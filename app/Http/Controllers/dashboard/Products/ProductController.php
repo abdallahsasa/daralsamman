@@ -238,7 +238,7 @@ class ProductController extends Controller
             'product_tags'=>'nullable|string',
 
             'gallery' => 'nullable|array',
-            'gallery.*' => 'image|mimes:jpg,jpeg,png,webp',
+            'gallery.*' => 'nullable|image|mimes:jpg,jpeg,png,webp',
 
             'attributes' => 'array',
             'attributes.*.name' => 'required|string',
@@ -248,15 +248,16 @@ class ProductController extends Controller
     }
     public function update(Request $request, $id)
     {
-           $validated_data = $request->validate($this->UpdateValidationRules());
+        return $request;
+
+        $validated_data = $request->validate($this->UpdateValidationRules());
            // DB::beginTransaction();
-        dd($validated_data);
-            $object = $this->model_instance::findOrFail($id);
+        $object = $this->model_instance::findOrFail($id);
 
             // Update the product details except for the images and gallery
             $object->update(Arr::except($validated_data, ['image', 'gallery']));
             // Update the images
-            if ($request->hasFile('gallery') && !empty( $validated_data['gallery']) ) {
+            if ($request->hasFile('gallery')) {
                 $productImages = $request->file('gallery');
                 if (is_array($productImages)) {
 
@@ -273,20 +274,29 @@ class ProductController extends Controller
                 }
             }
 
-            // Update the main image
-            if ($request->hasFile('image') && $request['image']!=null) {
-                // Delete the old main image
-                $url = $object->image_url;
-                $filePath = str_replace(url('/'), '', $url);
-                Storage::disk('public_images')->delete($filePath);
 
-                $img_file_path = Storage::disk('public_images')->put('products', $image);
-                $image_name = $image->getClientOriginalName();
-                $image_url = getMediaUrl($img_file_path);
+        if ($request->has('image' && $request->image!=null)) {
+            foreach ($object->media as $image)
+            {
+                if($image->is_featured=='ture'){
+                    $url = $image->image_url;
+                    $filePath = str_replace(url('/'), '', $url);
+                    Storage::disk('public_images')->delete($filePath);
+                    $image->delete();
+                }
 
-                $object->image_url = $image_url;
-                $object->image_name = $image_name;
             }
+            // Delete the old main image
+            $image=$request->file('image');
+            $img_file_path = Storage::disk('public_images')->put('products', $image);
+            $image_name = $image->getClientOriginalName();
+            $image_url = getMediaUrl($img_file_path);
+            $object->media()->create([
+                'image_url' => $image_url,
+                'image_name' => $image_name,
+                'is_featured' => 'true',
+            ]);
+        }
 
             // Update the attributes
             if ($request->has('attributes')) {

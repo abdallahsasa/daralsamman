@@ -49,6 +49,15 @@
                     {{ session()->get('success') }}
                 </div>
             @endif
+                @if ($message = \Session::get('errors'))
+
+                    <div class="alert alert-danger alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        @foreach($message->all() as $error)
+                            <strong>{{ $error }}</strong><br>
+                        @endforeach
+                    </div>
+                @endif
             <div class="card card-statistics mb-30">
                 <div class="card-body">
                     <form action="{{route('dashboard.product.update',$product->id)}}" method="POST">
@@ -151,7 +160,7 @@
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
-                                                    <input type="checkbox" name="state" id="switchCheckbox" checked="" value="{{$product->state}}">
+                                                    <input type="checkbox" name="status" id="status">
                                                     <span></span>
                                                     Active/Inactive
                                                 </label>
@@ -400,18 +409,15 @@
 
         // Fetch the product state from the server and store it in a variable (e.g., productState)
         var productState = "{{$product->status}}"; // Replace this with your dynamic value from the server
-        // Update the checkbox value based on the product state
-        $("#switchCheckbox").val(productState);
-
         // Set the checkbox state based on the product state
         if (productState === "active") {
-            $("#switchCheckbox").prop("checked", true);
+            $("#status").prop("checked", true);
         } else {
-            $("#switchCheckbox").prop("checked", false);
+            $("#status").prop("checked", false);
         }
 
         // Add an event listener to update the checkbox value when the switch is toggled
-        $("#switchCheckbox").on("change", function () {
+        $("#status").on("change", function () {
             if ($(this).prop("checked")) {
                 $(this).val("active");
             } else {

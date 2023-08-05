@@ -221,7 +221,6 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, $id)
     {
         $validated_data = $request->validated();
-
         // DB::beginTransaction();
         $object = $this->model_instance::findOrFail($id);
 
@@ -246,10 +245,13 @@ class ProductController extends Controller
             }
 
 
-        if ($request->has('image' && $request->image!=null)) {
+        if ($request->has('image')) {
+            // Delete the old main image
             foreach ($object->media as $image)
             {
-                if($image->is_featured=='ture'){
+
+                if($image->is_featured=='true'){
+
                     $url = $image->image_url;
                     $filePath = str_replace(url('/'), '', $url);
                     Storage::disk('public_images')->delete($filePath);
@@ -257,7 +259,7 @@ class ProductController extends Controller
                 }
 
             }
-            // Delete the old main image
+
             $image=$request->file('image');
             $img_file_path = Storage::disk('public_images')->put('products', $image);
             $image_name = $image->getClientOriginalName();
@@ -341,9 +343,9 @@ class ProductController extends Controller
         $filePath = str_replace(url('/'), '', $url);
 
         if (Storage::disk('public_images')->delete($filePath)) {
-            $mediaItem->image_name = 'no image';
-            $mediaItem->image_url = asset('/images/noimage.jpg');
-            $mediaItem->save();
+            //$mediaItem->image_name = 'no image';
+            //$mediaItem->image_url = asset('/images/noimage.jpg');
+            //$mediaItem->save();
             return response()->json([
                 'success' => 'Image deleted successfully!',
             ]);

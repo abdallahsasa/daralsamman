@@ -60,7 +60,7 @@
                 @endif
             <div class="card card-statistics mb-30">
                 <div class="card-body">
-                    <form action="{{route('dashboard.product.update',$product->id)}}" method="POST">
+                    <form action="{{route('dashboard.product.update',$product->id)}}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="row">
@@ -175,7 +175,7 @@
                                         <h5 class="card-title">Created At</h5>
                                         <div class="input-group date display-years" data-date-format="dd-mm-yyyy" data-date="{{$product->created_at}}">
                                             <input  id="datepicker-input" value="{{$product->created_at}}" class="form-control" type="text" placeholder="{{$product->created_at}}">
-                                            <input type="hidden" name="created_at" id="created_at_hidden">
+                                            <input type="hidden" name="created_at" id="created_at_hidden" value="{{$product->created_at}}">
 
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                         </div>

@@ -160,19 +160,23 @@
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
-                                                    <input type="checkbox" name="status" id="status">
+                                                    <input type="checkbox" name="status_checkbox" id="status">
                                                     <span></span>
                                                     Active/Inactive
                                                 </label>
                                             </div>
                                         </div>
+                                        <!-- Hidden input field to store the actual status value -->
+                                        <input type="hidden" name="status" id="status_hidden" value="inactive">
                                     </div>
                                 </div>
                                 <div class="card card-statistics h-10">
                                     <div class="card-body datepicker-form">
                                         <h5 class="card-title">Created At</h5>
                                         <div class="input-group date display-years" data-date-format="dd-mm-yyyy" data-date="{{$product->created_at}}">
-                                            <input name="created_at" id="datepicker-input" value="{{$product->created_at}}" class="form-control" type="text" placeholder="{{$product->created_at}}">
+                                            <input  id="datepicker-input" value="{{$product->created_at}}" class="form-control" type="text" placeholder="{{$product->created_at}}">
+                                            <input type="hidden" name="created_at" id="created_at_hidden">
+
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                         </div>
                                     </div>
@@ -416,15 +420,29 @@
             $("#status").prop("checked", false);
         }
 
-        // Add an event listener to update the checkbox value when the switch is toggled
-        $("#status").on("change", function () {
-            if ($(this).prop("checked")) {
-                $(this).val("active");
-            } else {
-                $(this).val("inactive");
-            }
+            $(document).ready(function() {
+                // Add an event listener to update the checkbox value when the switch is toggled
+                $("#status").on("change", function () {
+                    if ($(this).prop("checked")) {
+                        $(this).val("active");
+                    } else {
+                        $(this).val("inactive");
+                    }
+                });
+            });
+
+            // Add an event listener to update the hidden input's value when the switch is toggled
+            $("#status").on("change", function () {
+                console.log("i am here");
+                if ($(this).prop("checked")) {
+                    $("#status_hidden").val("active");
+                } else {
+                    $("#status_hidden").val("inactive");
+                }
+            });
         });
-        });
+
+
     </script>
     <script>
         $(document).ready(function () {
@@ -443,7 +461,7 @@
                 // Update the input value when the datepicker date changes
                 var selectedDate = $('#datepicker-input').val();
                 console.log(selectedDate)
-                $('#datepicker-input').val(selectedDate);
+                $('#created_at_hidden').val(selectedDate);
             });
         });
     </script>

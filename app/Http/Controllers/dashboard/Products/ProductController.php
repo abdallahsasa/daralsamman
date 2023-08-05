@@ -217,41 +217,12 @@ class ProductController extends Controller
         return view($this->edit_view, compact('product', 'categories'));
     }
 
-    private function UpdateValidationRules()
+
+    public function update(UpdateProductRequest $request, $id)
     {
-        return [
-            'category_id' => 'required|exists:product_categories,id',
-            'name' => 'required|string|min:3|max:200',
-            'slug' => 'required|string|min:3|max:200',
-            'sku' => 'required|string|min:3|max:200',
-            'short_description' => 'required|string|min:3',
-            'description' => 'required|string|min:3',
-            'prices' => 'nullable|numeric',
-            'status' => 'required|in:active,inactive',
+        $validated_data = $request->validated();
 
-            'meta_title' => 'nullable|string',
-            'meta_description' => 'nullable|string',
-
-            'image' => 'nullable',
-            'image.*' => 'required|image|mimes:jpg,jpeg,png,webp',
-
-            'product_tags'=>'nullable|string',
-
-            'gallery' => 'nullable|array',
-            'gallery.*' => 'nullable|image|mimes:jpg,jpeg,png,webp',
-
-            'attributes' => 'array',
-            'attributes.*.name' => 'required|string',
-            'attributes.*.value' => 'required|string',
-
-        ];
-    }
-    public function update(Request $request, $id)
-    {
-        return $request;
-
-        $validated_data = $request->validate($this->UpdateValidationRules());
-           // DB::beginTransaction();
+        // DB::beginTransaction();
         $object = $this->model_instance::findOrFail($id);
 
             // Update the product details except for the images and gallery

@@ -1,7 +1,7 @@
 
 <head>
     <!-- Title -->
-    <title>دار السمان للدراسات و تحقيق التراث</title>
+    <title> Dar AlSamman | دار السَمَّان للدّراسات وتحقيق التّراث</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">

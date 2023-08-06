@@ -37,14 +37,26 @@
             </li>
 
             <li>
-                <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#solutions-menu">
-                    <div class="pull-left"><i class="fa fa-rocket"></i><span class="right-nav-text">Solutions</span></div>
+                <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#authors-menu">
+                    <div class="pull-left"><i class="fa fa-pencil"></i><span class="right-nav-text">Authors</span></div>
                     <div class="pull-right"><i class="ti-plus"></i></div>
                     <div class="clearfix"></div>
                 </a>
-                <ul id="solutions-menu" class="collapse" data-bs-parent="#sidebarnav">
-                    <li><a href="{{url('/backoffice/products/index')}}">Brows All Solutions</a></li>
-                    <li><a href="{{url('/backoffice/products/create')}}">Add New Solution </a></li>
+                <ul id="authors-menu" class="collapse" data-bs-parent="#sidebarnav">
+                    <li><a href="{{route('dashboard.author.index')}}">Brows All Authors</a></li>
+                    <li><a href="{{route('dashboard.author.create')}}">Add New Author </a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#library-menu">
+                    <div class="pull-left"><i class="fa fa-book"></i><span class="right-nav-text">Scientific library</span></div>
+                    <div class="pull-right"><i class="ti-plus"></i></div>
+                    <div class="clearfix"></div>
+                </a>
+                <ul id="library-menu" class="collapse" data-bs-parent="#sidebarnav">
+                    <li><a href="#">Brows All News</a></li>
+                    <li><a href="{{url('/backoffice/products/create')}}">Add New News </a></li>
                 </ul>
             </li>
 
@@ -62,7 +74,7 @@
 
             <li>
                 <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#contact-menu">
-                    <div class="pull-left"><i class="fa fa-envelope"></i><span class="right-nav-text">Contact</span>
+                    <div class="pull-left"><i class="fa fa-envelope"></i><span class="right-nav-text">Messages</span>
                     </div>
                     <div class="pull-right"><i class="ti-plus"></i></div>
                     <div class="clearfix"></div>
@@ -74,13 +86,15 @@
             </li>
             <li>
                 <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#site-menu">
-                    <div class="pull-left"><i class="fa fa-user"></i><span class="right-nav-text">About Us</span>
+                    <div class="pull-left"><i class="fa fa-user"></i><span class="right-nav-text">Website Information</span>
                     </div>
                     <div class="pull-right"><i class="ti-plus"></i></div>
                     <div class="clearfix"></div>
                 </a>
                 <ul id="site-menu" class="collapse" data-bs-parent="#sidebarnav">
                     <li><a href="#">Contact Information </a></li>
+                    <li><a href="#">Terms & Conditions </a></li>
+                    <li><a href="#"> Privacy Policy </a></li>
                 </ul>
 
             </li>

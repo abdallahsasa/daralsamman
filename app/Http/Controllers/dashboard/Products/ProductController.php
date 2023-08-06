@@ -26,6 +26,8 @@ class ProductController extends Controller
     private $create_view;
     private $show_view;
     private $edit_view;
+
+
 //    private $edit_variation_view;
 
 //    private $index_route;
@@ -42,7 +44,6 @@ class ProductController extends Controller
         $this->create_view = 'dashboard.products.create';
         $this->show_view = 'dashboard.products.show';
         $this->edit_view = 'dashboard.products.edit';
-        $this->update_view = 'dashboard.product.edit';
 
         $this->create_route='dashboard.product.create';
 
@@ -305,7 +306,6 @@ class ProductController extends Controller
             // UserActivity::logActivity($log_message);
 
             return redirect()->route($this->update_view, $object->id)->with('success', $this->update_success_message);
-
     }
 
 

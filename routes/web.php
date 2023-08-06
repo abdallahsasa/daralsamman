@@ -3,6 +3,8 @@
 use App\Http\Controllers\dashboard\DashboardPageController;
 use App\Http\Controllers\dashboard\Products\CategoryController;
 use App\Http\Controllers\dashboard\Products\ProductController;
+use App\Http\Controllers\dashboard\Author\AuthorController;
+
 use App\Http\Controllers\website\AboutUsPageController;
 use App\Http\Controllers\website\ContactUsPageController;
 use App\Http\Controllers\website\HomePageController;
@@ -58,6 +60,16 @@ Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard
     Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('dashboard.categories.edit');
     Route::put('/categories/update/{id}', [CategoryController::class, 'update'])->name('dashboard.categories.update');
     Route::delete('/categories/destroy/{id}', [CategoryController::class, 'destroy'])->name('dashboard.categories.destroy');
+
+
+
+    Route::get('/author/index', [AuthorController::class, 'index'])->name('dashboard.author.index');
+    Route::get('/author/create', [AuthorController::class, 'create'])->name('dashboard.author.create');
+    Route::post('/author/store', [AuthorController::class, 'store'])->name('dashboard.author.store');
+    Route::get('/author/edit/{id}', [AuthorController::class, 'edit'])->name('dashboard.author.edit');
+    Route::put('/author/update/{id}', [AuthorController::class, 'update'])->name('dashboard.author.update');
+    Route::delete('/author/destroy/{id}', [AuthorController::class, 'destroy'])->name('dashboard.author.destroy');
+
 
 });
 

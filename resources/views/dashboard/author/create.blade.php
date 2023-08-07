@@ -132,7 +132,7 @@
                                         <div class="row">
                                             <div class="col-sm-4 col-xl-12 col-xxl-3 mb-3">
                                                 <label class="form-label" for="number">Number</label>
-                                                <input type="text" class="form-control" name="number">
+                                                <input type="text" class="form-control" name="number" value="{{old('number')}}">
                                                 @if($errors->has('number'))
                                                     <div class="alert alert-danger" role="alert">
                                                         {{ $errors->first('number') }}
@@ -143,7 +143,7 @@
 
                                             <div class="col-sm-4 col-xl-12 col-xxl-3 mb-3">
                                                 <label class="form-label" for="email">Email</label>
-                                                <input type="text" class="form-control" name="email">
+                                                <input type="text" class="form-control" name="email" value="{{old('email')}}">
                                                 @if($errors->has('email'))
                                                     <div class="alert alert-danger" role="alert">
                                                         {{ $errors->first('email') }}
@@ -154,7 +154,7 @@
 
                                             <div class="col-sm-4 col-xl-12 col-xxl-3 mb-3">
                                                 <label class="form-label" for="website">website</label>
-                                                <input type="text" class="form-control" name="website">
+                                                <input type="text" class="form-control" name="website" value="{{old('website')}}">
                                                 @if($errors->has('website'))
                                                     <div class="alert alert-danger" role="alert">
                                                         {{ $errors->first('website') }}

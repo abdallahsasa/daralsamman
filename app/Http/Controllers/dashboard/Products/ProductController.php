@@ -117,7 +117,7 @@ class ProductController extends Controller
     {
         // Fetch categories for dropdown
         $categories = Category::where('status', '=', 'active')->get();
-        
+
         $authors = Author::where('status', 'active')
             ->where('type', 'author')
             ->get();

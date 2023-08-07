@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('number')->nullable();
             $table->string('website')->nullable();
             $table->string('nationality')->nullable();
+            $table->enum('type', ['author', 'auditor']);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->boolean('featured')->default(false);
             $table->bigInteger('sort_number')->nullable()->default('0');

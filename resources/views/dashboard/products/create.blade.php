@@ -9,12 +9,12 @@
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="mb-0">Add New Product</h4>
+                <h4 class="mb-0">Add New Book</h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pe-0 float-start float-sm-end">
                     <li class="breadcrumb-item"><a href="/backoffice/dashboard/index" class="default-color">Home</a></li>
-                    <li class="breadcrumb-item active ps-0">Add New Product</li>
+                    <li class="breadcrumb-item active ps-0">Add New Book</li>
                 </ol>
             </div>
         </div>
@@ -41,9 +41,9 @@
                                     <div class="card-body">
 
                                         <div class="mb-3">
-                                            <label class="form-label" for="name">Product Name</label>
+                                            <label class="form-label" for="name">Book Name</label>
                                             <input required name="name" type="text" class="form-control"
-                                                   value="{{old('name')}}" id="name" placeholder="Enter Product Name">
+                                                   value="{{old('name')}}" id="name" placeholder="Enter Book Name">
                                             @if($errors->has('name'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('name') }}
@@ -55,7 +55,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="slug">Slug</label>
                                             <input required name="slug" type="text" class="form-control"
-                                                   value="{{old('slug')}}" id="slug" placeholder="Enter Product slug">
+                                                   value="{{old('slug')}}" id="slug" placeholder="Enter Book slug">
                                             @if($errors->has('slug'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('slug') }}
@@ -65,9 +65,9 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label" for="sku">Product Sku</label>
+                                            <label class="form-label" for="sku">Book Sku</label>
                                             <input required name="sku" type="text" class="form-control"
-                                                   value="{{old('sku')}}" id="sku" placeholder="Ex.. Product-01">
+                                                   value="{{old('sku')}}" id="sku" placeholder="Ex.. Book-01">
                                             @if($errors->has('sku'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('sku') }}
@@ -77,7 +77,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label" for="short_description">Product Short Description</label>
+                                            <label class="form-label" for="short_description">Book Short Description</label>
                                             <textarea name="short_description" class="form-control" id="short_description"
                                                       rows="2">{{old('short_description')}}</textarea>
                                             @if($errors->has('short_description'))
@@ -89,7 +89,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label" for="description">Product Description</label>
+                                            <label class="form-label" for="description">Book Description</label>
                                             <textarea id="summernote" name="description" class="form-control" id="description"
                                                       rows="2">{{old('description')}}</textarea>
                                             @if($errors->has('description'))
@@ -103,6 +103,20 @@
                                 </div>
                             </div>
                             <div class="col-md-3 mb-30">
+                                <div class="card card-statistics h-10">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Book Status</h5>
+                                        <div class="form-group mb-3">
+                                            <div class="checkbox checbox-switch switch-success">
+                                                <label>
+                                                    <input type="checkbox" name="status" id="switchCheckbox" checked="" value="active">
+                                                    <span></span>
+                                                    Active/Inactive
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="card card-statistics h-30">
                                     <div class="card-body">
                                         <div class="mb-3">
@@ -124,26 +138,50 @@
                                             @endif
                                             <div id="categoryError" class="invalid-feedback"></div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card card-statistics h-10">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Product Status</h5>
-                                        <div class="form-group mb-3">
-                                            <div class="checkbox checbox-switch switch-success">
-                                                <label>
-                                                    <input type="checkbox" name="status" id="switchCheckbox" checked="" value="active">
-                                                    <span></span>
-                                                    Active/Inactive
-                                                </label>
-                                            </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="author_id">Author Name</label>
+                                            <select required name="author_id" class="form-select form-select-lg mb-3"
+                                                    id="author_id">
+                                                <option selected disabled>Author</option>
+                                                @foreach($authors as $author)
+                                                    <option
+                                                        value="{{$author->id}}" {{ old('author_id') == $author->id ? 'selected' : '' }}>
+                                                        {{$author->first_name,$author->last_name}}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @if($errors->has('author_id'))
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $errors->first('author_id') }}
+                                                </div>
+                                            @endif
+                                            <div id="authorError" class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="auditor_id">Auditor Name</label>
+                                            <select required name="auditor_id" class="form-select form-select-lg mb-3"
+                                                    id="category_id">
+                                                <option selected disabled>Auditor</option>
+                                                @foreach($auditors as $auditor)
+                                                    <option
+                                                        value="{{$auditor->id}}" {{ old('auditor_id') == $auditor->id ? 'selected' : '' }}>
+                                                        {{$auditor->first_name, $auditor->last_name}}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @if($errors->has('auditor_id'))
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $errors->first('auditor_id') }}
+                                                </div>
+                                            @endif
+                                            <div id="auditorError" class="invalid-feedback"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <label class="form-label d-block" for="image">Product Image</label>
+                                            <label class="form-label d-block" for="image">Book Image</label>
                                             <input name="image" type="file" value="{{old('image')}}"
                                                    class="form-control" id="image">
                                             @if($errors->has('image'))
@@ -158,7 +196,7 @@
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <label class="form-label d-block" for="gallery">Product Gallery</label>
+                                            <label class="form-label d-block" for="gallery">Book Gallery</label>
                                             <input name="gallery[]" type="file" value="{{old('gallery')}}"
                                                    class="form-control" id="gallery" multiple>
                                             @if($errors->has('gallery'))
@@ -200,9 +238,9 @@
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <label class="form-label" for="product_tags">Product Tags</label>
+                                            <label class="form-label" for="product_tags">Book Tags</label>
                                             <div class="tag-input">
-                                                <input type="text" name="product_tags" class="form-control" value="{{ old('product_tags')}}" id="product_tags" placeholder="Product Tags" />
+                                                <input type="text" name="product_tags" class="form-control" value="{{ old('product_tags')}}" id="product_tags" placeholder="Book Tags" />
                                             </div>
                                             @if ($errors->has('product_tags'))
                                                 <div class="alert alert-danger" role="alert">
@@ -218,7 +256,7 @@
                             </div>
 
                             <div class="col-md-12 mb-30">
-                                <h4 class="form-label">Product Attributes</h4>
+                                <h4 class="form-label">Book Attributes</h4>
 
                                 <div class="repeater-add">
                                     <div data-repeater-list="attributes">

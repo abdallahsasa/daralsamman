@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dashboard\Author;
 
 use App\Http\Controllers\Controller;
 use App\Models\Author\Author;
+use App\Models\Product\Category;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
@@ -48,7 +49,20 @@ class AuthorController extends Controller
 
     public function create()
     {
-        return view($this->create_view);
+
+
+        // Fetch categories for dropdown
+        $categories = Category::where('status', '=', 'active')->get();
+        $authors = Author::where('status','active');
+
+        $auditors= $authors->where('type','auditor')->get();
+        $authors = $authors->where('type','author')->get();
+
+
+        return view($this->create_view, compact('categories','auditors','authors'));
+
+
+//        return view($this->create_view);
     }
 
     Public function store()

@@ -2,6 +2,7 @@
 
 namespace App\Models\Product;
 
+use App\Models\Author\Author;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,12 +12,22 @@ class Product extends Model
 
     protected $table = 'products';
     protected $primaryKey = 'id';
-    protected $fillable = array('name', 'sku','slug','short_description', 'description','price','image_name','image_url','category_id','status','featured','latest_product','sort_number','meta_title','meta_description','created_at');
+    protected $fillable = array('name', 'sku','slug','short_description', 'description','price','image_name','image_url','category_id','auditor_id','author_id','status','featured','latest_product','sort_number','meta_title','meta_description','created_at');
 
 
     public function category()
     {
         return $this->belongsTo(Category::class,  'category_id');
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class,  'author_id');
+    }
+
+    public function auditor()
+    {
+        return $this->belongsTo(Author::class,  'auditor_id');
     }
 
 

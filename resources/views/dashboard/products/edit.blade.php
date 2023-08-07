@@ -30,7 +30,7 @@
                 <ol class="breadcrumb pt-0 pe-0 float-start float-sm-end">
                     <li class="breadcrumb-item"><a href="{{url('/dashboard/index')}}" class="default-color">Home</a>
                     </li>
-                    <li class="breadcrumb-item"><a href="{{route('dashboard.products.index')}}" class="default-color">Products</a>
+                    <li class="breadcrumb-item"><a href="{{route('dashboard.products.index')}}" class="default-color">Books</a>
                     </li>
                     <li class="breadcrumb-item active ps-0">{{$product->name}}</li>
                 </ol>
@@ -68,10 +68,10 @@
                                 <div class="card card-statistics h-100">
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <label class="form-label" for="name">Product Name</label>
+                                            <label class="form-label" for="name">Book Name</label>
                                             <input required name="name" type="text" class="form-control"
                                                    value="{{$product->name}} {{old('name')}}" id="name"
-                                                   placeholder="Enter Product Name">
+                                                   placeholder="Enter Book Name">
                                             @if($errors->has('name'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('name') }}
@@ -83,7 +83,7 @@
                                             <label class="form-label" for="slug">Slug</label>
                                             <input required name="slug" type="text" class="form-control"
                                                    value="{{$product->slug}} {{old('slug')}}" id="slug"
-                                                   placeholder="Enter Product slug">
+                                                   placeholder="Enter Book slug">
                                             @if($errors->has('slug'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('slug') }}
@@ -92,10 +92,10 @@
                                             <div id="slugError" class="invalid-feedback"></div>
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label" for="sku">Product Sku</label>
+                                            <label class="form-label" for="sku">Book Sku</label>
                                             <input required name="sku" type="text" class="form-control"
                                                    value="{{$product->sku}} {{old('sku')}}" id="sku"
-                                                   placeholder="Ex.. Product-01">
+                                                   placeholder="Ex.. Book-01">
                                             @if($errors->has('sku'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('sku') }}
@@ -104,7 +104,7 @@
                                             <div id="skuError" class="invalid-feedback"></div>
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label" for="short_description">Product Short
+                                            <label class="form-label" for="short_description">Book Short
                                                 Description</label>
                                             <textarea name="short_description" class="form-control"
                                                       id="short_description"
@@ -117,7 +117,7 @@
                                             <div id="short_descriptionError" class="invalid-feedback"></div>
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label" for="description">Product Description</label>
+                                            <label class="form-label" for="description">Book Description</label>
                                             <textarea id="summernote" name="description" class="form-control"
                                                       id="description"
                                                       rows="2">{{$product->description}} {{old('description')}}</textarea>
@@ -156,7 +156,7 @@
                                 </div>
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
-                                        <h5 class="card-title">Product State</h5>
+                                        <h5 class="card-title">Book State</h5>
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
@@ -184,7 +184,7 @@
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <label class="form-label d-block" for="image">Product Image</label>
+                                            <label class="form-label d-block" for="image">Book Image</label>
 
                                             <label for="new-image">
                                                 @foreach($product->media as $img)
@@ -210,7 +210,7 @@
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <label class="form-label d-block" for="gallery">Product Gallery</label>
+                                            <label class="form-label d-block" for="gallery">Book Gallery</label>
                                             <div id="imageContainer">
                                                 @foreach($product->media as $img)
                                                     @if($img->is_featured =='false')
@@ -262,7 +262,7 @@
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <label class="form-label" for="product_tags">Product Tags</label>
+                                            <label class="form-label" for="product_tags">Book Tags</label>
                                             <div class="tag-input">
                                                 <input type="text" name="product_tags" class="form-control"
                                                        value="{{$tags = implode(';', $product->tags->pluck('tag')->toArray())}} {{ old('product_tags')}}"
@@ -281,7 +281,7 @@
                             </div>
 
                             <div class="col-md-12 mb-30">
-                                <h4 class="form-label">Product Attributes</h4>
+                                <h4 class="form-label">Book Attributes</h4>
 
                                 <div class="repeater-add">
                                     <div data-repeater-list="attributes">

@@ -26,13 +26,13 @@
 
             <li>
                 <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#products-menu">
-                    <div class="pull-left"><i class="fa fa-cube"></i><span class="right-nav-text">Products</span></div>
+                    <div class="pull-left"><i class="fa fa-cube"></i><span class="right-nav-text">Books</span></div>
                     <div class="pull-right"><i class="ti-plus"></i></div>
                     <div class="clearfix"></div>
                 </a>
                 <ul id="products-menu" class="collapse" data-bs-parent="#sidebarnav">
-                    <li><a href="{{route('dashboard.products.index')}}">Brows All Products</a></li>
-                    <li><a href="{{route('dashboard.product.create')}}">Add New Product </a></li>
+                    <li><a href="{{route('dashboard.products.index')}}">Brows All Books</a></li>
+                    <li><a href="{{route('dashboard.product.create')}}">Add New Book </a></li>
                 </ul>
             </li>
 

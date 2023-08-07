@@ -23,6 +23,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
+                                <th>Type</th>
                                 <th>Status</th>
                                 <th>Featured</th>
                                 <th>Action</th>
@@ -31,21 +32,20 @@
                             <tbody>
                             @foreach($authors as $author)
                                 <tr>
-                                    <td> <img class="img-fluid mr-15 avatar-small" src="{{$product->image_url}}" alt=""> </td>
-                                    <td>{{$author->name}}</td>
-                                    <td>
-                                        <span class="@if($author->status == 'active')text-success @else text-danger @endif ">{{$author->status}} </span>
-                                    </td>
-                                    <td>
-                                    <td>
-                                        <span class="@if($author->featured == '1')text-success @else text-danger @endif ">{{$author->featured}} </span>
-                                    </td>
+                                    <td><img class="img-fluid mr-15 avatar-small" src="{{$author->image_url}}" alt=""> </td>
+                                    <td>{{$author->first_name }} {{$author->last_name}}</td>
+                                    <td>{{$author->type}}</td>
+                                    <td> <span class="@if($author->status == 'active')text-success @else text-danger @endif ">{{$author->status}} </span> </td>
+
+                                    <td> <span class="@if($author->featured == '1')text-success @else text-danger @endif "> @if($author->featured == 1) Yes @else  No @endif  </span> </td>
+
                                     <td>
                                         <div class="row ">
                                             <a class="pe-2" href="{{route('dashboard.author.edit',$author->id)}}">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
-                                            <form method="POST" action="{{route('dashboard.author.destroy',$author->id)}}">
+                                            <form method="POST"
+                                                  action="{{route('dashboard.author.destroy',$author->id)}}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button style="border: none;" class="fa fa-trash-o text-danger"

@@ -46,7 +46,7 @@ class ProductController extends Controller
         $this->show_view = 'dashboard.products.show';
         $this->edit_view = 'dashboard.products.edit';
 
-        $this->create_route='dashboard.product.create';
+        $this->create_route = 'dashboard.product.create';
 
 
         $this->success_message = 'Product created successfully';
@@ -117,13 +117,16 @@ class ProductController extends Controller
     {
         // Fetch categories for dropdown
         $categories = Category::where('status', '=', 'active')->get();
-        $authors = Author::where('status','active');
+        
+        $authors = Author::where('status', 'active')
+            ->where('type', 'author')
+            ->get();
 
-        $auditors= $authors->where('type','auditor')->get();
-        $authors = $authors->where('type','author')->get();
+        $auditors = Author::where('status', 'active')
+            ->where('type', 'auditor')
+            ->get();
 
-
-        return view($this->create_view, compact('categories','auditors','authors'));
+        return view($this->create_view, compact('categories', 'auditors', 'authors'));
     }
 
 
@@ -154,7 +157,7 @@ class ProductController extends Controller
                 }
             }
             if ($request->has('image')) {
-                $image=$request->file('image');
+                $image = $request->file('image');
                 $img_file_path = Storage::disk('public_images')->put('products', $image);
                 $image_name = $image->getClientOriginalName();
                 $image_url = getMediaUrl($img_file_path);
@@ -231,33 +234,32 @@ class ProductController extends Controller
         // DB::beginTransaction();
         $object = $this->model_instance::findOrFail($id);
 
-            // Update the product details except for the images and gallery
-            $object->update(Arr::except($validated_data, ['image', 'gallery']));
-            // Update the images
-            if ($request->hasFile('gallery')) {
-                $productImages = $request->file('gallery');
-                if (is_array($productImages)) {
+        // Update the product details except for the images and gallery
+        $object->update(Arr::except($validated_data, ['image', 'gallery']));
+        // Update the images
+        if ($request->hasFile('gallery')) {
+            $productImages = $request->file('gallery');
+            if (is_array($productImages)) {
 
-                    foreach ($productImages as $image) {
-                        $img_file_path = Storage::disk('public_images')->put('products', $image);
-                        $image_name = $image->getClientOriginalName();
-                        $image_url = getMediaUrl($img_file_path);
+                foreach ($productImages as $image) {
+                    $img_file_path = Storage::disk('public_images')->put('products', $image);
+                    $image_name = $image->getClientOriginalName();
+                    $image_url = getMediaUrl($img_file_path);
 
-                        $object->media()->create([
-                            'image_url' => $image_url,
-                            'image_name' => $image_name,
-                        ]);
-                    }
+                    $object->media()->create([
+                        'image_url' => $image_url,
+                        'image_name' => $image_name,
+                    ]);
                 }
             }
+        }
 
 
         if ($request->has('image')) {
             // Delete the old main image
-            foreach ($object->media as $image)
-            {
+            foreach ($object->media as $image) {
 
-                if($image->is_featured=='true'){
+                if ($image->is_featured == 'true') {
 
                     $url = $image->image_url;
                     $filePath = str_replace(url('/'), '', $url);
@@ -267,7 +269,7 @@ class ProductController extends Controller
 
             }
 
-            $image=$request->file('image');
+            $image = $request->file('image');
             $img_file_path = Storage::disk('public_images')->put('products', $image);
             $image_name = $image->getClientOriginalName();
             $image_url = getMediaUrl($img_file_path);
@@ -278,42 +280,41 @@ class ProductController extends Controller
             ]);
         }
 
-            // Update the attributes
-            if ($request->has('attributes')) {
-                $object->attributes()->delete();
-                foreach ($request->get('attributes') as $attribute) {
-                    $object->attributes()->create([
-                        'name' => $attribute['name'],
-                        'value' => $attribute['value'],
-                    ]);
-                }
+        // Update the attributes
+        if ($request->has('attributes')) {
+            $object->attributes()->delete();
+            foreach ($request->get('attributes') as $attribute) {
+                $object->attributes()->create([
+                    'name' => $attribute['name'],
+                    'value' => $attribute['value'],
+                ]);
             }
+        }
 
-            // Update the product tags
-            if ($request->has('product_tags')) {
-                $object->tags()->delete();
-                $tags = json_decode($request->get('product_tags'));
-                foreach ($tags as $tag) {
-                    $arrayTags[] = ['value' => $tag->value];
-                }
-                $arrayTags = collect($arrayTags)->toArray();
-                foreach ($arrayTags as $tag) {
-                    $object->tags()->create([
-                        'tag' => $tag['value']
-                    ]);
-                }
+        // Update the product tags
+        if ($request->has('product_tags')) {
+            $object->tags()->delete();
+            $tags = json_decode($request->get('product_tags'));
+            foreach ($tags as $tag) {
+                $arrayTags[] = ['value' => $tag->value];
             }
+            $arrayTags = collect($arrayTags)->toArray();
+            foreach ($arrayTags as $tag) {
+                $object->tags()->create([
+                    'tag' => $tag['value']
+                ]);
+            }
+        }
 
-            $object->save();
-            //DB::commit();
+        $object->save();
+        //DB::commit();
 
-            // You can uncomment this if you have UserActivity implemented
-            // $log_message = trans('products.update_log') . '#' . $object->id;
-            // UserActivity::logActivity($log_message);
+        // You can uncomment this if you have UserActivity implemented
+        // $log_message = trans('products.update_log') . '#' . $object->id;
+        // UserActivity::logActivity($log_message);
 
-            return redirect()->route($this->update_view, $object->id)->with('success', $this->update_success_message);
+        return redirect()->route($this->update_view, $object->id)->with('success', $this->update_success_message);
     }
-
 
 
     public function destroy($productId)
@@ -342,7 +343,8 @@ class ProductController extends Controller
         }
     }
 
-    public function deleteImage($mediaId){
+    public function deleteImage($mediaId)
+    {
 
         $mediaItem = ProductMedia::findOrFail($mediaId);
         $url = $mediaItem->image_url;
@@ -355,8 +357,7 @@ class ProductController extends Controller
             return response()->json([
                 'success' => 'Image deleted successfully!',
             ]);
-        }
-        else{
+        } else {
             return response()->json([
                 'error' => 'Something went wrong',
             ]);

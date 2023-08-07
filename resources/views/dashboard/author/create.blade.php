@@ -42,17 +42,39 @@
                                         <div class="row">
                                             <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
                                                 <label class="form-label" for="first_name">First Name*</label>
-                                                <input type="text" class="form-control" name="first_name" required>
+                                                <input type="text" class="form-control" name="first_name" required
+                                                       value="{{old('first_name')}}">
+                                                @if($errors->has('first_name'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('first_name') }}
+                                                    </div>
+                                                @endif
+                                                <div id="first_nameError" class="invalid-feedback"></div>
                                             </div>
+
                                             <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
                                                 <label class="form-label" for="middle_name">Middle Name
                                                     (Optional)</label>
-                                                <input type="text" class="form-control" name="middle_name">
+                                                <input type="text" class="form-control" name="middle_name"
+                                                       value="{{old('middle_name')}}">
+                                                @if($errors->has('middle_name'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('middle_name') }}
+                                                    </div>
+                                                @endif
+                                                <div id="middle_nameError" class="invalid-feedback"></div>
                                             </div>
 
                                             <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
                                                 <label class="form-label" for="last_name">Last Name*</label>
-                                                <input type="text" class="form-control" name="last_name" required>
+                                                <input type="text" class="form-control" name="last_name" required
+                                                       value="{{old('last_name')}}">
+                                                @if($errors->has('last_name'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('last_name') }}
+                                                    </div>
+                                                @endif
+                                                <div id="last_nameError" class="invalid-feedback"></div>
                                             </div>
 
                                         </div>
@@ -61,12 +83,26 @@
                                         <div class="row">
                                             <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
                                                 <label class="form-label" for="slug">slug</label>
-                                                <input type="text" class="form-control" name="slug" required>
+                                                <input type="text" class="form-control" name="slug" required
+                                                       value="{{old('slug')}}">
+                                                @if($errors->has('slug'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('slug') }}
+                                                    </div>
+                                                @endif
+                                                <div id="slugError" class="invalid-feedback"></div>
                                             </div>
+
                                             <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
                                                 <label class="form-label" for="date_of_birth">Date of Birth</label>
-                                                <input type="text" class="form-control" name="date_of_birth">
-
+                                                <input type="text" class="form-control" name="date_of_birth"
+                                                       value="{{old('date_of_birth')}}">
+                                                @if($errors->has('date_of_birth'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('date_of_birth') }}
+                                                    </div>
+                                                @endif
+                                                <div id="date_of_birthError" class="invalid-feedback"></div>
                                             </div>
 
                                             <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
@@ -74,9 +110,21 @@
                                                 <select required class="form-control form-select form-select-lg mb-15"
                                                         aria-label=".form-select-lg example" name="gender">
                                                     <option selected="">Choose...</option>
-                                                    <option value="male">Male</option>
-                                                    <option value="female">female</option>
+                                                    <option
+                                                        value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>
+                                                        Male
+                                                    </option>
+                                                    <option
+                                                        value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>
+                                                        Female
+                                                    </option>
                                                 </select>
+                                                @if($errors->has('gender'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('gender') }}
+                                                    </div>
+                                                @endif
+                                                <div id="genderError" class="invalid-feedback"></div>
                                             </div>
 
                                         </div>
@@ -85,16 +133,34 @@
                                             <div class="col-sm-4 col-xl-12 col-xxl-3 mb-3">
                                                 <label class="form-label" for="number">Number</label>
                                                 <input type="text" class="form-control" name="number">
+                                                @if($errors->has('number'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('number') }}
+                                                    </div>
+                                                @endif
+                                                <div id="numberError" class="invalid-feedback"></div>
                                             </div>
 
                                             <div class="col-sm-4 col-xl-12 col-xxl-3 mb-3">
                                                 <label class="form-label" for="email">Email</label>
                                                 <input type="text" class="form-control" name="email">
+                                                @if($errors->has('email'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('email') }}
+                                                    </div>
+                                                @endif
+                                                <div id="emailError" class="invalid-feedback"></div>
                                             </div>
 
                                             <div class="col-sm-4 col-xl-12 col-xxl-3 mb-3">
                                                 <label class="form-label" for="website">website</label>
                                                 <input type="text" class="form-control" name="website">
+                                                @if($errors->has('website'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('website') }}
+                                                    </div>
+                                                @endif
+                                                <div id="websiteError" class="invalid-feedback"></div>
                                             </div>
 
                                             <div class="col-sm-4 col-xl-12 col-xxl-3 mb-3">
@@ -129,19 +195,24 @@
                                 <div class="card card-statistics h-30">
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <h5 class="card-title" for="category_id">Person Type</h5>
-                                            <select required name="category_id" class="form-select form-select-lg mb-3"
-                                                    id="category_id">
+                                            <h5 class="card-title" for="type">Person Type</h5>
+                                            <select required name="type" class="form-select form-select-lg mb-3"
+                                                    id="type">
                                                 <option selected disabled>Choose...</option>
-                                                <option value="author">Author</option>
-                                                <option value="auditor">Auditor</option>
+                                                <option value="author" {{ old('type') == 'author' ? 'selected' : '' }}>
+                                                    Author
+                                                </option>
+                                                <option
+                                                    value="auditor" {{ old('type') == 'auditor' ? 'selected' : '' }}>
+                                                    Auditor
+                                                </option>
                                             </select>
-                                            @if($errors->has('category_id'))
+                                            @if($errors->has('type'))
                                                 <div class="alert alert-danger" role="alert">
-                                                    {{ $errors->first('category_id') }}
+                                                    {{ $errors->first('type') }}
                                                 </div>
                                             @endif
-                                            <div id="categoryError" class="invalid-feedback"></div>
+                                            <div id="typeError" class="invalid-feedback"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -156,6 +227,12 @@
                                                     <span></span>
                                                     Active/Inactive
                                                 </label>
+                                                @if($errors->has('status'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('status') }}
+                                                    </div>
+                                                @endif
+                                                <div id="statusError" class="invalid-feedback"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -172,6 +249,12 @@
                                                     <span></span>
                                                     Yes/No
                                                 </label>
+                                                @if($errors->has('featured'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('featured') }}
+                                                    </div>
+                                                @endif
+                                                <div id="featuredError" class="invalid-feedback"></div>
                                             </div>
                                         </div>
                                     </div>

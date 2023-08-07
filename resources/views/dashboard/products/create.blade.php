@@ -146,7 +146,7 @@
                                                 @foreach($authors as $author)
                                                     <option
                                                         value="{{$author->id}}" {{ old('author_id') == $author->id ? 'selected' : '' }}>
-                                                        {{$author->first_name,$author->last_name}}
+                                                        {{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -165,7 +165,7 @@
                                                 @foreach($auditors as $auditor)
                                                     <option
                                                         value="{{$auditor->id}}" {{ old('auditor_id') == $auditor->id ? 'selected' : '' }}>
-                                                        {{$auditor->first_name, $auditor->last_name}}
+                                                        {{$auditor->first_name}} {{$auditor->middle_name}} {{$auditor->last_name}}
                                                     </option>
                                                 @endforeach
                                             </select>

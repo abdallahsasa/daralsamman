@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\dashboard\Author;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreAuthorRequest;
 use App\Models\Author\Author;
 use App\Models\Product\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class AuthorController extends Controller
 {
@@ -50,23 +54,34 @@ class AuthorController extends Controller
     public function create()
     {
 
-
-        // Fetch categories for dropdown
-        $categories = Category::where('status', '=', 'active')->get();
-        $authors = Author::where('status','active');
-
-        $auditors= $authors->where('type','auditor')->get();
-        $authors = $authors->where('type','author')->get();
-
-
-        return view($this->create_view, compact('categories','auditors','authors'));
-
-
-//        return view($this->create_view);
+        return view($this->create_view);
     }
 
-    Public function store()
+    Public function store(StoreAuthorRequest $request)
     {
+        $validated_data = $request->validated();
+        try {
+            $object = $this->model_instance::create(Arr::except($validated_data, ['image']));
+            $object->sort_number = $object->id;
+
+            if ($request->has('image')) {
+                $image = $validated_data["image"];
+                $img_file_path = Storage::disk('public_images')->put('Author', $image);
+                $image_name = $request->file('image')->getClientOriginalName();
+                $image_url = getMediaUrl($img_file_path);
+                $object->image_url = $image_url;
+                $object->image_name = $image_name;
+                $object->update();
+            }
+
+//            $log_message = trans('categories.create_log') . '#' . $object->id;
+//            UserActivity::logActivity($log_message);
+
+            return redirect()->route($this->create_view, $object->id)->with('success', $this->success_message);
+        } catch (\Exception $ex) {
+            Log::error($ex->getMessage());
+            return redirect()->route($this->create_view)->with('error', $this->error_message);
+        }
 
     }
 }

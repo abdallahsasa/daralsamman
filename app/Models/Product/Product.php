@@ -2,6 +2,7 @@
 
 namespace App\Models\Product;
 
+use App\Models\Author\Auditor;
 use App\Models\Author\Author;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -22,14 +23,12 @@ class Product extends Model
 
     public function author()
     {
-        return $this->belongsTo(Author::class,  'author_id');
+        return $this->belongsToMany(Author::class, 'author_product');
     }
-
     public function auditor()
     {
-        return $this->belongsTo(Author::class,  'auditor_id');
+        return $this->belongsToMany(Auditor::class,'auditor_product');
     }
-
 
     public function attributes()
     {

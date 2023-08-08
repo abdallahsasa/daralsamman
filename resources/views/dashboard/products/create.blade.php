@@ -1,7 +1,6 @@
 @extends('dashboard.layouts.app')
 @section('style')
 
-
 @endsection
 
 
@@ -138,11 +137,13 @@
                                             @endif
                                             <div id="categoryError" class="invalid-feedback"></div>
                                         </div>
+
+
                                         <div class="mb-3">
                                             <label class="form-label" for="author_id">Author Name</label>
-                                            <select required name="author_id" class="form-select form-select-lg mb-3"
-                                                    id="author_id">
-                                                <option selected disabled>Author</option>
+
+                                                <select name="author_id" class="choices-multiple-remove-button form-select form-select-lg mb-3"  placeholder=" Authors" multiple>
+
                                                 @foreach($authors as $author)
                                                     <option
                                                         value="{{$author->id}}" {{ old('author_id') == $author->id ? 'selected' : '' }}>
@@ -157,11 +158,14 @@
                                             @endif
                                             <div id="authorError" class="invalid-feedback"></div>
                                         </div>
+
+
+
+
                                         <div class="mb-3">
                                             <label class="form-label" for="auditor_id">Auditor Name</label>
-                                            <select required name="auditor_id" class="form-select form-select-lg mb-3"
-                                                    id="category_id">
-                                                <option selected disabled>Auditor</option>
+                                            <select required name="auditor_id" class="choices-multiple-remove-button form-select form-select-lg mb-3" placeholder=" Auditors" id="category_id" multiple>
+
                                                 @foreach($auditors as $auditor)
                                                     <option
                                                         value="{{$auditor->id}}" {{ old('auditor_id') == $auditor->id ? 'selected' : '' }}>
@@ -178,6 +182,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
                                         <div class="mb-3">
@@ -330,6 +336,28 @@
             });
         });
     </script>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            var multipleCancelButton = new Choices('.choices-multiple-remove-button', {
+                removeItemButton: true,
+                maxItemCount:5,
+                searchResultLimit:5,
+                renderChoiceLimit:5
+            });
+
+
+        });
+    </script>
+
+
 @endsection
 
 

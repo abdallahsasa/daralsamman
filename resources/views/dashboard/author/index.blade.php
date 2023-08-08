@@ -23,7 +23,6 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Type</th>
                                 <th>Status</th>
                                 <th>Featured</th>
                                 <th>Action</th>
@@ -32,9 +31,8 @@
                             <tbody>
                             @foreach($authors as $author)
                                 <tr>
-                                    <td><img class="img-fluid mr-15 avatar-small" src="{{$author->image_url}}" alt=""> </td>
+                                    <td><img class="img-fluid mr-15 avatar-small" src="{{$author->image_url}}" alt="{{$author->image_name}}"> </td>
                                     <td>{{$author->first_name }} {{$author->last_name}}</td>
-                                    <td>{{$author->type}}</td>
                                     <td> <span class="@if($author->status == 'active')text-success @else text-danger @endif ">{{$author->status}} </span> </td>
 
                                     <td> <span class="@if($author->featured == '1')text-success @else text-danger @endif "> @if($author->featured == 1) Yes @else  No @endif  </span> </td>

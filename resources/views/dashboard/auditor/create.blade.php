@@ -6,13 +6,13 @@
     <div class="page-title">
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="mb-0">Add New Author</h4>
+                <h4 class="mb-0">Add New Auditor</h4>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pe-0 float-start float-sm-end">
                     <li class="breadcrumb-item"><a href="/backoffice/dashboard/index" class="default-color">Home</a>
                     </li>
-                    <li class="breadcrumb-item active ps-0">Add New Author</li>
+                    <li class="breadcrumb-item active ps-0">Add New Auditor</li>
                 </ol>
             </div>
         </div>
@@ -32,7 +32,7 @@
             @endif
             <div class="card card-statistics mb-30">
                 <div class="card-body">
-                    <form action="{{ route('dashboard.author.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('dashboard.auditor.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-9 mb-30">
@@ -194,7 +194,7 @@
 
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
-                                        <h5 class="card-title">Author Status</h5>
+                                        <h5 class="card-title">Auditor Status</h5>
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
@@ -215,11 +215,11 @@
                                 </div>
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
-                                        <h5 class="card-title">Featured Author</h5>
+                                        <h5 class="card-title">Featured Auditor</h5>
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
-                                                    <input type="checkbox" name="featured" id="featuredAuthor"
+                                                    <input type="checkbox" name="featured" id="featuredAuditor"
                                                            checked=""
                                                            value="1">
                                                     <span></span>
@@ -306,7 +306,7 @@
             });
 
 
-            $("#featuredAuthor").on("change", function () {
+            $("#featuredAuditor").on("change", function () {
                 if ($(this).prop("checked")) {
                     $(this).val(1);
                 } else {

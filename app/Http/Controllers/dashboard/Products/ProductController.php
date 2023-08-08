@@ -119,11 +119,9 @@ class ProductController extends Controller
         $categories = Category::where('status', '=', 'active')->get();
 
         $authors = Author::where('status', 'active')
-            ->where('type', 'author')
             ->get();
 
         $auditors = Author::where('status', 'active')
-            ->where('type', 'auditor')
             ->get();
 
         return view($this->create_view, compact('categories', 'auditors', 'authors'));

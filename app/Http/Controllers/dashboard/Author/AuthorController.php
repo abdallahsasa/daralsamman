@@ -80,7 +80,8 @@ class AuthorController extends Controller
             return redirect()->route($this->create_view, $object->id)->with('success', $this->success_message);
         } catch (\Exception $ex) {
             Log::error($ex->getMessage());
-            return redirect()->route($this->create_view)->with('error', $this->error_message);
+            return redirect()->route($this->create_view)->with('error', $ex->getMessage());
+//            return redirect()->route($this->create_view)->with('error', $this->error_message);
         }
 
     }

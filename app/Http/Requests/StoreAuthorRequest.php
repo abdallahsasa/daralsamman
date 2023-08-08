@@ -33,7 +33,6 @@ class StoreAuthorRequest extends FormRequest
             'website' => 'nullable|url',
             'nationality' => 'nullable|string|min:3|max:30',
             'biography' => 'nullable|nullable|string|min:10',
-            'type' => 'required|in:author,auditor',
             'featured'=>'required|in:1,0',
             'status' => 'required|in:active,inactive',
             'meta_title' => 'nullable|string',

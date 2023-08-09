@@ -59,6 +59,7 @@ class AuthorController extends Controller
 
     Public function store(StoreAuthorRequest $request)
     {
+
         $validated_data = $request->validated();
         try {
             $object = $this->model_instance::create(Arr::except($validated_data, ['image']));

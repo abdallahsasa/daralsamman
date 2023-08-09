@@ -17,7 +17,15 @@
             </div>
         </div>
     </div>
+    @if ($message = \Session::get('errors'))
 
+        <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            @foreach($message->all() as $error)
+                <strong>{{ $error }}</strong><br>
+            @endforeach
+        </div>
+    @endif
     <div class="row">
         <div class="col-xl-12 mb-30">
             @if(session()->get('error'))
@@ -94,8 +102,12 @@
 
                                             <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
                                                 <label class="form-label" for="date_of_birth">Date of Birth</label>
-                                                <input type="text" class="form-control" name="date_of_birth"
-                                                       value="{{old('date_of_birth')}}">
+                                                <div class="datepicker-form">
+                                                    <div class="input-group date display-years" data-date-format="yyyy-mm-dd" data-date="">
+                                                        <input  id="datepicker-input" name="date_of_birth" value="" class="form-control" type="text" placeholder="">
+                                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                    </div>
+                                                </div>
                                                 @if($errors->has('date_of_birth'))
                                                     <div class="alert alert-danger" role="alert">
                                                         {{ $errors->first('date_of_birth') }}
@@ -198,11 +210,13 @@
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
-                                                    <input type="checkbox" name="status" id="switchCheckbox" checked=""
+                                                    <input type="checkbox" id="statusCheckbox" checked=""
                                                            value="active">
                                                     <span></span>
                                                     Active/Inactive
                                                 </label>
+                                                <!-- Hidden input field to store the actual status value -->
+                                                <input type="hidden" name="status" id="status_hidden" value="active">
                                                 @if($errors->has('status'))
                                                     <div class="alert alert-danger" role="alert">
                                                         {{ $errors->first('status') }}
@@ -219,12 +233,14 @@
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
-                                                    <input type="checkbox" name="featured" id="featuredAuthor"
+                                                    <input type="checkbox" id="featuredAuthor"
                                                            checked=""
                                                            value="1">
                                                     <span></span>
                                                     Yes/No
                                                 </label>
+                                                <!-- Hidden input field to store the actual status value -->
+                                                <input type="hidden" name="featured" id="featured_hidden" value="1">
                                                 @if($errors->has('featured'))
                                                     <div class="alert alert-danger" role="alert">
                                                         {{ $errors->first('featured') }}
@@ -296,21 +312,22 @@
 @section('scripts')
     <script>
         $(document).ready(function () {
-            // Add an event listener to update the checkbox value when the switch is toggled
-            $("#switchCheckbox").on("change", function () {
+            // Add an event listener to update the hidden input's value when the switch is toggled
+            $("#statusCheckbox").on("change", function () {
                 if ($(this).prop("checked")) {
-                    $(this).val("active");
+                    $("#status_hidden").val('active');
                 } else {
-                    $(this).val("inactive");
+                    $("#status_hidden").val('inactive');
                 }
             });
 
 
+            // Add an event listener to update the hidden input's value when the switch is toggled
             $("#featuredAuthor").on("change", function () {
                 if ($(this).prop("checked")) {
-                    $(this).val(1);
+                    $("#featured_hidden").val(1);
                 } else {
-                    $(this).val(0);
+                    $("#featured_hidden").val(0);
                 }
             });
         });

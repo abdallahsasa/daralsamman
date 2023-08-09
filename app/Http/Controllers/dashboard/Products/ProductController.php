@@ -130,6 +130,7 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request)
     {
+        return $request->has('categories_ids');
         $validated_data = $request->validated();
 
         try {
@@ -189,6 +190,7 @@ class ProductController extends Controller
                     ]);
                 }
             }
+
 
 
             $object->save();

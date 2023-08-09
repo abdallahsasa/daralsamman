@@ -433,7 +433,7 @@
 
             // Add an event listener to update the hidden input's value when the switch is toggled
             $("#status").on("change", function () {
-                console.log("i am here");
+
                 if ($(this).prop("checked")) {
                     $("#status_hidden").val("active");
                 } else {

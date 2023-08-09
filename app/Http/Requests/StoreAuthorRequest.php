@@ -26,7 +26,7 @@ class StoreAuthorRequest extends FormRequest
             'middle_name' => 'nullable|string|min:3|max:200',
             'last_name' => 'required|string|min:3|max:200',
             'slug' => 'required|string|min:3|max:20',
-            'birth_of_date' => 'nullable|date',
+            'date_of_birth' => 'required|nullable|date',
             'gender' => 'required|in:male,female',
             'number'=>'nullable|regex:/(0)[0-9]{10}/',
             'email'=>'nullable|email',

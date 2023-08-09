@@ -11,6 +11,7 @@ class Author extends Model
     use HasFactory;
     protected $table = 'authors';
     protected $primaryKey = 'id';
+    public $timestamps  = true;
     protected $fillable = array('first_name','middle_name','last_name','slug','date_of_birth','gender','image_name','image_url','biography','email','number','website','nationality','status','featured','sort_number','meta_title','meta_title','meta_description');
 
     public function products()

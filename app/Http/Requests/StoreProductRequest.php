@@ -23,8 +23,7 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'category_id' => 'required|exists:product_categories,id',
-            'author_id' => 'required|exists:authors,id',
-            'auditor_id' => 'required|exists:authors,id',
+
             'name' => 'required|string|min:3|max:200',
             'slug' => 'required|string|min:3|max:200',
             'sku' => 'required|string|min:3|max:200',
@@ -47,6 +46,12 @@ class StoreProductRequest extends FormRequest
             'attributes' => 'array',
             'attributes.*.name' => 'required|string',
             'attributes.*.value' => 'required|string',
+
+            'authors_ids' => 'array',
+            'authors_ids.*' => 'required|exists:authors,id',
+
+            'auditors_ids' => 'required|exists:authors,id',
+            'auditors_ids.*' => 'required|exists:authors,id',
 
         ];
     }

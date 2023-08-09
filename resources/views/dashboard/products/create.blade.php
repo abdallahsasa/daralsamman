@@ -30,6 +30,14 @@
                     {{ session()->get('success') }}
                 </div>
             @endif
+                @if ($message = \Session::get('errors'))
+                    <div class="alert alert-danger alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        @foreach($message->all() as $error)
+                            <strong>{{ $error }}</strong><br>
+                        @endforeach
+                    </div>
+                @endif
             <div class="card card-statistics mb-30">
                 <div class="card-body">
                     <form action="{{ route('dashboard.product.store') }}" method="POST" enctype="multipart/form-data">
@@ -142,7 +150,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="author_id">Author Name</label>
 
-                                                <select name="author_id" class="choices-multiple-remove-button form-select form-select-lg mb-3"  placeholder=" Authors" multiple>
+                                                <select name="authors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3"   multiple>
 
                                                 @foreach($authors as $author)
                                                     <option
@@ -164,7 +172,7 @@
 
                                         <div class="mb-3">
                                             <label class="form-label" for="auditor_id">Auditor Name</label>
-                                            <select required name="auditor_id" class="choices-multiple-remove-button form-select form-select-lg mb-3" placeholder=" Auditors" id="category_id" multiple>
+                                            <select required name="auditors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3"   multiple>
 
                                                 @foreach($auditors as $auditor)
                                                     <option

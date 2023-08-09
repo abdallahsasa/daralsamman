@@ -220,8 +220,8 @@
                                                     @endif
                                                 @endforeach
                                             </div>
-                                            <input name="gallery[]" type="file"  class="form-control" id="gallery" multiple>
 
+                                            <input name="gallery[]" type="file"  class="form-control" id="gallery" multiple>
                                             @if($errors->has('gallery'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('gallery') }}

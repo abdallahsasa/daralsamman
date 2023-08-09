@@ -104,7 +104,7 @@
                                                 <label class="form-label" for="date_of_birth">Date of Birth</label>
                                                 <div class="datepicker-form">
                                                     <div class="input-group date display-years" data-date-format="yyyy-mm-dd" data-date="">
-                                                        <input  id="datepicker-input" name="date_of_birth" value="" class="form-control" type="text" placeholder="">
+                                                        <input  id="datepicker-input" name="date_of_birth" value="{{old('date_of_birth')}}" class="form-control" type="text" placeholder="">
                                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                                     </div>
                                                 </div>

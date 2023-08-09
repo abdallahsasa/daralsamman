@@ -130,10 +130,9 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request)
     {
-        return $request->has('categories_ids');
+
         $validated_data = $request->validated();
 
-        try {
 
             DB::beginTransaction();
             $object = $this->model_instance::create(Arr::except($validated_data, ['image', 'gallery']));
@@ -190,22 +189,22 @@ class ProductController extends Controller
                     ]);
                 }
             }
+            if ($request->has('authors_ids')) {
+                $object->author()->sync($validated_data['authors_ids']);
+            }
+            if ($request->has('auditors_ids')) {
+                $object->auditor()->sync($validated_data['auditors_ids']);
+            }
 
 
 
             $object->save();
             DB::commit();
-
 //            $log_message = trans('products.create_log') . '#' . $object->id;
 //            UserActivity::logActivity($log_message);
 
             return redirect()->route($this->create_route, $object->id)->with('success', $this->success_message);
-        } catch (\Exception $ex) {
 
-//            Log::error($ex->getMessage());
-            return redirect()->route($this->create_route)->with('error', $this->error_message);
-//            return redirect()->route($this->create_view)->with('error', $ex->getMessage());
-        }
 
     }
 

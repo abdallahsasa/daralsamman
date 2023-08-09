@@ -61,7 +61,7 @@ class AuthorController extends Controller
     {
 
         $validated_data = $request->validated();
-        try {
+         try {
             $object = $this->model_instance::create(Arr::except($validated_data, ['image']));
             $object->sort_number = $object->id;
 

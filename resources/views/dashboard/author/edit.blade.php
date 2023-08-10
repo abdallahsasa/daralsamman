@@ -231,8 +231,8 @@
                                             <div class="form-group mb-3">
                                                 <div class="checkbox checbox-switch switch-success">
                                                     <label>
-                                                        <input type="checkbox" name="status" id="switchCheckbox" checked=""
-                                                               value="active">
+                                                        <input type="checkbox"  id="switchCheckbox" checked=""
+                                                               value="{{old('status',$author->status)}} ">
                                                         <span></span>
                                                         Active/Inactive
                                                     </label>
@@ -241,6 +241,8 @@
                                                             {{ $errors->first('status') }}
                                                         </div>
                                                     @endif
+                                                    <!-- Hidden input field to store the actual status value -->
+                                                    <input type="hidden" name="status" id="status_hidden" value="{{old('status',$author->status)}} ">
                                                     <div id="statusError" class="invalid-feedback"></div>
                                                 </div>
                                             </div>
@@ -252,9 +254,9 @@
                                             <div class="form-group mb-3">
                                                 <div class="checkbox checbox-switch switch-success">
                                                     <label>
-                                                        <input type="checkbox" name="featured" id="featuredAuthor"
+                                                        <input type="checkbox"  id="featuredAuthor"
                                                                checked=""
-                                                               value="1">
+                                                               value="{{old('status',$author->featured)}} ">
                                                         <span></span>
                                                         Yes/No
                                                     </label>
@@ -263,6 +265,8 @@
                                                             {{ $errors->first('featured') }}
                                                         </div>
                                                     @endif
+                                                    <!-- Hidden input field to store the actual status value -->
+                                                    <input type="hidden" name="featured" id="featured_hidden" value="{{old('status',$author->featured)}} ">
                                                     <div id="featuredError" class="invalid-feedback"></div>
                                                 </div>
                                             </div>
@@ -347,10 +351,10 @@
             // Add an event listener to update the checkbox value when the switch is toggled
             $("#switchCheckbox").on("change", function () {
                 if ($(this).prop("checked")) {
-                    $(this).val("active");
+                    $("#status_hidden").val("active");
                     console.log( '1111');
                 } else {
-                    $(this).val("inactive");
+                    $("#status_hidden").val("inactive");
                     console.log( '2222');
                 }
             });
@@ -367,9 +371,9 @@
 
             $("#featuredAuthor").on("change", function () {
                 if ($(this).prop("checked")) {
-                    $(this).val(1);
+                    $('#featured_hidden').val(1);
                 } else {
-                    $(this).val(0);
+                    $('#featured_hidden').val(0);
                 }
             });
         });

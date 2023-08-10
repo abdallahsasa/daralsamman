@@ -341,7 +341,7 @@ class ProductController extends Controller
 
         $mediaItem = ProductMedia::findOrFail($mediaId);
         $url = $mediaItem->image_url;
-        $filePath = str_replace(url('/'), '', $url);
+        $filePath = str_replace(url('/'), '\\', $url);
 
         if (Storage::disk('public_images')->delete($filePath)) {
             //$mediaItem->image_name = 'no image';

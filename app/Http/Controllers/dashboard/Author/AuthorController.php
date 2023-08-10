@@ -94,7 +94,6 @@ class AuthorController extends Controller
 
     public function update(UpdateAuthorRequest $request, $id)
     {
-        return $request;
         $validated_data = $request->validated();
 
         try {

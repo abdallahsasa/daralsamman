@@ -71,7 +71,7 @@
                                                 <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
                                                     <label class="form-label" for="first_name">First Name*</label>
                                                     <input type="text" class="form-control" name="first_name" required
-                                                           value="{{$author->first_name}} {{old('first_name')}}">
+                                                           value="{{ old('first_name', $author->first_name) }}">
                                                     @if($errors->has('first_name'))
                                                         <div class="alert alert-danger" role="alert">
                                                             {{ $errors->first('first_name') }}
@@ -84,7 +84,7 @@
                                                     <label class="form-label" for="middle_name">Middle Name
                                                         (Optional)</label>
                                                     <input type="text" class="form-control" name="middle_name"
-                                                           value="{{$author->middle_name}} {{old('middle_name')}}">
+                                                           value="{{old('middle_name',$author->middle_name)}}">
                                                     @if($errors->has('middle_name'))
                                                         <div class="alert alert-danger" role="alert">
                                                             {{ $errors->first('middle_name') }}
@@ -96,7 +96,7 @@
                                                 <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
                                                     <label class="form-label" for="last_name">Last Name*</label>
                                                     <input type="text" class="form-control" name="last_name" required
-                                                           value="{{$author->last_name}} {{old('last_name')}}">
+                                                           value="{{old('last_name',$author->last_name) }}">
                                                     @if($errors->has('last_name'))
                                                         <div class="alert alert-danger" role="alert">
                                                             {{ $errors->first('last_name') }}
@@ -112,7 +112,7 @@
                                                 <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
                                                     <label class="form-label" for="slug">slug</label>
                                                     <input type="text" class="form-control" name="slug" required
-                                                           value="{{$author->slug}} {{old('slug')}}">
+                                                           value="{{old('slug',$author->slug)}}">
                                                     @if($errors->has('slug'))
                                                         <div class="alert alert-danger" role="alert">
                                                             {{ $errors->first('slug') }}
@@ -125,7 +125,7 @@
                                                     <label class="form-label" for="date_of_birth">Date of Birth</label>
                                                     <div class="datepicker-form">
                                                         <div class="input-group date display-years" data-date-format="yyyy-mm-dd" data-date="">
-                                                            <input  id="datepicker-input" name="date_of_birth" value="{{$author->date_of_birth}} {{old('date_of_birth')}}" class="form-control" type="text" placeholder="">
+                                                            <input  id="datepicker-input" name="date_of_birth" value="{{old('date_of_birth',$author->date_of_birth) }}" class="form-control" type="text" placeholder="{{$author->date_of_birth}}">
                                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                                         </div>
                                                     </div>
@@ -164,7 +164,7 @@
                                             <div class="row">
                                                 <div class="col-sm-4 col-xl-12 col-xxl-3 mb-3">
                                                     <label class="form-label" for="number">Number</label>
-                                                    <input type="text" class="form-control" name="number" value="{{$author->number}} {{old('number')}}">
+                                                    <input type="text" class="form-control" name="number" value="{{old('number',$author->number) }}">
                                                     @if($errors->has('number'))
                                                         <div class="alert alert-danger" role="alert">
                                                             {{ $errors->first('number') }}
@@ -175,7 +175,7 @@
 
                                                 <div class="col-sm-4 col-xl-12 col-xxl-3 mb-3">
                                                     <label class="form-label" for="email">Email</label>
-                                                    <input type="text" class="form-control" name="email" value="{{$author->email}} {{old('email')}}">
+                                                    <input type="text" class="form-control" name="email" value="{{old('email',$author->email) }}">
                                                     @if($errors->has('email'))
                                                         <div class="alert alert-danger" role="alert">
                                                             {{ $errors->first('email') }}
@@ -186,7 +186,7 @@
 
                                                 <div class="col-sm-4 col-xl-12 col-xxl-3 mb-3">
                                                     <label class="form-label" for="website">website</label>
-                                                    <input type="text" class="form-control" name="website" value="{{$author->website}} {{old('website')}}">
+                                                    <input type="text" class="form-control" name="website" value="{{old('website',$author->website) }}">
                                                     @if($errors->has('website'))
                                                         <div class="alert alert-danger" role="alert">
                                                             {{ $errors->first('website') }}
@@ -210,7 +210,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label" for="biography">Biography</label>
                                                 <textarea id="summernote" name="biography" class="form-control"
-                                                          rows="2">{{old('biography')}} {{$author->biography}}</textarea>
+                                                          rows="2"> {{old('biography',$author->biography)}} </textarea>
                                                 @if($errors->has('biography'))
                                                     <div class="alert alert-danger" role="alert">
                                                         {{ $errors->first('biography') }}
@@ -290,7 +290,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label" for="meta_title">Meta Title</label>
                                                 <input name="meta_title" type="text" class="form-control"
-                                                       value="{{$author->meta_title}} {{old('meta_title')}}" id="meta_title"
+                                                       value="{{old('meta_title',$author->meta_title)}}" id="meta_title"
                                                        placeholder="Meta Title">
                                                 @if($errors->has('meta_title'))
                                                     <div class="alert alert-danger" role="alert">
@@ -302,7 +302,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label" for="meta_description">Meta Description</label>
                                                 <textarea name="meta_description" class="form-control" id="meta_description"
-                                                          rows="2">{{$author->meta_description}} {{old('meta_description')}}</textarea>
+                                                          rows="2">{{old('meta_description',$author->meta_description)}} </textarea>
                                                 @if($errors->has('meta_description'))
                                                     <div class="alert alert-danger" role="alert">
                                                         {{ $errors->first('meta_description') }}

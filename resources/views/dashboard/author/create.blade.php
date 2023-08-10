@@ -210,7 +210,7 @@
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
-                                                    <input type="checkbox" id="statusCheckbox" checked=""
+                                                    <input name="status" type="checkbox" id="statusCheckbox" checked=""
                                                            value="active">
                                                     <span></span>
                                                     Active/Inactive
@@ -233,7 +233,7 @@
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
-                                                    <input type="checkbox" id="featuredAuthor"
+                                                    <input name="featured" type="checkbox" id="featuredAuthor"
                                                            checked=""
                                                            value="1">
                                                     <span></span>

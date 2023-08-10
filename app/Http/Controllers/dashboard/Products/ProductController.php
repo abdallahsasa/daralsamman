@@ -112,7 +112,6 @@ class ProductController extends Controller
         return abort(403);
     }
 
-
     public function create()
     {
         // Fetch categories for dropdown
@@ -126,7 +125,6 @@ class ProductController extends Controller
 
         return view($this->create_view, compact('categories', 'auditors', 'authors'));
     }
-
 
     public function store(StoreProductRequest $request)
     {
@@ -208,7 +206,6 @@ class ProductController extends Controller
 
     }
 
-
     public function show(string $id)
     {
         $product = Product::findOrFail($id);
@@ -216,16 +213,14 @@ class ProductController extends Controller
         return view($this->show_view, compact('product'));
     }
 
-
     public function edit(string $productId)
     {
-        $product = Product::findOrFail($productId);
+        $product = $this->model_instance::findOrFail($productId);
 
         $categories = Category::all();
 
         return view($this->edit_view, compact('product', 'categories'));
     }
-
 
     public function update(UpdateProductRequest $request, $id)
     {
@@ -314,7 +309,6 @@ class ProductController extends Controller
 
         return redirect()->route($this->update_view, $object->id)->with('success', $this->update_success_message);
     }
-
 
     public function destroy($productId)
     {

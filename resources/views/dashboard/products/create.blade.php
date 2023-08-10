@@ -150,7 +150,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="author_id">Author Name</label>
 
-                                                <select name="authors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3"   multiple>
+                                                <select required name="authors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3" >
 
                                                 @foreach($authors as $author)
                                                     <option
@@ -172,7 +172,7 @@
 
                                         <div class="mb-3">
                                             <label class="form-label" for="auditor_id">Auditor Name</label>
-                                            <select required name="auditors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3"   multiple>
+                                            <select required name="auditors_ids[]" class=" form-select form-select-lg mb-3"   multiple>
 
                                                 @foreach($auditors as $auditor)
                                                     <option

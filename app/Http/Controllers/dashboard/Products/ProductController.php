@@ -173,7 +173,7 @@ class ProductController extends Controller
             }
 
 
-            if ($request->has('product_tags')) {
+            if ($request->has('product_tags' && !isEmpty($request->get('product_tags')))) {
                 $tags = json_decode($request->get('product_tags'));
                 foreach ($tags as $tag) {
                     $arrayTags[] = ['value' => $tag->value];

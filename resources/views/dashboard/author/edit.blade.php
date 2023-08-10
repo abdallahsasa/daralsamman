@@ -266,7 +266,7 @@
                                                         </div>
                                                     @endif
                                                     <!-- Hidden input field to store the actual status value -->
-                                                    <input type="hidden" name="featured" id="featured_hidden" value="{{old('status',$author->featured)}} ">
+                                                    <input type="hidden" name="featured" id="featured_hidden" value="{{old('featured',$author->featured)}} ">
                                                     <div id="featuredError" class="invalid-feedback"></div>
                                                 </div>
                                             </div>

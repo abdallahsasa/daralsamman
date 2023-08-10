@@ -28,7 +28,7 @@ class UpdateAuthorRequest extends FormRequest
             'slug' => 'required|string|min:3|max:20',
             'date_of_birth' => 'required|nullable|date',
             'gender' => 'required|in:male,female',
-            'number' => ['nullable'],
+            'number' => ['nullable', 'regex:/^(?:(?:\+|00)([1-9]{1}[0-9]{0,2}))?[-.\s]?((?:[0-9]{3})[-.\s]?[0-9]{3}[-.\s]?[0-9]{4})$/'],
             'email' => 'nullable|email',
             'website' => 'nullable|url',
             'nationality' => 'nullable|string|min:3|max:30',

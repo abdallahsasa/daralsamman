@@ -38,13 +38,24 @@
 
             <li>
                 <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#authors-menu">
-                    <div class="pull-left"><i class="fa fa-pencil"></i><span class="right-nav-text">Authors & Auditors</span></div>
+                    <div class="pull-left"><i class="fa fa-user"></i><span class="right-nav-text">Authors</span></div>
                     <div class="pull-right"><i class="ti-plus"></i></div>
                     <div class="clearfix"></div>
                 </a>
                 <ul id="authors-menu" class="collapse" data-bs-parent="#sidebarnav">
-                    <li><a href="{{route('dashboard.author.index')}}">Brows All</a></li>
+                    <li><a href="{{route('dashboard.author.index')}}">Brows All Authors</a></li>
                     <li><a href="{{route('dashboard.author.create')}}">Add New Author </a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#auditors-menu">
+                    <div class="pull-left"><i class="fa fa-pencil"></i><span class="right-nav-text">Auditors</span></div>
+                    <div class="pull-right"><i class="ti-plus"></i></div>
+                    <div class="clearfix"></div>
+                </a>
+                <ul id="auditors-menu" class="collapse" data-bs-parent="#sidebarnav">
+                    <li><a href="{{route('dashboard.auditor.index')}}">Brows All Auditors</a></li>
                     <li><a href="{{route('dashboard.auditor.create')}}">Add New Auditor </a></li>
                 </ul>
             </li>
@@ -75,7 +86,7 @@
             </li>
             <li>
                 <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#site-menu">
-                    <div class="pull-left"><i class="fa fa-user"></i><span class="right-nav-text">Website Information</span>
+                    <div class="pull-left"><i class="fa fa-info"></i><span class="right-nav-text">Website Information</span>
                     </div>
                     <div class="pull-right"><i class="ti-plus"></i></div>
                     <div class="clearfix"></div>

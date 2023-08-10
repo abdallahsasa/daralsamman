@@ -76,7 +76,7 @@
                                                     class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">محققون
                                     و مؤلفون</a></li>
                             <li class="nav-item"><a href="#"
-                                                    class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">المكتبة
+                                                    class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">اللجنة
                                     العلمية</a></li>
                             <li class="nav-item"><a href="#"
                                                     class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">مقالات</a>

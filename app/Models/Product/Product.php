@@ -13,7 +13,7 @@ class Product extends Model
 
     protected $table = 'products';
     protected $primaryKey = 'id';
-    protected $fillable = array('name', 'sku','slug','short_description', 'description','price','image_name','image_url','category_id','auditor_id','author_id','status','featured','latest_product','sort_number','meta_title','meta_description','created_at');
+    protected $fillable = array('name', 'sku','slug','short_description', 'description','price','image_name','image_url','category_id','status','featured','latest_product','sort_number','meta_title','meta_description','created_at');
 
 
     public function category()

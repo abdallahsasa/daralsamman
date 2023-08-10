@@ -71,11 +71,12 @@ Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard
     Route::delete('/author/destroy/{id}', [AuthorController::class, 'destroy'])->name('dashboard.author.destroy');
 
 
+    Route::get('/auditor/index', [AuditorController::class, 'index'])->name('dashboard.auditor.index');
     Route::get('/auditor/create', [AuditorController::class, 'create'])->name('dashboard.auditor.create');
-    Route::post('/auditor/store', [AuthorController::class, 'store'])->name('dashboard.auditor.store');
-    Route::get('/auditor/edit/{id}', [AuthorController::class, 'edit'])->name('dashboard.auditor.edit');
-    Route::put('/auditor/update/{id}', [AuthorController::class, 'update'])->name('dashboard.auditor.update');
-    Route::delete('/auditor/destroy/{id}', [AuthorController::class, 'destroy'])->name('dashboard.auditor.destroy');
+    Route::post('/auditor/store', [AuditorController::class, 'store'])->name('dashboard.auditor.store');
+    Route::get('/auditor/edit/{id}', [AuditorController::class, 'edit'])->name('dashboard.auditor.edit');
+    Route::put('/auditor/update/{id}', [AuditorController::class, 'update'])->name('dashboard.auditor.update');
+    Route::delete('/auditor/destroy/{id}', [AuditorController::class, 'destroy'])->name('dashboard.auditor.destroy');
 
 
 

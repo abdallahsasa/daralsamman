@@ -5,6 +5,7 @@ namespace App\Http\Controllers\dashboard\Products;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Author\Auditor;
 use App\Models\Author\Author;
 use App\Models\Product\Category;
 use App\Models\Product\Product;
@@ -114,14 +115,11 @@ class ProductController extends Controller
 
     public function create()
     {
-        // Fetch categories for dropdown
         $categories = Category::where('status', '=', 'active')->get();
 
-        $authors = Author::where('status', 'active')
-            ->get();
+        $authors = Author::where('status', 'active')->get();
 
-        $auditors = Author::where('status', 'active')
-            ->get();
+        $auditors = Auditor::where('status', 'active')->get();
 
         return view($this->create_view, compact('categories', 'auditors', 'authors'));
     }

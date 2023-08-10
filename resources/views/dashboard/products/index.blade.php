@@ -56,15 +56,18 @@
                                     <td>{{ implode(', ', array_map('trim', $product->tags->pluck('tag')->toArray())) }}
                                     </td>
                                     <td>
-                                        <div class="row ">
+                                        <div class="row">
                                             <a class="pe-2" href="{{route('dashboard.product.edit',$product->id)}}"> <i
                                                     class="fa fa-pencil"></i></a>
+                                            <a class="pe-2">
                                             <form method="POST" action="{{route('dashboard.product.destroy',$product->id)}}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button  class="fa fa-trash-o text-danger" onclick="return confirm('Are you sure you want to delete this {{$product->name}} ')">
+                                                <button  class="button btn-danger fa fa-trash-o" onclick="return confirm('Are you sure you want to delete this {{$product->name}} ')">
                                                 </button>
                                             </form>
+
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>

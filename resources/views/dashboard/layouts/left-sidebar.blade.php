@@ -50,18 +50,6 @@
             </li>
 
             <li>
-                <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#library-menu">
-                    <div class="pull-left"><i class="fa fa-book"></i><span class="right-nav-text">Scientific library</span></div>
-                    <div class="pull-right"><i class="ti-plus"></i></div>
-                    <div class="clearfix"></div>
-                </a>
-                <ul id="library-menu" class="collapse" data-bs-parent="#sidebarnav">
-                    <li><a href="#">Brows All News</a></li>
-                    <li><a href="{{url('/backoffice/products/create')}}">Add New News </a></li>
-                </ul>
-            </li>
-
-            <li>
                 <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#news-menu">
                     <div class="pull-left"><i class="fa fa-newspaper-o"></i><span class="right-nav-text">News</span></div>
                     <div class="pull-right"><i class="ti-plus"></i></div>

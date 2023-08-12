@@ -358,7 +358,12 @@
                 removeItemButton: true,
                 maxItemCount:5,
                 searchResultLimit:5,
-                renderChoiceLimit:5
+                allowHTML: true,
+                renderChoiceLimit:5,
+                loadingText: 'Loading...',
+                uniqueItemText: 'Only unique values can be added',
+                silent: false,
+
             });
 
 

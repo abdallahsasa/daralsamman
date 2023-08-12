@@ -27082,3 +27082,6 @@ div.style-customizer .content-chooser input[type=radio]:checked ~ label {
 tr{
     text-align: center;
 }
+.remove-attribute-btn{
+    font-size: 1.5rem;
+}

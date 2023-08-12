@@ -150,7 +150,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="author_id">Author Name</label>
 
-                                                <select required name="authors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3" >
+                                                <select  required name="authors_ids[]" class="choices-multiple-remove-button form-select form-select-lg" multiple >
 
                                                 @foreach($authors as $author)
                                                     <option
@@ -172,7 +172,7 @@
 
                                         <div class="mb-3">
                                             <label class="form-label" for="auditor_id">Auditor Name</label>
-                                            <select required name="auditors_ids[]" class=" form-select form-select-lg mb-3"   multiple>
+                                            <select required name="auditors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3"   multiple>
 
                                                 @foreach($auditors as $auditor)
                                                     <option
@@ -300,8 +300,7 @@
                                                         @endif
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <button class="btn btn-danger remove-attribute-btn" data-repeater-delete="" type="button"> Remove
-                                                        </button>
+                                                        <button class="btn btn-danger remove-attribute-btn " data-repeater-delete="" type="button"><i class="btn-danger fa fa-trash"></i></button>
                                                     </div>
                                                 </div>
                                             </div>

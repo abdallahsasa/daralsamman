@@ -353,5 +353,7 @@
 }
 
 .choices[data-type*=select-multiple] .choices__input.is-hidden, .choices[data-type*=select-one] .choices__input.is-hidden, .choices__input.is-hidden {
-    display: none
+    opacity: 0;
+    height: 0;
+    padding: 0!important;
 }

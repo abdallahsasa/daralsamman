@@ -10,17 +10,9 @@
 @include('website.layouts.header')
 
 
-    <!--=================================
-    page-title-->
-
     @yield('content')
-    <!--=================================
-     footer -->
+
     @include('website.layouts.footer')
-
-    <!--=================================
-     footer -->
-
 
 
 @include('website.layouts.footer-scripts')

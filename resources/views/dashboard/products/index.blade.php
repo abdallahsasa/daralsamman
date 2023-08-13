@@ -35,6 +35,7 @@
                                 <th>Name</th>
                                 <th>SKU</th>
                                 <th>Status</th>
+                                <th>Featured</th>
                                 <th>Category</th>
                                 <th>Tags</th>
                                 <th>Action</th>
@@ -48,25 +49,25 @@
 
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->sku}}</td>
-                                    <td>
-                                        <span
+                                    <td><span
                                             class="@if($product->status == 'active')text-success @else text-danger @endif ">{{$product->status}} </span>
                                     </td>
+                                    <td> <span class=" @if ($product->featured == '1') text-success @else text-danger @endif "> @if($product->featured == 1) Yes @else No @endif </span></td>
                                     <td>{{$product->category->name}}</td>
-                                    <td>{{ implode(', ', array_map('trim', $product->tags->pluck('tag')->toArray())) }}
-                                    </td>
+                                    <td>{{ implode(', ', array_map('trim', $product->tags->pluck('tag')->toArray()))}} </td>
                                     <td>
                                         <div class="row">
                                             <a class="pe-2" href="{{route('dashboard.product.edit',$product->id)}}"> <i
                                                     class="fa fa-pencil"></i></a>
                                             <a class="pe-2">
-                                            <form method="POST" action="{{route('dashboard.product.destroy',$product->id)}}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button  class="button btn-danger fa fa-trash-o" onclick="return confirm('Are you sure you want to delete this {{$product->name}} ')">
-                                                </button>
-                                            </form>
-
+                                                <form method="POST"
+                                                      action="{{route('dashboard.product.destroy',$product->id)}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="button btn-danger fa fa-trash-o"
+                                                            onclick="return confirm('Are you sure you want to delete this {{$product->name}} ')">
+                                                    </button>
+                                                </form>
                                             </a>
                                         </div>
                                     </td>
@@ -83,19 +84,19 @@
 
 @push('scripts')
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#datatable').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('dashboard.products.data') }}",
                 columns: [
-                    { data: 'id', name: 'id' },
-                    { data: 'sku', name: 'sku' },
-                    { data: 'name', name: 'name' },
-                    { data: 'category_name', name: 'category_name' },
-                    { data: 'status', name: 'status' },
-                    { data: 'image', name: 'image' },
-                    { data: 'action', name: 'action' },
+                    {data: 'id', name: 'id'},
+                    {data: 'sku', name: 'sku'},
+                    {data: 'name', name: 'name'},
+                    {data: 'category_name', name: 'category_name'},
+                    {data: 'status', name: 'status'},
+                    {data: 'image', name: 'image'},
+                    {data: 'action', name: 'action'},
                 ]
             });
         });

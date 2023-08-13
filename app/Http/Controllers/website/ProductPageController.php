@@ -12,23 +12,26 @@ class ProductPageController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($category)
+    public function index()
     {
-        $products = Product::where('status', 'active');
+//        $products = Product::where('status', 'active');
+//
+//        if ($category !== 'all') {
+//            $categoryId = Category::where('slug', $category)->value('id');
+//            $products->where('category_id', $categoryId);
+//        }
+//
+//        $products = $products->get();
+//        $productsFeaturedImage = ProductMedia::where('product_id', $products->pluck('id'))
+//            ->where('is_featured', true)
+//            ->get();
+//        $category = Category::where('slug', $category)->value('name');
+//        $categories = Category::where('status', 'active')->get();
 
-        if ($category !== 'all') {
-            $categoryId = Category::where('slug', $category)->value('id');
-            $products->where('category_id', $categoryId);
-        }
+//        return view('website.products.index', compact('categories', 'products', 'category','productsFeaturedImage'));
+        return view ('website.products.index');
 
-        $products = $products->get();
-        $productsFeaturedImage = ProductMedia::where('product_id', $products->pluck('id'))
-            ->where('is_featured', true)
-            ->get();
-        $category = Category::where('slug', $category)->value('name');
-        $categories = Category::where('status', 'active')->get();
 
-        return view('website.products.index', compact('categories', 'products', 'category','productsFeaturedImage'));
     }
 
 

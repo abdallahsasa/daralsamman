@@ -23,15 +23,15 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             'category_id' => 'required|exists:product_categories,id',
-            'author_id' => 'required|exists:authors,id',
-            'auditor_id' => 'required|exists:authors,id',
+
             'name' => 'required|string|min:3|max:200',
             'slug' => 'required|string|min:3|max:200',
-            'sku' => 'required|string|min:3|max:200',
-            'short_description' => 'required|string|min:3',
-            'description' => 'required|string|min:3',
+            'sku' => 'nullable|string|min:3|max:200',
+            'short_description' => 'nullable|string|min:3',
+            'description' => 'nullable|string|min:3',
             'prices' => 'nullable|numeric',
             'status' => 'required|in:active,inactive',
+            'featured'=>'required|in:1,0',
 
             'meta_title' => 'nullable|string',
             'meta_description' => 'nullable|string',
@@ -45,8 +45,14 @@ class UpdateProductRequest extends FormRequest
             'gallery.*' => 'nullable|image|mimes:jpg,jpeg,png,webp',
 
             'attributes' => 'array',
-            'attributes.*.name' => 'required|string',
-            'attributes.*.value' => 'required|string',
+            'attributes.*.name' => 'nullable|string',
+            'attributes.*.value' => 'nullable|string',
+            'authors_ids' => 'array',
+            'authors_ids.*' => 'required|exists:authors,id',
+
+            'auditors_ids' => 'required|exists:authors,id',
+            'auditors_ids.*' => 'required|exists:authors,id',
+
             'created_at' => 'nullable|date',
         ];
     }

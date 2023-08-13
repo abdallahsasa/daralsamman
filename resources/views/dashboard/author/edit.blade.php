@@ -320,8 +320,7 @@
 
                                 </div>
 
-
-                                <button id="submitBtn" type="submit" class="btn btn-success">Submit</button>
+                                <button id="submitBtn" type="submit" class="btn btn-warning">Update</button>
                             </div>
                         </form>
                     </div>

@@ -48,6 +48,7 @@ class ProductController extends Controller
         $this->edit_view = 'dashboard.products.edit';
 
         $this->create_route = 'dashboard.product.create';
+        $this->edit_route = 'dashboard.product.edit';
 
 
         $this->success_message = 'Product created successfully';
@@ -173,7 +174,7 @@ class ProductController extends Controller
             }
 
 
-            if ($request->has('product_tags' && !isEmpty($request->get('product_tags')))) {
+        if ($request->has('product_tags') && $request->filled('product_tags')) {
                 $tags = json_decode($request->get('product_tags'));
                 foreach ($tags as $tag) {
                     $arrayTags[] = ['value' => $tag->value];
@@ -215,9 +216,16 @@ class ProductController extends Controller
     {
         $product = $this->model_instance::findOrFail($productId);
 
-        $categories = Category::all();
+        $categories = Category::where('status', '=', 'active')->get();
 
-        return view($this->edit_view, compact('product', 'categories'));
+        $authors = Author::where('status', 'active')->get();
+
+        $auditors = Auditor::where('status', 'active')->get();
+
+        $selectedAuthorIds = $product->author->pluck('id')->toArray();
+        $selectedAuditorIds = $product->auditor->pluck('id')->toArray();
+
+        return view($this->edit_view, compact('product','categories', 'auditors', 'authors','selectedAuthorIds','selectedAuditorIds'));
     }
 
     public function update(UpdateProductRequest $request, $id)
@@ -258,7 +266,6 @@ class ProductController extends Controller
                     Storage::disk('public_images')->delete($filePath);
                     $image->delete();
                 }
-
             }
 
             $image = $request->file('image');
@@ -284,7 +291,7 @@ class ProductController extends Controller
         }
 
         // Update the product tags
-        if ($request->has('product_tags')) {
+        if ($request->has('product_tags') && $request->filled('product_tags')) {
             $object->tags()->delete();
             $tags = json_decode($request->get('product_tags'));
             foreach ($tags as $tag) {
@@ -298,6 +305,13 @@ class ProductController extends Controller
             }
         }
 
+        if ($request->has('authors_ids')) {
+            $object->author()->sync($validated_data['authors_ids']);
+        }
+        if ($request->has('auditors_ids')) {
+            $object->auditor()->sync($validated_data['auditors_ids']);
+        }
+
         $object->save();
         //DB::commit();
 
@@ -305,7 +319,7 @@ class ProductController extends Controller
         // $log_message = trans('products.update_log') . '#' . $object->id;
         // UserActivity::logActivity($log_message);
 
-        return redirect()->route($this->update_view, $object->id)->with('success', $this->update_success_message);
+        return redirect()->route($this->edit_route, $object->id)->with('success', $this->update_success_message);
     }
 
     public function destroy($productId)

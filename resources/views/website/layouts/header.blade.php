@@ -1,4 +1,3 @@
-<!-- ===== HEADER CONTENT ===== -->
 
 <header id="site-header" class="site-header__v9 site-header__white-text">
     <div class="masthead">
@@ -44,7 +43,7 @@
                                                     class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الصفحة
                                     الرئيسية</a></li>
                             <li class="nav-item dropdown">
-                                <a id="homeDropdownInvoker" href="#"
+                                <a id="homeDropdownInvoker" href="{{route('website.products.index')}}"
                                    class="dropdown-toggle nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium d-flex align-items-center"
                                    aria-haspopup="true"
                                    aria-expanded="false"
@@ -90,10 +89,8 @@
                         </ul>
                     </div>
 
-
                 </div>
             </div>
         </div>
     </div>
 </header>
-<!-- ===== END HEADER CONTENT ===== -->

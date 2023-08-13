@@ -99,23 +99,43 @@
                                 <div class="card card-statistics h-100">
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <label class="form-label">Category State</label>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status" id="activeState" value="active"  @if(old('status') == 'active') checked @endif>
-                                                <label class="form-check-label" for="activeState">Active</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="status" id="inactiveState" value="inactive" @if(old('status') == 'inactive') checked @endif>
-                                                <label class="form-check-label" for="inactiveState">
-                                                    Inactive
-                                                </label>
-                                            </div>
-                                            @if($errors->has('status'))
-                                                <div class="alert alert-danger" role="alert">
-                                                    {{ $errors->first('status') }}
+                                            <h5 class="card-title">Category Status</h5>
+                                            <div class="form-group mb-3">
+                                                <div class="checkbox checbox-switch switch-success">
+                                                    <label>
+                                                        <input name="status" type="checkbox" id="statusCheckbox" checked=""
+                                                               value="active">
+                                                        <span></span>
+                                                        Active/Inactive
+                                                    </label>
+                                                    <!-- Hidden input field to store the actual status value -->
+                                                    <input type="hidden" name="status" id="status_hidden" value="active">
+                                                    @if($errors->has('status'))
+                                                        <div class="alert alert-danger" role="alert">
+                                                            {{ $errors->first('status') }}
+                                                        </div>
+                                                    @endif
+                                                    <div id="statusError" class="invalid-feedback"></div>
                                                 </div>
-                                            @endif
+                                            </div>
                                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                         <div class="mb-3">
                                             <label class="form-label" for="meta_title">Meta Title</label>
                                             <input name="meta_title" type="text" class="form-control" value="{{old('meta_title')}}" id="meta_title" placeholder="Meta Title">
@@ -150,3 +170,21 @@
 
     </div>
 @endsection
+
+
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+            // Add an event listener to update the hidden input's value when the switch is toggled
+            $("#statusCheckbox").on("change", function () {
+                if ($(this).prop("checked")) {
+                    $("#status_hidden").val('active');
+                } else {
+                    $("#status_hidden").val('inactive');
+                }
+            });
+        });
+    </script>
+
+@endsection
+

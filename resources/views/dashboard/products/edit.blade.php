@@ -14,6 +14,10 @@
             max-width: 70px; /* Set your desired fixed width here */
             max-height: 70px; /* Set your desired fixed height here */
         }
+        .scrollable-div {
+            max-height: 450px; /* Adjust the desired maximum height */
+            overflow-y: auto;
+        }
 
     </style>
 
@@ -128,6 +132,53 @@
                                             @endif
                                             <div id="descriptionError" class="invalid-feedback"></div>
                                         </div>
+                                        <div class="mb-3 ">
+                                            <h4 class="form-label">Book Attributes</h4>
+
+                                            <div class="repeater-add scrollable-div">
+                                                <div data-repeater-list="attributes">
+                                                    @foreach($product->attributes as $attribute)
+                                                        <div data-repeater-item="">
+                                                            <div class="row mb-20">
+                                                                <div class="row mb-3 attribute-row">
+                                                                    <div class="col-md-5">
+                                                                        <input type="text" name="attributes[][name]"
+                                                                               value="{{$attribute->name}} {{old('attributes.*.name')}}"
+                                                                               class="form-control attribute-name"
+                                                                               placeholder="Attribute name">
+                                                                        @if($errors->has('attributes.*.name'))
+                                                                            <div class="alert alert-danger" role="alert">
+                                                                                {{ $errors->first('attributes.*.name') }}
+                                                                            </div>
+                                                                        @endif
+                                                                    </div>
+                                                                    <div class="col-md-5">
+                                                                        <input type="text" name="attributes[][value]"
+                                                                               value="{{$attribute->value}} {{old('attributes.*.value')}}"
+                                                                               class="form-control attribute-value"
+                                                                               placeholder="Attribute Value">
+                                                                        @if($errors->has('attributes.*.value'))
+                                                                            <div class="alert alert-danger" role="alert">
+                                                                                {{ $errors->first('attributes.*.value') }}
+                                                                            </div>
+                                                                        @endif
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <button class="btn btn-danger remove-attribute-btn"
+                                                                                data-repeater-delete="" type="button"> Remove
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                                <div class="form-group clearfix mb-20">
+                                                    <input class="btn btn-primary" data-repeater-create="" type="button"
+                                                           value="Add Attribute">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -152,6 +203,47 @@
                                             @endif
                                             <div id="categoryError" class="invalid-feedback"></div>
                                         </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label" for="authors_ids">Author Name</label>
+
+                                            <select  required name="authors_ids[]" class="choices-multiple-remove-button form-select form-select-lg" multiple >
+
+                                                @foreach($authors as $author)
+                                                    <option
+                                                        value="{{ $author->id }}" {{ in_array($author->id, $selectedAuthorIds) ? 'selected' : '' }}>
+
+                                                    {{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @if($errors->has('authors_ids'))
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $errors->first('authors_ids') }}
+                                                </div>
+                                            @endif
+                                            <div id="authorError" class="invalid-feedback"></div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label" for="auditors_ids">Book Name</label>
+                                            <select required name="auditors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3"   multiple>
+
+                                                @foreach($auditors as $auditor)
+                                                    <option
+                                                        value="{{ $auditor->id }}" {{ in_array($auditor->id, $selectedAuditorIds) ? 'selected' : '' }}>
+                                                        {{$auditor->first_name}} {{$auditor->middle_name}} {{$auditor->last_name}}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @if($errors->has('auditors_ids'))
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $errors->first('auditors_ids') }}
+                                                </div>
+                                            @endif
+                                            <div id="auditorError" class="invalid-feedback"></div>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="card card-statistics h-10">
@@ -170,6 +262,31 @@
                                         <input type="hidden" name="status" id="status_hidden" value="inactive">
                                     </div>
                                 </div>
+                                <div class="card card-statistics h-10">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Featured Book</h5>
+                                        <div class="form-group mb-3">
+                                            <div class="checkbox checbox-switch switch-success">
+                                                <label>
+                                                    <input type="checkbox"  id="featuredBook"
+                                                           checked=""
+                                                           value="{{old('status',$product->featured)}} ">
+                                                    <span></span>
+                                                    Yes/No
+                                                </label>
+                                                @if($errors->has('featured'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('featured') }}
+                                                    </div>
+                                                @endif
+                                                <!-- Hidden input field to store the actual status value -->
+                                                <input type="hidden" name="featured" id="featured_hidden" value="{{old('featured',$product->featured)}} ">
+                                                <div id="featuredError" class="invalid-feedback"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="card card-statistics h-10">
                                     <div class="card-body datepicker-form">
                                         <h5 class="card-title">Created At</h5>
@@ -280,53 +397,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12 mb-30">
-                                <h4 class="form-label">Book Attributes</h4>
 
-                                <div class="repeater-add">
-                                    <div data-repeater-list="attributes">
-                                        @foreach($product->attributes as $attribute)
-                                        <div data-repeater-item="">
-                                            <div class="row mb-20">
-                                                <div class="row mb-3 attribute-row">
-                                                    <div class="col-md-5">
-                                                        <input type="text" name="attributes[][name]"
-                                                               value="{{$attribute->name}} {{old('attributes.*.name')}}"
-                                                               class="form-control attribute-name"
-                                                               placeholder="Attribute name">
-                                                        @if($errors->has('attributes.*.name'))
-                                                            <div class="alert alert-danger" role="alert">
-                                                                {{ $errors->first('attributes.*.name') }}
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <input type="text" name="attributes[][value]"
-                                                               value="{{$attribute->value}} {{old('attributes.*.value')}}"
-                                                               class="form-control attribute-value"
-                                                               placeholder="Attribute Value">
-                                                        @if($errors->has('attributes.*.value'))
-                                                            <div class="alert alert-danger" role="alert">
-                                                                {{ $errors->first('attributes.*.value') }}
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <button class="btn btn-danger remove-attribute-btn"
-                                                                data-repeater-delete="" type="button"> Remove
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                    <div class="form-group clearfix mb-20">
-                                        <input class="btn btn-primary" data-repeater-create="" type="button"
-                                               value="Add Attribute">
-                                    </div>
-                                </div>
-                            </div>
                             <button id="submitBtn" type="submit" class="btn btn-warning">Update</button>
                         </div>
                     </form>
@@ -440,10 +511,33 @@
                     $("#status_hidden").val("inactive");
                 }
             });
+
+
+
+            var featuredBook = "{{$product->featured}}"; // Replace this with your dynamic value from the server
+            // Set the checkbox state based on the product state
+            if (featuredBook == 1) {
+                $("#featuredBook").prop("checked", 1);
+            } else {
+                $("#featuredBook").prop("checked", 0);
+            }
+
+            $("#featuredBook").on("change", function () {
+                if ($(this).prop("checked")) {
+                    $('#featured_hidden').val(1);
+                } else {
+                    $('#featured_hidden').val(0);
+                }
+            });
+
+
+
+
         });
 
 
     </script>
+
     <script>
         $(document).ready(function () {
             // Assuming $product->created_at is a valid date string from the database
@@ -465,6 +559,8 @@
             });
         });
     </script>
+
+
 
 @endsection
 

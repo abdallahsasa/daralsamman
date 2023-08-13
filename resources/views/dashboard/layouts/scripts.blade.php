@@ -45,3 +45,25 @@
 {{--    Tagify - tags input component Library--}}
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+
+
+{{--Multi Select  DropDown--}}
+<script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+<script>
+    $(document).ready(function(){
+
+        var multipleCancelButton = new Choices('.choices-multiple-remove-button', {
+            removeItemButton: true,
+            maxItemCount:5,
+            searchResultLimit:5,
+            allowHTML: true,
+            renderChoiceLimit:5,
+            loadingText: 'Loading...',
+            uniqueItemText: 'Only unique values can be added',
+            silent: false,
+
+        });
+    });
+</script>
+
+{{--End Multi Select  DropDown--}}

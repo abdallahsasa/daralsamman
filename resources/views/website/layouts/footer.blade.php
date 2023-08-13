@@ -1,13 +1,13 @@
-<!-- ========== FOOTER ========== -->
+
 <footer class="site-footer_v8">
     <div class="bg-primary">
         <div class="container">
-            <!-- Newsletter -->
+
             <div class="space-2">
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="pr-lg-10">
-                            <!-- Form Group -->
+
                             <div class="form-row justify-content-center">
                                 <div class="col-lg mb-2">
                                     <div class="js-form-message">
@@ -21,7 +21,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <!-- End Form Group -->
+
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -33,7 +33,7 @@
 
                 </div>
             </div>
-            <!-- End  Newsletter -->
+
         </div>
     </div>
     <div class="bg-dark space-1 space-lg-1">
@@ -129,11 +129,11 @@
     <div class="space-1 bg-dark border-top border-gray-810">
         <div class="container">
             <div class="d-lg-flex text-center text-lg-left justify-content-between align-items-center">
-                <!-- Copyright -->
+
                 <p class="mb-3 mb-lg-0 font-size-2 text-gray-500">©2023. All rights reserved</p>
-                <!-- End Copyright -->
+
             </div>
         </div>
     </div>
 </footer>
-<!-- ========== END FOOTER ========== -->
+

@@ -38,14 +38,17 @@
                                             class="@if($category->status == 'active')text-success @else text-danger @endif ">{{$category->status}} </span>
                                 </td>
                                 <td>
-                                    <div class="row ">
-                                        <a class="pe-2" href="{{route('dashboard.categories.edit',$category->id)}}"> <i class="fa fa-pencil"></i></a>
+                                    <div class="row justify-content-center">
+                                        <a class="pe-2 w-auto" href="{{route('dashboard.categories.edit',$category->id)}}"> <i class="btn btn-warning fa fa-pencil"></i></a>
+                                        <a class="pe-2 w-auto">
                                         <form method="POST" action="{{route('dashboard.categories.destroy',$category->id)}}">
+
                                             @csrf
                                             @method('DELETE')
-                                            <button style="border: none;"  class="fa fa-trash-o text-danger" onclick="return confirm('Are you sure you want to delete this {{$category->name}} ')">
+                                            <button  class="btn-danger btn  fa fa-trash-o" onclick="return confirm('Are you sure you want to delete this {{$category->name}} ')">
                                             </button>
                                         </form>
+                                        </a>
                                     </div>
                                 </td>
 

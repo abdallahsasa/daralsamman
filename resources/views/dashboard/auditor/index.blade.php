@@ -58,18 +58,20 @@
                                     <td> <span class="@if($auditor->featured == '1')text-success @else text-danger @endif "> @if($auditor->featured == 1) Yes @else  No @endif  </span> </td>
 
                                     <td>
-                                        <div class="row ">
-                                            <a class="pe-2" href="{{route('dashboard.auditor.edit',$auditor->id)}}">
-                                                <i class="fa fa-pencil"></i>
+                                        <div class="row justify-content-center">
+                                            <a class="pe-2  w-auto" href="{{route('dashboard.auditor.edit',$auditor->id)}}">
+                                                <button class="btn btn-warning fa fa-pencil"></button>
                                             </a>
+                                            <a class="pe-2 w-50">
                                             <form method="POST"
                                                   action="{{route('dashboard.auditor.destroy',$auditor->id)}}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button style="border: none;" class="fa fa-trash-o text-danger"
+                                                <button  class="btn-danger btn  fa fa-trash-o"
                                                         onclick="return confirm('Are you sure you want to delete this {{$auditor->name}} ')">
                                                 </button>
                                             </form>
+                                            </a>
                                         </div>
                                     </td>
 

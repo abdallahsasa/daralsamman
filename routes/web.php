@@ -31,8 +31,8 @@ Route::get('about', [AboutUsPageController::class, 'index'])->name('website.abou
 Route::get('contact', [ContactUsPageController::class, 'index'])->name('website.contact');
 
 //Route::get('/products', [ProductPageController::class, 'index'])->name('website.products');
-Route::get('/Books', [ProductPageController::class, 'index'])->name('website.products.index');
-Route::get('/Book/{id}', [ProductPageController::class, 'details'])->name('website.product.details');
+Route::get('/books', [ProductPageController::class, 'index'])->name('website.products.index');
+Route::get('/book/{id}', [ProductPageController::class, 'details'])->name('website.product.details');
 
 Route::get('/solutions', [SolutionsPageController::class, 'index'])->name('website.solutions');
 Route::get('/news', [NewsPageController::class, 'index'])->name('website.news');
@@ -46,14 +46,14 @@ Route::group(['prefix' => 'dashboard'], function () {
 
 Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard.home');
 
-    Route::get('/Books/index', [ProductController::class, 'index'])->name('dashboard.products.index');
-    Route::get('/Books/data', [ProductController::class, 'getProductsData'])->name('dashboard.products.data');
-    Route::get('/Books/create', [ProductController::class, 'create'])->name('dashboard.product.create');
-    Route::post('/Books/store', [ProductController::class, 'store'])->name('dashboard.product.store');
-    Route::get('/Books/edit/{id}', [ProductController::class, 'edit'])->name('dashboard.product.edit');
-    Route::put('/Books/update/{id}', [ProductController::class, 'update'])->name('dashboard.product.update');
-    Route::delete('/Books/destroy/{id}', [ProductController::class, 'destroy'])->name('dashboard.product.destroy');
-    Route::delete('Books/media/delete/{id}', [ProductController::class, 'deleteImage'])->name('dashboard.product.deleteImage');
+    Route::get('/books/index', [ProductController::class, 'index'])->name('dashboard.products.index');
+    Route::get('/books/data', [ProductController::class, 'getProductsData'])->name('dashboard.products.data');
+    Route::get('/books/create', [ProductController::class, 'create'])->name('dashboard.product.create');
+    Route::post('/books/store', [ProductController::class, 'store'])->name('dashboard.product.store');
+    Route::get('/books/edit/{id}', [ProductController::class, 'edit'])->name('dashboard.product.edit');
+    Route::put('/books/update/{id}', [ProductController::class, 'update'])->name('dashboard.product.update');
+    Route::delete('/books/destroy/{id}', [ProductController::class, 'destroy'])->name('dashboard.product.destroy');
+    Route::delete('/books/media/delete/{id}', [ProductController::class, 'deleteImage'])->name('dashboard.product.deleteImage');
 
     Route::get('/categories/index', [CategoryController::class, 'index'])->name('dashboard.categories.index');
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('dashboard.categories.create');

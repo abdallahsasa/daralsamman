@@ -57,18 +57,20 @@
                                     <td> <span class="@if($author->featured == '1')text-success @else text-danger @endif "> @if($author->featured == 1) Yes @else  No @endif  </span> </td>
 
                                     <td>
-                                        <div class="row ">
-                                            <a class="pe-2" href="{{route('dashboard.author.edit',$author->id)}}">
-                                                <i class="fa fa-pencil"></i>
+                                        <div class="row justify-content-center w-auto">
+                                            <a class="pe-2  w-auto" href="{{route('dashboard.author.edit',$author->id)}}">
+                                                <button class="btn btn-warning fa fa-pencil"></button>
                                             </a>
+                                            <a class="pe-2  w-auto">
                                             <form method="POST"
                                                   action="{{route('dashboard.author.destroy',$author->id)}}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button style="border: none;" class="fa fa-trash-o text-danger"
+                                                <button  class="btn-danger btn  fa fa-trash-o"
                                                         onclick="return confirm('Are you sure you want to delete this {{$author->name}} ')">
                                                 </button>
                                             </form>
+                                            </a>
                                         </div>
                                     </td>
 

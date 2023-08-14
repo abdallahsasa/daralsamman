@@ -5,6 +5,7 @@ use App\Http\Controllers\dashboard\Products\CategoryController;
 use App\Http\Controllers\dashboard\Products\ProductController;
 use App\Http\Controllers\dashboard\Author\AuthorController;
 use App\Http\Controllers\dashboard\Auditor\AuditorController;
+use App\Http\Controllers\dashboard\ContactUs\ContactUsController;
 use App\Http\Controllers\website\AboutUsPageController;
 use App\Http\Controllers\website\ContactUsPageController;
 use App\Http\Controllers\website\HomePageController;
@@ -78,6 +79,9 @@ Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard
     Route::put('/auditor/update/{id}', [AuditorController::class, 'update'])->name('dashboard.auditor.update');
     Route::delete('/auditor/destroy/{id}', [AuditorController::class, 'destroy'])->name('dashboard.auditor.destroy');
 
+    Route::get('/contact-us/index', [ContactUsController::class, 'index'])->name('dashboard.contact-us.index');
+    Route::get('/contact-us/create', [ContactUsController::class, 'create'])->name('dashboard.contact-us.create');
+
 
 
 });
@@ -86,3 +90,4 @@ Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

@@ -80,7 +80,7 @@
                     <div class="clearfix"></div>
                 </a>
                 <ul id="contact-menu" class="collapse" data-bs-parent="#sidebarnav">
-                    <li><a href="#">Requested Messages</a></li>
+                    <li><a href="{{route('dashboard.contact-us.index')}}">Requested Messages</a></li>
                 </ul>
 
             </li>

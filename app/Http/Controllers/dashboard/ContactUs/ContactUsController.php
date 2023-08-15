@@ -36,7 +36,7 @@ class ContactUsController extends Controller
         return view($this->index_view ,compact('messages'));
     }
 
-    public function create()
+    public function createSubject()
     {
         return view($this->create_view);
     }

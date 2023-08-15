@@ -27085,3 +27085,8 @@ tr{
 .remove-attribute-btn{
     font-size: 1.5rem;
 }
+.scrollable-div {
+    max-height: 300px; /* Adjust the desired maximum height */
+    overflow-y: auto;
+    overflow-x:hidden ;
+}

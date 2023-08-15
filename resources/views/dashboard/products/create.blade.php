@@ -1,12 +1,4 @@
 @extends('dashboard.layouts.app')
-@section('style')
-<style>
-    .scrollable-div {
-        max-height: 300px; /* Adjust the desired maximum height */
-        overflow-y: auto;
-    }
-</style>
-@endsection
 
 
 @section('content')

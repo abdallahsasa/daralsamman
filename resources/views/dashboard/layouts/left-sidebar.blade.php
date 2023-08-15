@@ -81,6 +81,14 @@
                 </a>
                 <ul id="contact-menu" class="collapse" data-bs-parent="#sidebarnav">
                     <li><a href="{{route('dashboard.contact-us.index')}}">Requested Messages</a></li>
+                    <li>
+                        <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#auth" class="" aria-expanded="true">Message's Subject<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
+                        <ul id="auth" class="collapse" style="">
+                            <li><a href="{{route('dashboard.contact-us.index')}}">All Subjects</a></li>
+                            <li><a href="{{route('dashboard.contact-us.index')}}">Add New Subject</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
 
             </li>
@@ -98,6 +106,9 @@
                 </ul>
 
             </li>
+
+
+
 
         </ul>
     </div>

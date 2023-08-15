@@ -80,7 +80,7 @@ Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard
     Route::delete('/auditor/destroy/{id}', [AuditorController::class, 'destroy'])->name('dashboard.auditor.destroy');
 
     Route::get('/contact-us/index', [ContactUsController::class, 'index'])->name('dashboard.contact-us.index');
-    Route::get('/contact-us/create', [ContactUsController::class, 'create'])->name('dashboard.contact-us.create');
+    Route::get('/contact-us/create', [ContactUsController::class, 'createSubject'])->name('dashboard.contact-us.create');
 
 
 

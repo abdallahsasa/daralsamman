@@ -81,6 +81,9 @@ Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard
 
     Route::get('/contact-us/index', [ContactUsController::class, 'index'])->name('dashboard.contact-us.index');
     Route::get('/contact-us/create', [ContactUsController::class, 'createSubject'])->name('dashboard.contact-us.create');
+    Route::post('/contact-us/store', [ContactUsController::class, 'store'])->name('dashboard.contact-us.store');
+    Route::delete('/contact-us/destroy/{id}', [ContactUsController::class, 'destroySubject'])->name('dashboard.contact-us.destroy');
+
 
 
 

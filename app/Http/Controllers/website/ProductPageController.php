@@ -43,7 +43,7 @@ class ProductPageController extends Controller
     {
         $product = Product::where('status', 'active')->findOrFail($id);
 
-        $category = Category::where('status', 'active')->findOrFail($product->category_id);
+//        $category = Category::where('status', 'active')->findOrFail($product->category_id);
 
         $categories = Category::where('status', 'active')->get();
 
@@ -52,7 +52,7 @@ class ProductPageController extends Controller
             ->get();
 
 // Return the view with the data
-        return view('website.products.show', compact('categories', 'product', 'category','relatedProducts'));
+        return view('website.products.details', compact('categories', 'product','relatedProducts'));
 
     }
 

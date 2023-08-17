@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
-    protected $table = 'messages-subject';
+    protected $table = 'messages_subject';
     protected $fillable = array('subject');
 
     public function products()

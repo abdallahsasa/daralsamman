@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->string('email')->unique()->nullable();
             $table->string('Address');
+            $table->bigInteger('country_id')->unsigned();
+            $table->index('country_id');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
             $table->text('description')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->bigInteger('sort_number')->nullable()->default('0');

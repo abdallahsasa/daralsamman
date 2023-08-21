@@ -6,6 +6,7 @@ use App\Http\Controllers\dashboard\Products\ProductController;
 use App\Http\Controllers\dashboard\Author\AuthorController;
 use App\Http\Controllers\dashboard\Auditor\AuditorController;
 use App\Http\Controllers\dashboard\ContactUs\ContactUsController;
+use App\Http\Controllers\dashboard\Supplier\SupplierController;
 use App\Http\Controllers\website\AboutUsPageController;
 use App\Http\Controllers\website\ContactUsPageController;
 use App\Http\Controllers\website\HomePageController;
@@ -83,6 +84,13 @@ Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard
     Route::get('/contact-us/create', [ContactUsController::class, 'createSubject'])->name('dashboard.contact-us.create');
     Route::post('/contact-us/store', [ContactUsController::class, 'store'])->name('dashboard.contact-us.store');
     Route::delete('/contact-us/destroy/{id}', [ContactUsController::class, 'destroySubject'])->name('dashboard.contact-us.destroy');
+
+    Route::get('/supplier/index', [SupplierController::class, 'index'])->name('dashboard.supplier.index');
+    Route::get('/supplier/create', [SupplierController::class, 'create'])->name('dashboard.supplier.create');
+    Route::post('/supplier/store', [SupplierController::class, 'store'])->name('dashboard.supplier.store');
+    Route::get('/supplier/edit/{id}', [SupplierController::class, 'edit'])->name('dashboard.supplier.edit');
+    Route::put('/supplier/update/{id}', [SupplierController::class, 'update'])->name('dashboard.supplier.update');
+    Route::delete('/supplier/destroy/{id}', [SupplierController::class, 'destroy'])->name('dashboard.supplier.destroy');
 
 
 

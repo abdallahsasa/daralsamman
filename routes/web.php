@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomePageController::class, 'index'])->name('website.home');
 Route::get('about', [AboutUsPageController::class, 'index'])->name('website.about');
 Route::get('contact', [ContactUsPageController::class, 'index'])->name('website.contact');
+Route::post('contact/store', [ContactUsPageController::class, 'store'])->name('website.contact.store');
 
 //Route::get('/products', [ProductPageController::class, 'index'])->name('website.products');
 Route::get('/books', [ProductPageController::class, 'index'])->name('website.products.index');

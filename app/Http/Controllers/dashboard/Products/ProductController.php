@@ -231,7 +231,8 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, $id)
     {
         $validated_data = $request->validated();
-        // DB::beginTransaction();
+
+         DB::beginTransaction();
         $object = $this->model_instance::findOrFail($id);
 
         // Update the product details except for the images and gallery
@@ -313,7 +314,7 @@ class ProductController extends Controller
         }
 
         $object->save();
-        //DB::commit();
+        DB::commit();
 
         // You can uncomment this if you have UserActivity implemented
         // $log_message = trans('products.update_log') . '#' . $object->id;

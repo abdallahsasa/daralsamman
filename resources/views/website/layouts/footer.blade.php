@@ -41,19 +41,19 @@
             <div class="row">
 
                 <div class="col-lg-3 mb-5 mb-md-0">
-                    <h4 class="font-size-3 font-weight-medium mb-2 mb-xl-5 pb-xl-1 text-gray-500">Explore</h4>
+                    <h4 class="font-size-3 font-weight-medium mb-2 mb-xl-5 pb-xl-1 text-gray-500">روابط هامة</h4>
                     <ul class="list-unstyled mb-0">
                         <li class="pb-2">
-                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">About as</a>
+                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="{{route('website.products.index')}}">اصدارات الدار</a>
+                        </li>
+                        <li class="pb-2">
+                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">الموزعون المعتمدون</a>
+                        </li>
+                        <li class="pb-2">
+                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="{{route('website.about')}}">تأسيس الدار</a>
                         </li>
                         <li class="py-2">
-                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">Sitemap</a>
-                        </li>
-                        <li class="py-2">
-                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">Bookmarks</a>
-                        </li>
-                        <li class="pt-2">
-                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">Sign in/Join</a>
+                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="{{route('website.contact')}}">تواصل معنا</a>
                         </li>
                     </ul>
                 </div>
@@ -82,17 +82,17 @@
                 </div>
                 <div class="col-lg-6 mb-4 mb-md-0">
                     <div class="pb-md-6">
-                        <a href="index.html" class="d-inline-block mb-5">
+                        <a href="{{route('website.home')}}" class="d-inline-block mb-5">
                             <img src="{{asset('website/img/logo/logo-white.png')}}" class="logo">
                         </a>
                         <address class="font-size-2 mb-5">
                                 <span class="mb-2 font-weight-normal text-white">
-                                    1418 River Drive, Suite 35 Cottonhall, CA 9622 <br> United States
+                                   تركيا - اسطنبول - الفاتح
                                 </span>
                         </address>
                         <div class="mb-4">
-                            <a href="mailto:sale@bookworm.com" class="font-size-2 d-block text-white mb-1">sale@bookworm.com</a>
-                            <a href="tel:+1246-345-0695" class="font-size-2 d-block text-white">+1 246-345-0695</a>
+                            <a href="mailto:info@daralsamman.com" class="font-size-2 d-block text-white mb-1">info@daralsamman.com</a>
+                            <a href="tel:+905050839104" class="font-size-2 d-block text-white">+90 505 083 9104</a>
                         </div>
                         <ul class="list-unstyled mb-0 d-flex">
                             <li class="btn pr-0">
@@ -101,7 +101,7 @@
                                 </a>
                             </li>
                             <li class="btn">
-                                <a class="text-white" href="#">
+                                <a class="text-white" href="https://www.facebook.com/dar.alsamman">
                                     <span class="fab fa-facebook-f"></span>
                                 </a>
                             </li>
@@ -113,11 +113,6 @@
                             <li class="btn">
                                 <a class="text-white" href="#">
                                     <span class="fab fa-twitter"></span>
-                                </a>
-                            </li>
-                            <li class="btn">
-                                <a class="text-white" href="#">
-                                    <span class="fab fa-pinterest"></span>
                                 </a>
                             </li>
                         </ul>

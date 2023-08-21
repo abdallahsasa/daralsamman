@@ -38,7 +38,7 @@ class ContactUsController extends Controller
     {
         $messages = $this->model_instance::all();
 
-        return view($this->index_view ,compact('messages'));
+        return view($this->index_view, compact('messages'));
     }
 
     public function createSubject()
@@ -47,14 +47,14 @@ class ContactUsController extends Controller
 
         $messages = $this->model_instance::all();
 
-        return view($this->create_view,compact('subjects'));
+        return view($this->create_view, compact('subjects'));
     }
 
     public function store(StoreContactUsRequest $request)
     {
         $validated_data = $request->validated();
         try {
-            $object = Subject::create(Arr::except($validated_data,[]));
+            $object = Subject::create(Arr::except($validated_data, []));
 
 //            $log_message = trans('categories.create_log') . '#' . $object->id;
 //            UserActivity::logActivity($log_message);
@@ -82,16 +82,13 @@ class ContactUsController extends Controller
             DB::commit();
 
             return response()->json(['message' => 'Subject deleted successfully'], 200);
-            
+
 
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json(['error' => 'Failed to delete Subject.'], 500);
         }
     }
-
-
-
 
 
 }

@@ -52,7 +52,7 @@
                             @foreach($auditors as $auditor)
                                 <tr>
                                     <td><img class="img-fluid mr-15 avatar-small" src="{{$auditor->image_url}}" alt="{{$auditor->image_name}}"> </td>
-                                    <td>{{$auditor->first_name }} {{$auditor->last_name}}</td>
+                                    <td>{{$auditor->first_name }} {{$auditor->middle_name }} {{$auditor->last_name}}</td>
                                     <td> <span class="@if($auditor->status == 'active')text-success @else text-danger @endif ">{{$auditor->status}} </span> </td>
 
                                     <td> <span class="@if($auditor->featured == '1')text-success @else text-danger @endif "> @if($auditor->featured == 1) Yes @else  No @endif  </span> </td>

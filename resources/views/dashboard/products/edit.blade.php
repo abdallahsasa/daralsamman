@@ -74,7 +74,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="name">Book Name</label>
                                             <input required name="name" type="text" class="form-control"
-                                                   value="{{$product->name}} {{old('name')}}" id="name"
+                                                   value=" {{old('name',$product->name)}}" id="name"
                                                    placeholder="Enter Book Name">
                                             @if($errors->has('name'))
                                                 <div class="alert alert-danger" role="alert">
@@ -86,7 +86,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="slug">Slug</label>
                                             <input required name="slug" type="text" class="form-control"
-                                                   value="{{$product->slug}} {{old('slug')}}" id="slug"
+                                                   value="{{old('slug',$product->slug)}}" id="slug"
                                                    placeholder="Enter Book slug">
                                             @if($errors->has('slug'))
                                                 <div class="alert alert-danger" role="alert">
@@ -98,7 +98,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="sku">Book Sku</label>
                                             <input required name="sku" type="text" class="form-control"
-                                                   value="{{$product->sku}} {{old('sku')}}" id="sku"
+                                                   value=" {{old('sku',$product->sku)}}" id="sku"
                                                    placeholder="Ex.. Book-01">
                                             @if($errors->has('sku'))
                                                 <div class="alert alert-danger" role="alert">
@@ -112,7 +112,7 @@
                                                 Description</label>
                                             <textarea name="short_description" class="form-control"
                                                       id="short_description"
-                                                      rows="2">{{$product->short_description}} {{old('short_description')}}</textarea>
+                                                      rows="2"> {{old('short_description',$product->short_description)}}</textarea>
                                             @if($errors->has('short_description'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('short_description') }}
@@ -124,7 +124,7 @@
                                             <label class="form-label" for="description">Book Description</label>
                                             <textarea id="summernote" name="description" class="form-control"
                                                       id="description"
-                                                      rows="2">{{$product->description}} {{old('description')}}</textarea>
+                                                      rows="2"> {{old('description',$product->description)}}</textarea>
                                             @if($errors->has('description'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('description') }}
@@ -191,7 +191,7 @@
                                                     id="category_id">
                                                 <option selected disabled>Category</option>
                                                 @foreach($categories as $category)
-                                                    <option value="{{ $category->id }} {{old("category_id")}}"
+                                                    <option value=" {{old("category_id",$category->id)}}"
                                                             @if($category->id == $product->category_id) selected @endif>{{ $category->name }}
                                                     </option>
                                                 @endforeach
@@ -226,7 +226,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label" for="auditors_ids">Book Name</label>
+                                            <label class="form-label" for="auditors_ids">Auditor Name</label>
                                             <select required name="auditors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3"   multiple>
 
                                                 @foreach($auditors as $auditor)
@@ -353,7 +353,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="meta_title">Meta Title</label>
                                             <input name="meta_title" type="text" class="form-control"
-                                                   value="{{$product->meta_title}} {{old('meta_title')}}"
+                                                   value=" {{old('meta_title',$product->meta_title)}}"
                                                    id="meta_title"
                                                    placeholder="Meta Title">
                                             @if($errors->has('meta_title'))
@@ -366,7 +366,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="meta_description">Meta Description</label>
                                             <textarea name="meta_description" class="form-control" id="meta_description"
-                                                      rows="2"> {{$product->meta_description}} {{old('meta_description')}}</textarea>
+                                                      rows="2">  {{old('meta_description',$product->meta_description)}}</textarea>
                                             @if($errors->has('meta_description'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('meta_description') }}
@@ -382,7 +382,7 @@
                                             <label class="form-label" for="product_tags">Book Tags</label>
                                             <div class="tag-input">
                                                 <input type="text" name="product_tags" class="form-control"
-                                                       value="{{$tags = implode(';', $product->tags->pluck('tag')->toArray())}} {{ old('product_tags')}}"
+                                                       value=" {{ old('product_tags',$tags = implode(';', $product->tags->pluck('tag')->toArray()))}}"
                                                        id="product_tags"
                                                        placeholder="Product Tags"/>
                                             </div>
@@ -529,10 +529,6 @@
                     $('#featured_hidden').val(0);
                 }
             });
-
-
-
-
         });
 
 

@@ -164,12 +164,12 @@
                                 </div>
                                 <div class="woocommerce-loop-product__body product__body pt-3 bg-white">
                                     <div class="text-uppercase font-size-1 mb-1 text-truncate"><a
-                                            href="../shop/single-product-v1.html">{{$product->category->name}}</a></div>
+                                            href="#">{{$product->category->name}}</a></div>
                                     <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark">
-                                        <a href="../shop/single-product-v1.html">{{$product->name}}</a></h2>
+                                        <a href="{{route('website.product.details',$product->id)}}">{{$product->name}}</a></h2>
                                     <div class="font-size-2  mb-1 text-truncate">
                                         @foreach($product->author as $author)
-                                        <a href="../others/authors-single.html" class="text-gray-700">{{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</a>
+                                        <a href="#" class="text-gray-700">{{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</a>
                                         @endforeach
                                     </div>
                                 </div>

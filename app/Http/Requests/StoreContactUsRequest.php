@@ -22,7 +22,9 @@ class StoreContactUsRequest extends FormRequest
     public function rules(): array
     {
         return [
+
             'subject' => 'required|string',
+
 
         ];
     }

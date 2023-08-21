@@ -58,7 +58,7 @@
 
                                         <div class="mb-3">
                                             <label class="form-label" for="slug">Slug</label>
-                                            <input required name="slug" type="text" class="form-control"
+                                            <input  name="slug" type="text" class="form-control"
                                                    value="{{old('slug')}}" id="slug" placeholder="Enter Book slug">
                                             @if($errors->has('slug'))
                                                 <div class="alert alert-danger" role="alert">
@@ -70,7 +70,7 @@
 
                                         <div class="mb-3">
                                             <label class="form-label" for="sku">Book Sku</label>
-                                            <input required name="sku" type="text" class="form-control"
+                                            <input  name="sku" type="text" class="form-control"
                                                    value="{{old('sku')}}" id="sku" placeholder="Ex.. Book-01">
                                             @if($errors->has('sku'))
                                                 <div class="alert alert-danger" role="alert">
@@ -244,7 +244,7 @@
 
                                         <div class="mb-3">
                                             <label class="form-label" for="auditor_id">Auditor Name</label>
-                                            <select required name="auditors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3"   multiple>
+                                            <select  name="auditors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3"   multiple>
 
                                                 @foreach($auditors as $auditor)
                                                     <option

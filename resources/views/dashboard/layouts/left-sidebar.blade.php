@@ -55,8 +55,19 @@
                     <div class="clearfix"></div>
                 </a>
                 <ul id="auditors-menu" class="collapse" data-bs-parent="#sidebarnav">
-                    <li><a href="{{route('dashboard.auditor.index')}}">Brows All Auditors</a></li>
+                    <li><a href="{{route('dashboard.auditor.index')}}">Brows All Audsitors</a></li>
                     <li><a href="{{route('dashboard.auditor.create')}}">Add New Auditor </a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#supplier-menu">
+                    <div class="pull-left"><i class="fa fa-truck"></i><span class="right-nav-text">Supplier</span></div>
+                    <div class="pull-right"><i class="ti-plus"></i></div>
+                    <div class="clearfix"></div>
+                </a>
+                <ul id="supplier-menu" class="collapse" data-bs-parent="#sidebarnav">
+                    <li><a href="{{route('dashboard.supplier.index')}}">Brows All Supplier</a></li>
+                    <li><a href="{{route('dashboard.supplier.create')}}">Add New Supplier </a></li>
                 </ul>
             </li>
 

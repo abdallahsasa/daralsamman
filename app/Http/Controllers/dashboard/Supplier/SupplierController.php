@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dashboard\Supplier;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSupplierRequest;
 use App\Models\Supplier\country;
 use App\Models\Supplier\Supplier;
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class SupplierController extends Controller
         $this->show_view = 'dashboard.suppliers.show';
         $this->edit_view = 'dashboard.suppliers.edit';
 
-        $this->create_route = 'dashboard.suppliers.create';
+        $this->create_route = 'dashboard.supplier.create';
         $this->edit_route = 'dashboard.suppliers.edit';
 
 
@@ -70,7 +71,7 @@ class SupplierController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreSupplierRequest $request)
     {
         $validated_data = $request->validated();
         DB::beginTransaction();

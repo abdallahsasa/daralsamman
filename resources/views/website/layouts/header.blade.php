@@ -1,4 +1,3 @@
-
 <header id="site-header" class="site-header__v9 site-header__white-text">
     <div class="masthead">
         <div class="container pt-3 pt-md-4 pb-3 pb-md-5">
@@ -62,7 +61,8 @@
                                     aria-labelledby="homeDropdownInvoker">
                                     @if(isset($categories) && !$categories->isEmpty())
                                         @foreach($categories as $category )
-                                            <li><a href="../home/index.html" class="dropdown-item link-black-100">{{$category->name}}</a></li>
+                                            <li><a href="../home/index.html"
+                                                   class="dropdown-item link-black-100">{{$category->name}}</a></li>
                                         @endforeach
                                     @endif
 
@@ -71,9 +71,34 @@
                             <li class="nav-item"><a href="#"
                                                     class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الموزعون
                                     المعتمدون</a></li>
-                            <li class="nav-item"><a href="#"
-                                                    class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">محققون
-                                    و مؤلفون</a></li>
+
+                            <li class="nav-item dropdown">
+                                <a id="homeDropdownInvoker" href="{{route('website.products.index')}}"
+                                   class="dropdown-toggle nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium d-flex align-items-center"
+                                   aria-haspopup="true"
+                                   aria-expanded="false"
+                                   data-unfold-event="hover"
+                                   data-unfold-target="#AuthorsAndAuditorsMenu"
+                                   data-unfold-type="css-animation"
+                                   data-unfold-duration="200"
+                                   data-unfold-delay="50"
+                                   data-unfold-hide-on-scroll="true"
+                                   data-unfold-animation-in="slideInUp"
+                                   data-unfold-animation-out="fadeOut">
+                                    محققون و مؤلفون
+                                </a>
+                                <ul id="AuthorsAndAuditorsMenu"
+                                    class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900"
+                                    aria-labelledby="homeDropdownInvoker">
+
+                                    <li><a href="{{route('website.authors.index')}}"
+                                           class="dropdown-item link-black-100">المؤلفون</a></li>
+                                    <li><a href="{{route('website.authors.index')}}"
+                                           class="dropdown-item link-black-100">المحققون</a></li>
+                                </ul>
+                            </li>
+
+
                             <li class="nav-item"><a href="#"
                                                     class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">اللجنة
                                     العلمية</a></li>

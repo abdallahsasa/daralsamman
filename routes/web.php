@@ -10,6 +10,7 @@ use App\Http\Controllers\website\AboutUsPageController;
 use App\Http\Controllers\website\ContactUsPageController;
 use App\Http\Controllers\website\HomePageController;
 use App\Http\Controllers\website\NewsPageController;
+use App\Http\Controllers\website\AuthorPageController;
 use App\Http\Controllers\website\ProductPageController;
 use App\Http\Controllers\website\SolutionsPageController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,8 @@ Route::get('/book/{id}', [ProductPageController::class, 'details'])->name('websi
 
 Route::get('/solutions', [SolutionsPageController::class, 'index'])->name('website.solutions');
 Route::get('/news', [NewsPageController::class, 'index'])->name('website.news');
+
+Route::get('/authors', [AuthorPageController::class, 'index'])->name('website.authors.index');
 //---------------- End of Website ---------------- //
 
 //---------------- Dashboard ---------------- //

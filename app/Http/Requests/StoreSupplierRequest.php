@@ -23,12 +23,11 @@ class StoreSupplierRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:3|max:200',
-            'contact_person' => 'required|string|min:3|max:200',
             'phone' => 'required|string|unique:suppliers,phone',
             'email' => 'nullable|email|unique:suppliers,email',
-            'Address' => 'required|string',
             'description' => 'nullable|string',
             'status' => 'required|in:active,inactive',
+            'country_id' => 'required|exists:countries,id',
             'sort_number' => 'nullable|integer',
             'meta_title' => 'nullable|string',
             'meta_description' => 'nullable|string',

@@ -47,8 +47,8 @@
                                 <div class="card card-statistics h-100">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
-                                                <label class="form-label" for="name">Name *</label>
+                                            <div class="col-sm-4 col-xl-12 col-xxl-6 mb-3">
+                                                <label class="form-label" for="name">Name*</label>
                                                 <input type="text" class="form-control" name="name" required
                                                        value="{{old('name')}}">
                                                 @if($errors->has('name'))
@@ -59,20 +59,9 @@
                                                 <div id="first_nameError" class="invalid-feedback"></div>
                                             </div>
 
-                                            <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
-                                                <label class="form-label" for="contact_person">Contact Person*</label>
-                                                <input type="text" class="form-control" name="contact_person"
-                                                       value="{{old('contact_person')}}">
-                                                @if($errors->has('contact_person'))
-                                                    <div class="alert alert-danger" role="alert">
-                                                        {{ $errors->first('contact_person') }}
-                                                    </div>
-                                                @endif
-                                                <div id="middle_nameError" class="invalid-feedback"></div>
-                                            </div>
-                                            <div class="col-sm-4 col-xl-12 col-xxl-3 mb-3">
-                                                <label class="form-label" for="phone">Phone Number</label>
-                                                <input type="text" class="form-control" name="phone" value="{{old('phone')}}">
+                                            <div class="col-sm-4 col-xl-12 col-xxl-6 mb-3">
+                                                <label class="form-label" for="phone">Phone Number*</label>
+                                                <input required type="text" class="form-control" name="phone" value="{{old('phone')}}">
                                                 @if($errors->has('phone'))
                                                     <div class="alert alert-danger" role="alert">
                                                         {{ $errors->first('phone') }}
@@ -81,12 +70,8 @@
                                                 <div id="numberError" class="invalid-feedback"></div>
                                             </div>
                                         </div>
-
-
-                                        <div class="row">
-
-
-                                            <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
+                                            <div class="row">
+                                            <div class="col-sm-4 col-xl-12 col-xxl-6 mb-3">
                                                 <label class="form-label" for="email">Email</label>
                                                 <input type="text" class="form-control" name="email" value="{{old('email')}}">
                                                 @if($errors->has('email'))
@@ -96,20 +81,8 @@
                                                 @endif
                                                 <div id="emailError" class="invalid-feedback"></div>
                                             </div>
-
-                                            <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
-                                                <label class="form-label" for="address">Address</label>
-                                                <input type="text" class="form-control" name="address" value="{{old('address')}}">
-                                                @if($errors->has('address'))
-                                                    <div class="alert alert-danger" role="alert">
-                                                        {{ $errors->first('address') }}
-                                                    </div>
-                                                @endif
-                                                <div id="websiteError" class="invalid-feedback"></div>
-                                            </div>
-
-                                            <div class="col-sm-4 col-xl-12 col-xxl-4 mb-3">
-                                                <label class="form-label" for="country_id">Country</label>
+                                            <div class="col-sm-4 col-xl-12 col-xxl-6 mb-3">
+                                                <label class="form-label" for="country_id">Country*</label>
                                                 <select required class="form-control form-select form-select-lg mb-15"
                                                         aria-label=".form-select-lg example" name="country_id">
                                                     <option selected="">Choose...</option>
@@ -119,6 +92,9 @@
                                                 </select>
                                             </div>
                                         </div>
+
+
+
                                     </div>
                                 </div>
                             </div>

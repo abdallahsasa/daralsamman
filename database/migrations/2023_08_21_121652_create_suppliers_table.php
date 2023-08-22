@@ -14,10 +14,8 @@ return new class extends Migration
         Schema::create('suppliers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('contact_person');
             $table->string('phone')->unique();
             $table->string('email')->unique()->nullable();
-            $table->string('Address');
             $table->bigInteger('country_id')->unsigned();
             $table->index('country_id');
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');

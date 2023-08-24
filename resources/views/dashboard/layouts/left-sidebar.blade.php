@@ -70,6 +70,13 @@
                     <li><a href="{{route('dashboard.supplier.create')}}">Add New Supplier </a></li>
                 </ul>
             </li>
+            <li>
+                <a href="{{route('dashboard.country.create')}}"  >
+                    <div class="pull-left"><i class="fa fa-flag"></i><span class="right-nav-text">Countries</span></div>
+                    <div class="clearfix"></div>
+                </a>
+
+            </li>
 
             <li>
                 <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#news-menu">

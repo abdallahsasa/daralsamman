@@ -128,9 +128,9 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
 
+
         $validated_data = $request->validated();
-
-
+        try {
             DB::beginTransaction();
             $object = $this->model_instance::create(Arr::except($validated_data, ['image', 'gallery']));
             $object->sort_number = $object->id;
@@ -174,7 +174,7 @@ class ProductController extends Controller
             }
 
 
-        if ($request->has('product_tags') && $request->filled('product_tags')) {
+            if ($request->has('product_tags') && $request->filled('product_tags')) {
                 $tags = json_decode($request->get('product_tags'));
                 foreach ($tags as $tag) {
                     $arrayTags[] = ['value' => $tag->value];
@@ -194,14 +194,16 @@ class ProductController extends Controller
             }
 
 
-
             $object->save();
             DB::commit();
 //            $log_message = trans('products.create_log') . '#' . $object->id;
 //            UserActivity::logActivity($log_message);
 
             return redirect()->route($this->create_route, $object->id)->with('success', $this->success_message);
-
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->route($this->create_route, $object->id)->with('error', $this->error_message);
+        }
 
     }
 
@@ -225,102 +227,106 @@ class ProductController extends Controller
         $selectedAuthorIds = $product->author->pluck('id')->toArray();
         $selectedAuditorIds = $product->auditor->pluck('id')->toArray();
 
-        return view($this->edit_view, compact('product','categories', 'auditors', 'authors','selectedAuthorIds','selectedAuditorIds'));
+        return view($this->edit_view, compact('product', 'categories', 'auditors', 'authors', 'selectedAuthorIds', 'selectedAuditorIds'));
     }
 
     public function update(UpdateProductRequest $request, $id)
     {
         $validated_data = $request->validated();
+        try {
+            DB::beginTransaction();
+            $object = $this->model_instance::findOrFail($id);
 
-         DB::beginTransaction();
-        $object = $this->model_instance::findOrFail($id);
+            // Update the product details except for the images and gallery
+            $object->update(Arr::except($validated_data, ['image', 'gallery']));
+            // Update the images
+            if ($request->hasFile('gallery')) {
+                $productImages = $request->file('gallery');
+                if (is_array($productImages)) {
 
-        // Update the product details except for the images and gallery
-        $object->update(Arr::except($validated_data, ['image', 'gallery']));
-        // Update the images
-        if ($request->hasFile('gallery')) {
-            $productImages = $request->file('gallery');
-            if (is_array($productImages)) {
+                    foreach ($productImages as $image) {
+                        $img_file_path = Storage::disk('public_images')->put('products', $image);
+                        $image_name = $image->getClientOriginalName();
+                        $image_url = getMediaUrl($img_file_path);
 
-                foreach ($productImages as $image) {
-                    $img_file_path = Storage::disk('public_images')->put('products', $image);
-                    $image_name = $image->getClientOriginalName();
-                    $image_url = getMediaUrl($img_file_path);
+                        $object->media()->create([
+                            'image_url' => $image_url,
+                            'image_name' => $image_name,
+                        ]);
+                    }
+                }
+            }
 
-                    $object->media()->create([
-                        'image_url' => $image_url,
-                        'image_name' => $image_name,
+
+            if ($request->has('image')) {
+                // Delete the old main image
+                foreach ($object->media as $image) {
+
+                    if ($image->is_featured == 'true') {
+
+                        $url = $image->image_url;
+                        $filePath = str_replace(url('/'), '', $url);
+                        Storage::disk('public_images')->delete($filePath);
+                        $image->delete();
+                    }
+                }
+
+                $image = $request->file('image');
+                $img_file_path = Storage::disk('public_images')->put('products', $image);
+                $image_name = $image->getClientOriginalName();
+                $image_url = getMediaUrl($img_file_path);
+                $object->media()->create([
+                    'image_url' => $image_url,
+                    'image_name' => $image_name,
+                    'is_featured' => 'true',
+                ]);
+            }
+
+            // Update the attributes
+            if ($request->has('attributes')) {
+                $object->attributes()->delete();
+                foreach ($request->get('attributes') as $attribute) {
+                    $object->attributes()->create([
+                        'name' => $attribute['name'],
+                        'value' => $attribute['value'],
                     ]);
                 }
             }
-        }
 
-
-        if ($request->has('image')) {
-            // Delete the old main image
-            foreach ($object->media as $image) {
-
-                if ($image->is_featured == 'true') {
-
-                    $url = $image->image_url;
-                    $filePath = str_replace(url('/'), '', $url);
-                    Storage::disk('public_images')->delete($filePath);
-                    $image->delete();
+            // Update the product tags
+            if ($request->has('product_tags') && $request->filled('product_tags')) {
+                $object->tags()->delete();
+                $tags = json_decode($request->get('product_tags'));
+                foreach ($tags as $tag) {
+                    $arrayTags[] = ['value' => $tag->value];
+                }
+                $arrayTags = collect($arrayTags)->toArray();
+                foreach ($arrayTags as $tag) {
+                    $object->tags()->create([
+                        'tag' => $tag['value']
+                    ]);
                 }
             }
 
-            $image = $request->file('image');
-            $img_file_path = Storage::disk('public_images')->put('products', $image);
-            $image_name = $image->getClientOriginalName();
-            $image_url = getMediaUrl($img_file_path);
-            $object->media()->create([
-                'image_url' => $image_url,
-                'image_name' => $image_name,
-                'is_featured' => 'true',
-            ]);
-        }
-
-        // Update the attributes
-        if ($request->has('attributes')) {
-            $object->attributes()->delete();
-            foreach ($request->get('attributes') as $attribute) {
-                $object->attributes()->create([
-                    'name' => $attribute['name'],
-                    'value' => $attribute['value'],
-                ]);
+            if ($request->has('authors_ids')) {
+                $object->author()->sync($validated_data['authors_ids']);
             }
-        }
-
-        // Update the product tags
-        if ($request->has('product_tags') && $request->filled('product_tags')) {
-            $object->tags()->delete();
-            $tags = json_decode($request->get('product_tags'));
-            foreach ($tags as $tag) {
-                $arrayTags[] = ['value' => $tag->value];
+            if ($request->has('auditors_ids')) {
+                $object->auditor()->sync($validated_data['auditors_ids']);
             }
-            $arrayTags = collect($arrayTags)->toArray();
-            foreach ($arrayTags as $tag) {
-                $object->tags()->create([
-                    'tag' => $tag['value']
-                ]);
-            }
+
+            $object->save();
+            DB::commit();
+
+            // You can uncomment this if you have UserActivity implemented
+            // $log_message = trans('products.update_log') . '#' . $object->id;
+            // UserActivity::logActivity($log_message);
+
+            return redirect()->route($this->edit_route, $object->id)->with('success', $this->update_success_message);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->route($this->edit_route, $object->id)->with('error', $this->update_error_message);
         }
-
-        if ($request->has('authors_ids')) {
-            $object->author()->sync($validated_data['authors_ids']);
-        }
-        if ($request->has('auditors_ids')) {
-            $object->auditor()->sync($validated_data['auditors_ids']);
-        }
-
-        $object->save();
-        DB::commit();
-
-        // You can uncomment this if you have UserActivity implemented
-        // $log_message = trans('products.update_log') . '#' . $object->id;
-        // UserActivity::logActivity($log_message);
-
-        return redirect()->route($this->edit_route, $object->id)->with('success', $this->update_success_message);
     }
 
     public function destroy($productId)

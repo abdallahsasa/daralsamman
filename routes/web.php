@@ -6,6 +6,7 @@ use App\Http\Controllers\dashboard\Products\ProductController;
 use App\Http\Controllers\dashboard\Author\AuthorController;
 use App\Http\Controllers\dashboard\Auditor\AuditorController;
 use App\Http\Controllers\dashboard\ContactUs\ContactUsController;
+use App\Http\Controllers\dashboard\Supplier\CountryController;
 use App\Http\Controllers\dashboard\Supplier\SupplierController;
 use App\Http\Controllers\website\AboutUsPageController;
 use App\Http\Controllers\website\ContactUsPageController;
@@ -97,6 +98,9 @@ Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard
     Route::delete('/supplier/destroy/{id}', [SupplierController::class, 'destroy'])->name('dashboard.supplier.destroy');
 
 
+    Route::get('/country/create', [CountryController::class, 'create'])->name('dashboard.country.create');
+    Route::post('/country/store', [CountryController::class, 'store'])->name('dashboard.country.store');
+    Route::delete('/country/destroy/{id}', [CountryController::class, 'destroy'])->name('dashboard.country.destroy');
 
 
 });

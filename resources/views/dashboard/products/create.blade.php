@@ -29,7 +29,6 @@
             @endif
                 @if ($message = \Session::get('errors'))
                     <div class="alert alert-danger alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
                         @foreach($message->all() as $error)
                             <strong>{{ $error }}</strong><br>
                         @endforeach

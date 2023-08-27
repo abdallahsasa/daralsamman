@@ -52,8 +52,8 @@ class StoreProductRequest extends FormRequest
             'authors_ids' => 'array',
             'authors_ids.*' => 'required|exists:authors,id',
 
-            'auditors_ids' => 'required|exists:auditors,id',
-            'auditors_ids.*' => 'required|exists:auditors,id',
+            'auditors_ids' => 'array',
+            'auditors_ids.*' => 'nullable|exists:auditors,id',
 
         ];
     }

@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="{{asset('website/vendor/slick-carousel/slick/slick.css')}}"/>
     <link rel="stylesheet" href="{{asset('website/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
     <link rel="stylesheet" href="{{asset('website/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
+    <link rel="stylesheet" href="{{asset('website/vendor/cubeportfolio/css/cubeportfolio.min.css')}}">
+
+
 
     <link rel="stylesheet" href="{{asset('website/vendor/animate.css/animate.css')}}">
     <link rel="stylesheet" href="{{asset('website/vendor/hs-megamenu/src/hs.megamenu.css')}}">

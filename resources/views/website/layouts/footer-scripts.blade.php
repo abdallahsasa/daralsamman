@@ -7,6 +7,7 @@
 <script src="{{asset('website/vendor/multilevel-sliding-mobile-menu/dist/jquery.zeynep.js')}}"></script>
 <script src="{{asset('website/vendor/hs-megamenu/src/hs.megamenu.js')}}"></script>
 <script src="{{asset('website/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
+<script src="{{asset('website/vendor/cubeportfolio/js/jquery.cubeportfolio.min.js')}}"></script>
 <script src="{{asset('website/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{asset('website/vendor/slick-carousel/slick/slick.min.js')}}"></script>
 
@@ -16,6 +17,7 @@
 <script src="{{asset('website/js/components/hs.malihu-scrollbar.js')}}"></script>
 <script src="{{asset('website/js/components/hs.slick-carousel.js')}}"></script>
 <script src="{{asset('website/js/components/hs.selectpicker.js')}}"></script>
+<script src="{{asset('website/js/components/hs.cubeportfolio.js')}}"></script>
 <script src="{{asset('website/js/components/hs.show-animation.js')}}"></script>
 
 <!-- JS Bookworm -->

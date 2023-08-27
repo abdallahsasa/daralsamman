@@ -16,7 +16,7 @@ class AuthorPageController extends Controller
     }
     public function index()
     {
-        $authors = $this->model_instance::all();
+        $authors = $this->model_instance::where('status', 'active')->get();
 
         return view($this->index_view, compact('authors'));
     }

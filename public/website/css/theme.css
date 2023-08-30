@@ -28779,3 +28779,6 @@ body > footer > div.bg-dark.space-1.space-lg-1 > div > div > div.col-lg-6.mb-4.m
 /*------------------------------------
 File for your custom SCSS style
 ------------------------------------*/
+.rtl-container{
+    flex-direction: row-reverse!important;
+}

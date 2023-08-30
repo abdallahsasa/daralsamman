@@ -10,7 +10,7 @@ use App\Http\Controllers\dashboard\Supplier\CountryController;
 use App\Http\Controllers\dashboard\Supplier\SupplierController;
 use App\Http\Controllers\website\AboutUsPageController;
 use App\Http\Controllers\website\ContactUsPageController;
-use App\Http\Controllers\website\HomePageController;
+use App\Http\Controllers\website\FrontPageController;
 use App\Http\Controllers\website\NewsPageController;
 use App\Http\Controllers\website\AuthorPageController;
 use App\Http\Controllers\website\ProductPageController;
@@ -29,7 +29,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 //---------------- Website ---------------- //
-Route::get('/', [HomePageController::class, 'index'])->name('website.home');
+
+Route::get('/home', [FrontPageController::class, 'index'])->name('home');
+Route::get('/', [FrontPageController::class, 'index'])->name('website.home');
 Route::get('about', [AboutUsPageController::class, 'index'])->name('website.about');
 Route::get('contact', [ContactUsPageController::class, 'index'])->name('website.contact');
 Route::post('contact/store', [ContactUsPageController::class, 'store'])->name('website.contact.store');
@@ -42,6 +44,7 @@ Route::get('/solutions', [SolutionsPageController::class, 'index'])->name('websi
 Route::get('/news', [NewsPageController::class, 'index'])->name('website.news');
 
 Route::get('/authors', [AuthorPageController::class, 'index'])->name('website.authors.index');
+Route::get('/suppliers', [FrontPageController::class, 'suppliersIndex'])->name('website.suppliers.index');
 //---------------- End of Website ---------------- //
 
 //---------------- Dashboard ---------------- //
@@ -108,5 +111,4 @@ Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

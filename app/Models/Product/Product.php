@@ -39,6 +39,10 @@ class Product extends Model
     {
         return $this->hasMany(ProductMedia::class, 'product_id');
     }
+    public function featuredMedia()
+    {
+        return $this->media()->where('is_featured', true);
+    }
 
     public function tags()
     {

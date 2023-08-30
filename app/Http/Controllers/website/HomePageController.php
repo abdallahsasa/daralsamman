@@ -17,6 +17,7 @@ class HomePageController extends Controller
             ->get();
 
         $categories = Category::where('status', 'active')
+            ->where('featured', 1)
             ->get();
 
         $numberOfProducts = Product::where('status', 'active')->count();

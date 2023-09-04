@@ -40,8 +40,7 @@
                                             <select name="parent_id" class="form-select form-select-lg mb-3" id="parent_id">
                                                 <option selected disabled>Category</option>
                                                 @foreach($categories as $category)
-                                                    <option value="{{$category->id}}">{{$category->name}}</option>
-                                                @endforeach
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>@endforeach
                                             </select>
                                             @if($errors->has('parent_id'))
                                                 <div class="alert alert-danger" role="alert">
@@ -54,7 +53,7 @@
                                             <label class="form-label" for="exampleInputEmail1">Category Name</label>
                                             <input required name="name" type="text" class="form-control"
                                                    aria-describedby="emailHelp"
-                                                   placeholder="Ex.. Hybrid Inverters " value="{{old('name')}}" >
+                                                    value="{{old('name')}}" >
                                             @if($errors->has('name'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('name') }}
@@ -65,7 +64,7 @@
                                             <label class="form-label" for="exampleInputEmail1">Category Slug</label>
                                             <input required name="slug" type="text" class="form-control"
                                                    aria-describedby="emailHelp"
-                                                   placeholder="Ex.. Hybrid Inverters " value="{{old('slug')}}" >
+                                                value="{{old('slug')}}" >
                                             @if($errors->has('slug'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('slug') }}

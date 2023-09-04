@@ -14,22 +14,10 @@ class ProductPageController extends Controller
      */
     public function index()
     {
-//        $products = Product::where('status', 'active');
-//
-//        if ($category !== 'all') {
-//            $categoryId = Category::where('slug', $category)->value('id');
-//            $products->where('category_id', $categoryId);
-//        }
-//
-//        $products = $products->get();
-//        $productsFeaturedImage = ProductMedia::where('product_id', $products->pluck('id'))
-//            ->where('is_featured', true)
-//            ->get();
-//        $category = Category::where('slug', $category)->value('name');
-//        $categories = Category::where('status', 'active')->get();
+        $products = Product::where('status', 'active')->get();
+        $categories = Category::where('status', 'active')->get();
 
-//        return view('website.products.index', compact('categories', 'products', 'category','productsFeaturedImage'));
-        return view ('website.products.index');
+        return view ('website.products.index',compact('categories','products'));
 
 
     }

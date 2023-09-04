@@ -154,8 +154,7 @@
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
-                                                    <input name="status" type="checkbox" id="statusCheckbox" checked=""
-                                                           value="active">
+                                                    <input name="status" type="checkbox" id="statusCheckbox" checked="" value="active">
                                                     <span></span>
                                                     Active/Inactive
                                                 </label>
@@ -176,9 +175,7 @@
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
-                                                    <input name="featured" type="checkbox" id="featuredBook"
-                                                           checked=""
-                                                           value="1">
+                                                    <input name="featured" type="checkbox" id="featuredBook" checked="" value="1">
                                                     <span></span>
                                                     Yes/No
                                                 </label>
@@ -237,7 +234,6 @@
                                             @endif
                                             <div id="authorError" class="invalid-feedback"></div>
                                         </div>
-
 
 
 

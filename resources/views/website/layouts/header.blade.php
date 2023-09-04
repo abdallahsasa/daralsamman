@@ -58,7 +58,7 @@
                                 </a>
                                 <ul id="homeDropdownMenu"
                                     class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900"
-                                    aria-labelledby="homeDropdownInvoker">
+                                    aria-labelledby="homeDropdownInvoker" >
                                     @if(isset($categories) && !$categories->isEmpty())
                                         @foreach($categories as $category )
                                             <li><a href="../home/index.html"

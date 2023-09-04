@@ -227,7 +227,7 @@
 
                                         <div class="mb-3">
                                             <label class="form-label" for="auditors_ids">Auditor Name</label>
-                                            <select required name="auditors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3"   multiple>
+                                            <select  name="auditors_ids[]" class="choices-multiple-remove-button form-select form-select-lg mb-3"   multiple>
 
                                                 @foreach($auditors as $auditor)
                                                     <option
@@ -252,25 +252,24 @@
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
-                                                    <input type="checkbox" name="status_checkbox" id="status">
+                                                    <input type="checkbox" name="status_checkbox" id="status" value="{{old('status',$product->status)}} ">
                                                     <span></span>
                                                     Active/Inactive
                                                 </label>
                                             </div>
                                         </div>
                                         <!-- Hidden input field to store the actual status value -->
-                                        <input type="hidden" name="status" id="status_hidden" value="inactive">
+                                        <input type="hidden" name="status" id="status_hidden" value="{{old('status',$product->status)}} ">
                                     </div>
                                 </div>
+
                                 <div class="card card-statistics h-10">
                                     <div class="card-body">
                                         <h5 class="card-title">Featured Book</h5>
                                         <div class="form-group mb-3">
                                             <div class="checkbox checbox-switch switch-success">
                                                 <label>
-                                                    <input type="checkbox"  id="featuredBook"
-                                                           checked=""
-                                                           value="{{old('status',$product->featured)}} ">
+                                                    <input type="checkbox"  id="featuredBook" checked="" value="{{old('featured',$product->featured)}} ">
                                                     <span></span>
                                                     Yes/No
                                                 </label>

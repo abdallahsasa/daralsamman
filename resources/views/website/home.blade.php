@@ -108,7 +108,7 @@
 
     <!---===== END MAIN CONTENT ===== -->
 
-
+    @if($products)
     <section class="space-bottom-3">
         <div class="container">
             <header class="mb-5 d-md-flex justify-content-between align-items-center">
@@ -147,17 +147,18 @@
                      &quot;slidesToShow&quot;: 1
                    }
                 }]">
+
                 @foreach($products as $product)
                     <div class="product">
                         <div class="product__inner overflow-hidden p-3 p-md-4d875">
                             <div
                                 class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
                                 <div class="woocommerce-loop-product__thumbnail">
-                                   @if($product->featuredMedia->first())
-                                            <a href="{{route('website.product.details',$product->id)}}" class="d-block"><img
-                                                    src="{{$product->featuredMedia->first()->image_url}}"
-                                                    class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid"
-                                                    alt="{{$product->featuredMedia->first()->image_name}}"></a>
+                                    @if($product->featuredMedia->first())
+                                        <a href="{{route('website.product.details',$product->id)}}" class="d-block"><img
+                                                src="{{$product->featuredMedia->first()->image_url}}"
+                                                class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid"
+                                                alt="{{$product->featuredMedia->first()->image_name}}"></a>
                                     @endif
 
                                 </div>
@@ -177,24 +178,31 @@
                             </div>
                         </div>
                     </div>
-
                 @endforeach
             </div>
         </div>
     </section>
+    @endif
 
-    <section class="space-bottom-3">
-        @foreach($categories as $category)
+
+    @if($categories)
+    @foreach($categories as $category)
+        <section class="space-bottom-3">
             <div class="container">
                 <div class="row align-items-center rtl-container">
                     <div class="col-md-5 col-lg-4 col-xl-3 mb-4 mb-md-0">
                         <div class="bg-img-hero min-height-440 rounded"
                              style="background-image: url({{$category->image_url}});">
                             <div class="p-5">
-                                <h4 class="font-size-22">{{$category->name}}</h4>
-                                <p></p>
+                                @if($category->name)
+                                    <h4 class="font-size-22">{{$category->name}}</h4>
+                                @endif
+
+                                @if($category->description)
+                                    <p>{{$category->description}}</p>
+                                @endif
                                 <a href="#" class="text-dark font-weight-medium text-uppercase stretched-link">مشاهدة
-                                    الجميع</a>
+                                    الكل</a>
                             </div>
                         </div>
                     </div>
@@ -227,37 +235,43 @@
                                     <div class="slick-track"
                                          style="opacity: 1; width: 1992px; transform: translate3d(0px, 0px, 0px);">
                                         @foreach($category->products as $product)
-                                        <div class="product product__no-border border-right slick-slide slick-active"
-                                             data-slick-index="1" aria-hidden="false"
-                                             style="width: 249px; height: auto;" tabindex="0" role="tabpanel"
-                                             id="slick-slide51" aria-describedby="slick-slide-control51">
-                                            <div class="product__inner overflow-hidden px-3 px-md-4d875">
-                                                <div
-                                                    class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
-                                                    <div class="woocommerce-loop-product__thumbnail">
-                                                        @if($product->featuredMedia->first())
-                                                        <a href="" class="d-block"
-                                                           tabindex="0"><img src="{{$product->featuredMedia->first()->image_url}}"
-                                                                             class="d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid"
-                                                                             alt="image-description"></a>
-                                                        @endif
-                                                    </div>
+                                            @if($product->status =='active')
+                                            <div
+                                                class="product product__no-border border-right slick-slide slick-active"
+                                                data-slick-index="1" aria-hidden="false"
+                                                style="width: 249px; height: auto;" tabindex="0" role="tabpanel"
+                                                id="slick-slide51" aria-describedby="slick-slide-control51">
+                                                <div class="product__inner overflow-hidden px-3 px-md-4d875">
                                                     <div
-                                                        class="woocommerce-loop-product__body product__body pt-3 bg-white">
-                                                        <div class="text-uppercase font-size-1 mb-1 text-truncate"><a
-                                                                href="../shop/single-product-v2.html" tabindex="0">{{$product->name}}</a></div>
-                                                        <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark">
-                                                            <a href="../shop/single-product-v2.html" tabindex="0">{{$product->short_description}}</a></h2>
-                                                        <div class="font-size-2  mb-1 text-truncate">
-                                                            @foreach($product->author as $author)
-                                                            <a href="../others/authors-single.html" class="text-gray-700" tabindex="0">{{$author->first_name }} {{$author->last_name}}</a>
-                                                            @endforeach
+                                                        class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
+                                                        <div class="woocommerce-loop-product__thumbnail">
+                                                            @if($product->featuredMedia->first())
+                                                                <a href="{{route('website.product.details',$product->id)}} " class="d-block" tabindex="0">
+                                                                    <img src="{{$product->featuredMedia->first()->image_url}}"
+                                                                        class="d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid"
+                                                                        alt="image-description">
+                                                                </a>
+                                                            @endif
                                                         </div>
-                                                    </div>
+                                                        <div
+                                                            class="woocommerce-loop-product__body product__body pt-3 bg-white">
+                                                            <div class="text-uppercase font-size-1 mb-1 text-truncate">
+                                                                <a href="../shop/single-product-v2.html" tabindex="0">{{$product->category->name}}</a>
+                                                            </div>
+                                                            <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark">
+                                                                <a href="../shop/single-product-v2.html" tabindex="0">{{$product->name}}</a>
+                                                            </h2>
+                                                            <div class="font-size-2  mb-1 text-truncate">
+                                                                @foreach($product->author as $author)
+                                                                    <a href="../others/authors-single.html" class="text-gray-700" tabindex="0">{{$author->first_name }} {{$author->middle_name }} {{$author->last_name}}</a>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
 
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                            @endif
                                         @endforeach
                                     </div>
                                 </div>
@@ -266,8 +280,10 @@
                     </div>
                 </div>
             </div>
-        @endforeach
-    </section>
+        </section>
+    @endforeach
+    @endif
+
     <section class="home-latest-news space-bottom-3">
         <div class="container">
             <div class="mb-5 mb-lg-7">
@@ -294,7 +310,7 @@
 
     </section>
 
-    <section style="display: none"  class="home-latest-news space-bottom-3">
+    <section  class="home-latest-news space-bottom-3">
         <div class="container">
             <header class="border-bottom d-md-flex justify-content-between align-items-center mb-10d75 pb-4d75">
                 <h2 class="font-size-7 mb-3 mb-md-0">Latest News</h2>

@@ -22633,6 +22633,7 @@ main {
 .dropdown-unfold[aria-labelledby].u-unfold--css-animation, .dropdown-unfold[aria-labelledby].u-unfold--jquery-slide, .dropdown-unfold[aria-labelledby][role=tabpanel] {
     display: block;
     opacity: 1
+
 }
 
 .dropdown-unfold.u-unfold--css-animation.u-unfold--hidden, .u-unfold--css-animation.u-unfold--hidden {

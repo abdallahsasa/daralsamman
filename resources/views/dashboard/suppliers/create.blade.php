@@ -90,6 +90,16 @@
                                                     @endforeach
                                                 </select>
                                             </div>
+                                                <div class="col-sm-4 col-xl-12 col-xxl-6 mb-3">
+                                                    <label class="form-label" for="country_id">City*</label>
+                                                    <select required class="form-control form-select form-select-lg mb-15"
+                                                            aria-label=".form-select-lg example" name="city_id">
+                                                        <option selected="">Choose...</option>
+                                                        @foreach($cities as $city)
+                                                            <option value="{{$city->id}}">{{$city->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                         </div>
 
 

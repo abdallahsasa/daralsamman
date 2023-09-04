@@ -1,18 +1,19 @@
 <?php
 
+use App\Http\Controllers\dashboard\Auditor\AuditorController;
+use App\Http\Controllers\dashboard\Author\AuthorController;
+use App\Http\Controllers\dashboard\ContactUs\ContactUsController;
 use App\Http\Controllers\dashboard\DashboardPageController;
 use App\Http\Controllers\dashboard\Products\CategoryController;
 use App\Http\Controllers\dashboard\Products\ProductController;
-use App\Http\Controllers\dashboard\Author\AuthorController;
-use App\Http\Controllers\dashboard\Auditor\AuditorController;
-use App\Http\Controllers\dashboard\ContactUs\ContactUsController;
+use App\Http\Controllers\dashboard\Supplier\CityController;
 use App\Http\Controllers\dashboard\Supplier\CountryController;
 use App\Http\Controllers\dashboard\Supplier\SupplierController;
 use App\Http\Controllers\website\AboutUsPageController;
+use App\Http\Controllers\website\AuthorPageController;
 use App\Http\Controllers\website\ContactUsPageController;
 use App\Http\Controllers\website\FrontPageController;
 use App\Http\Controllers\website\NewsPageController;
-use App\Http\Controllers\website\AuthorPageController;
 use App\Http\Controllers\website\ProductPageController;
 use App\Http\Controllers\website\SolutionsPageController;
 use Illuminate\Support\Facades\Route;
@@ -104,6 +105,10 @@ Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard
     Route::get('/country/create', [CountryController::class, 'create'])->name('dashboard.country.create');
     Route::post('/country/store', [CountryController::class, 'store'])->name('dashboard.country.store');
     Route::delete('/country/destroy/{id}', [CountryController::class, 'destroy'])->name('dashboard.country.destroy');
+
+    Route::get('/city/create', [CityController::class, 'create'])->name('dashboard.city.create');
+    Route::post('/city/store', [CityController::class, 'store'])->name('dashboard.city.store');
+    Route::delete('/city/destroy/{id}', [CityController::class, 'destroy'])->name('dashboard.city.destroy');
 
 
 });

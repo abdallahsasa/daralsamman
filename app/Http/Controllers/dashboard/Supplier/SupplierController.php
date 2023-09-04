@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dashboard\Supplier;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSupplierRequest;
+use App\Models\Supplier\City;
 use App\Models\Supplier\country;
 use App\Models\Supplier\Supplier;
 use Illuminate\Http\Request;
@@ -65,7 +66,8 @@ class SupplierController extends Controller
     public function create()
     {
         $countries = Country::all();
-        return view($this->create_view, compact('countries'));
+        $cities=City::all();
+        return view($this->create_view, compact('countries','cities'));
     }
 
     /**

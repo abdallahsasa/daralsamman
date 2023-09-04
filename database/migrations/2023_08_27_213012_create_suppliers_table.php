@@ -19,6 +19,9 @@ return new class extends Migration
             $table->bigInteger('country_id')->unsigned();
             $table->index('country_id');
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->bigInteger('city_id')->unsigned();
+            $table->index('city_id');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
             $table->text('description')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->bigInteger('sort_number')->nullable()->default('0');

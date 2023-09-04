@@ -28,6 +28,7 @@ class StoreSupplierRequest extends FormRequest
             'description' => 'nullable|string',
             'status' => 'required|in:active,inactive',
             'country_id' => 'required|exists:countries,id',
+            'city_id' => 'required|exists:cities,id',
             'sort_number' => 'nullable|integer',
             'meta_title' => 'nullable|string',
             'meta_description' => 'nullable|string',

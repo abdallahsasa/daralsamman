@@ -68,15 +68,21 @@
                 <ul id="supplier-menu" class="collapse" data-bs-parent="#sidebarnav">
                     <li><a href="{{route('dashboard.supplier.index')}}">Brows All Supplier</a></li>
                     <li><a href="{{route('dashboard.supplier.create')}}">Add New Supplier </a></li>
+                    <li>
+                        <a href="{{route('dashboard.country.create')}}"  >
+                            Add new Country
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="{{route('dashboard.city.create')}}"  >
+                           Add new City
+                        </a>
+
+                    </li>
                 </ul>
             </li>
-            <li>
-                <a href="{{route('dashboard.country.create')}}"  >
-                    <div class="pull-left"><i class="fa fa-flag"></i><span class="right-nav-text">Countries</span></div>
-                    <div class="clearfix"></div>
-                </a>
 
-            </li>
 
             <li>
                 <a href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#news-menu">

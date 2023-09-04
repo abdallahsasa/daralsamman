@@ -7,6 +7,7 @@ use App\Models\Author\Auditor;
 use App\Models\Author\Author;
 use App\Models\Product\Category;
 use App\Models\Product\Product;
+use App\Models\Supplier\Country;
 use App\Models\Supplier\Supplier;
 use Illuminate\Http\Request;
 
@@ -31,10 +32,11 @@ class FrontPageController extends Controller
     }
     public function suppliersIndex()
     {
-        $supliers=Supplier::where('status','active')
+        $suppliers=Supplier::where('status','active')
             ->get();
-        return view('website.suppliers.index', compact('supliers'));
-
+        $countries=Country::where('status','active')
+            ->get();
+        return view('website.suppliers.index', compact('suppliers','countries'));
     }
 
     /**

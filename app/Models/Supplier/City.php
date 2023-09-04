@@ -5,16 +5,16 @@ namespace App\Models\Supplier;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+class City extends Model
 {
     use HasFactory;
-    protected $fillable = array('name','status');
+    protected $fillable = array('name','status','country_id');
     public function suppliers()
     {
         return $this->hasMany(Supplier::class);
     }
-    public function cities()
+    public function country()
     {
-        return $this->hasMany(City::class);
+        return $this->belongsTo(Country::class);
     }
 }

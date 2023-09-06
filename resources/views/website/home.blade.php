@@ -151,8 +151,7 @@
                 @foreach($products as $product)
                     <div class="product">
                         <div class="product__inner overflow-hidden p-3 p-md-4d875">
-                            <div
-                                class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
+                            <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
                                 <div class="woocommerce-loop-product__thumbnail">
                                     @if($product->featuredMedia->first())
                                         <a href="{{route('website.product.details',$product->id)}}" class="d-block"><img
@@ -160,8 +159,8 @@
                                                 class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid"
                                                 alt="{{$product->featuredMedia->first()->image_name}}"></a>
                                     @endif
-
                                 </div>
+
                                 <div class="woocommerce-loop-product__body product__body pt-3 bg-white">
                                     <div class="text-uppercase font-size-1 mb-1 text-truncate"><a
                                             href="#">{{$product->category->name}}</a></div>
@@ -170,8 +169,8 @@
                                     </h2>
                                     <div class="font-size-2  mb-1 text-truncate">
                                         @foreach($product->author as $author)
-                                            <a href="#"
-                                               class="text-gray-700">{{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</a>
+                                            <a href="#" class="text-gray-700">{{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</a>
+                                        @if(!$loop->last) , @endif
                                         @endforeach
                                     </div>
                                 </div>

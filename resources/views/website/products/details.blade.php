@@ -70,6 +70,7 @@
                                             @endif</span>
                                         @foreach($product->author as $author)
                                             <span class="ml-2 text-gray-600"> {{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</span>
+                                            @if(!$loop->last) , @endif
                                         @endforeach
                                     </div>
                                 @endif
@@ -83,6 +84,7 @@
                                             @endif</span>
                                         @foreach($product->auditor as $auditor)
                                             <span class="ml-2 text-gray-600">{{$auditor->first_name}} {{$auditor->middle_name}} {{$auditor->last_name}}</span>
+                                            @if(!$loop->last) , @endif
                                         @endforeach
                                     </div>
                                 @endif

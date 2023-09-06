@@ -549,6 +549,9 @@ mark,
     max-width: 100%;
     height: auto;
 }
+.book-img-width{
+    max-width: 400px;
+}
 
 .img-thumbnail {
     padding: 0.25rem;

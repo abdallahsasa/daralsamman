@@ -8,8 +8,8 @@
                 <h1 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">Shop</h1>
                 <nav class="woocommerce-breadcrumb font-size-2">
                     <a href="{{route('website.home')}}" class="h-primary">الصفحة الرئيسية</a>
-                    <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-left"></i></span>
-                    <a href="../shop/v1.html" class="h-primary">إصدارات الدار</a>
+                    <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-left"></i></span>إصدارات الدار
+
 
                 </nav>
             </div>

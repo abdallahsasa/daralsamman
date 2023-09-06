@@ -68,9 +68,7 @@
 
                                 </ul>
                             </li>
-                            <li class="nav-item"><a href="#"
-                                                    class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الموزعون
-                                    المعتمدون</a></li>
+                            <li class="nav-item"><a href="{{route('website.suppliers.index')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الموزعون المعتمدون</a></li>
 
                             <li class="nav-item dropdown">
                                 <a id="homeDropdownInvoker" href="{{route('website.products.index')}}"

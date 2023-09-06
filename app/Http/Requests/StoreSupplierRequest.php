@@ -23,7 +23,7 @@ class StoreSupplierRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:3|max:200',
-            'phone' => 'required|string|unique:suppliers,phone',
+            'phone' => ['required', 'regex:/^(?:(?:\+|00)([1-9]{1}[0-9]{0,2}))?[-.\s]?((?:[0-9]{3})[-.\s]?[0-9]{3}[-.\s]?[0-9]{4})$/'],
             'email' => 'nullable|email|unique:suppliers,email',
             'description' => 'nullable|string',
             'status' => 'required|in:active,inactive',

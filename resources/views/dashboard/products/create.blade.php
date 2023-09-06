@@ -68,7 +68,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label" for="sku">Book Sku</label>
+                                            <label class="form-label" for="sku">Book ISBN</label>
                                             <input  name="sku" type="text" class="form-control"
                                                    value="{{old('sku')}}" id="sku" placeholder="Ex.. Book-01">
                                             @if($errors->has('sku'))

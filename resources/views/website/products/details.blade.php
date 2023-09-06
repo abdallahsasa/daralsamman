@@ -36,7 +36,7 @@
                                             @if($product->media)
                                                 @foreach($product->media as $image)
                                                     @if($image->is_featured=='true')
-                                                        <div class="js-slide slick-slide slick-current slick-active"
+                                                        <div class="js-slide slick-slide slick-current slick-active book-img-width"
                                                              data-slick-index="0" aria-hidden="false"
                                                              style="width: auto; height: auto;" tabindex="0"
                                                              role="tabpanel"
@@ -74,7 +74,7 @@
                                     </div>
                                 @endif
 
-                                @if($product->auditor)
+                                @if(count($product->auditor)>0 )
                                     <div class="mb-4 font-size-3">
                                         <span class=" ml-3 font-weight-medium">@if(count($product->auditor)>1 )
                                                 المحققون:
@@ -89,7 +89,7 @@
 
                                 @if($product->sku)
                                     <div class="mb-4 font-size-3">
-                                        <span class="ml-3 font-weight-medium">SKU: </span>
+                                        <span class="ml-3 font-weight-medium">ISBN: </span>
                                         <span class="ml-2 text-gray-600">{{$product->sku}} </span>
                                     </div>
                                 @endif
@@ -119,8 +119,7 @@
                     </div>
                 </div>
 
-                <div class="woocommerce-tabs wc-tabs-wrapper mb-10">
-
+                <div class="woocommerce-tabs wc-tabs-wrapper mb-10 mt-10">
                     @if (!empty($product->description))
                         <!-- Nav Classic -->
                         <ul class="tabs wc-tabs nav border-bottom justify-content-md-center flex-nowrap flex-md-wrap overflow-auto overflow-md-visble"
@@ -132,7 +131,6 @@
                                     شرح عن الكتاب
                                 </a>
                             </li>
-
                         </ul>
                         <!-- End Nav Classic -->
 

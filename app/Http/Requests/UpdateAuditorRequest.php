@@ -26,7 +26,7 @@ class UpdateAuditorRequest extends FormRequest
             'middle_name' => 'nullable|string|min:3|max:200',
             'last_name' => 'required|string|min:3|max:200',
             'slug' => 'required|string|min:3|max:200',
-            'date_of_birth' => 'required|nullable|date',
+            'date_of_birth' => 'nullable|nullable|date',
             'gender' => 'required|in:male,female',
             'number' => ['nullable', 'regex:/^(?:(?:\+|00)([1-9]{1}[0-9]{0,2}))?[-.\s]?((?:[0-9]{3})[-.\s]?[0-9]{3}[-.\s]?[0-9]{4})$/'],
             'email' => 'nullable|email',

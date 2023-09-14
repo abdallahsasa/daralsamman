@@ -61,7 +61,7 @@
                                             <a class="pe-2  w-auto" href="{{route('dashboard.auditor.edit',$auditor->id)}}">
                                                 <button class="btn btn-warning fa fa-pencil"></button>
                                             </a>
-                                            <a class="pe-2 w-50">
+                                            <a class="pe-2 w-auto">
                                             <form method="POST"
                                                   action="{{route('dashboard.auditor.destroy',$auditor->id)}}">
                                                 @csrf

@@ -193,13 +193,7 @@
                         <div class="bg-img-hero min-height-440 rounded"
                              style="background-image: url({{$category->image_url}});">
                             <div class="p-5">
-                                @if($category->name)
-                                    <h4 class="font-size-22">{{$category->name}}</h4>
-                                @endif
-
-                                @if($category->description)
-                                    <p>{{$category->description}}</p>
-                                @endif
+                       
                                 <a href="#" class="text-dark font-weight-medium text-uppercase stretched-link">مشاهدة
                                     الكل</a>
                             </div>

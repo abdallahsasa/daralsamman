@@ -184,8 +184,8 @@
     @endif
 
 
-    @if($categories)
-    @foreach($categories as $category)
+    @if($FeaturedCategories)
+    @foreach($FeaturedCategories as $category)
         <section class="space-bottom-3">
             <div class="container">
                 <div class="row align-items-center rtl-container">
@@ -193,7 +193,7 @@
                         <div class="bg-img-hero min-height-440 rounded"
                              style="background-image: url({{$category->image_url}});">
                             <div class="p-5">
-                       
+
                                 <a href="#" class="text-dark font-weight-medium text-uppercase stretched-link">مشاهدة
                                     الكل</a>
                             </div>

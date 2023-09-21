@@ -26,6 +26,7 @@ class StoreProductCategoryRequest extends FormRequest
             'slug' => 'required|string|min:3|max:20',
             'description' => 'nullable|string',
             'status' => 'required|in:active,inactive',
+            'featured'=>'required|in:1,0',
             'parent_id' => 'nullable|integer|min:1',
             'meta_title' => 'nullable|string',
             'meta_description' => 'nullable|string',

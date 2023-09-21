@@ -36,24 +36,24 @@
                                 <div class="card card-statistics h-100">
                                     <div class="card-body">
 
-                                        <div class="mb-3">
-                                            <label class="form-label" for="parent_id">Parent Name</label>
-                                            <select name="parent_id" class="form-select form-select-lg mb-3" id="parent_id">
-                                                <option value="">Category</option>
-                                                @foreach($categories as $category)
-                                                    <option value="{{ $category->id }}" {{ old('parent_id', $category->id) == $category->id || (is_null(old('parent_id')) && is_null($category->parent_id)) ? 'selected' : '' }}>
-                                                        {{ $category->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+{{--                                        <div class="mb-3">--}}
+{{--                                            <label class="form-label" for="parent_id">Parent Name</label>--}}
+{{--                                            <select name="parent_id" class="form-select form-select-lg mb-3" id="parent_id">--}}
+{{--                                                <option value="">Category</option>--}}
+{{--                                                @foreach($categories as $category)--}}
+{{--                                                    <option value="{{ $category->id }}" {{ old('parent_id', $category->id) == $category->id || (is_null(old('parent_id')) && is_null($category->parent_id)) ? 'selected' : '' }}>--}}
+{{--                                                        {{ $category->name }}--}}
+{{--                                                    </option>--}}
+{{--                                                @endforeach--}}
+{{--                                            </select>--}}
 
-                                            @if($errors->has('parent_id'))
-                                                <div class="alert alert-danger" role="alert">
-                                                    {{ $errors->first('parent_id') }}
-                                                </div>
-                                            @endif
-                                            <div id="categoryError" class="invalid-feedback"></div>
-                                        </div>
+{{--                                            @if($errors->has('parent_id'))--}}
+{{--                                                <div class="alert alert-danger" role="alert">--}}
+{{--                                                    {{ $errors->first('parent_id') }}--}}
+{{--                                                </div>--}}
+{{--                                            @endif--}}
+{{--                                            <div id="categoryError" class="invalid-feedback"></div>--}}
+{{--                                        </div>--}}
 
 
 
@@ -63,10 +63,21 @@
                                             <label class="form-label" for="exampleInputEmail1">Category Name</label>
                                             <input required name="name" type="text" class="form-control"
                                                    aria-describedby="emailHelp"
-                                                   placeholder="Ex.. Fresh juice " value="{{$category->name}}">
+                                                   placeholder="Ex.. Fresh juice " value="{{old('name',$category->name)}}">
                                             @if($errors->has('name'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('name') }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="exampleInputEmail1">Category Slug</label>
+                                            <input required name="slug" type="text" class="form-control"
+                                                   aria-describedby="emailHelp"
+                                                   placeholder="Ex.. Fresh juice " value="{{old('name',$category->slug)}}">
+                                            @if($errors->has('slug'))
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $errors->first('slug') }}
                                                 </div>
                                             @endif
                                         </div>
@@ -75,7 +86,7 @@
                                                 Description</label>
                                             <textarea name="description" class="form-control" id="description"
                                                       id="exampleFormControlTextarea1"
-                                                      rows="3">{{$category->description}}</textarea>
+                                                      rows="3">{{old('description',$category->description)}}</textarea>
                                             @if($errors->has('description'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('description') }}
@@ -85,10 +96,10 @@
                                         <div class="mb-3">
                                             <label class="form-label d-block" for="exampleFormControlFile1">Category
                                                 Image</label>
-                                            <img width="15%" src="{{$category->image_url}}"
+                                            <img width="15%" src="{{old('image_url',$category->image_url)}}"
                                                  class="form-label d-block w-10" for="exampleFormControlFile1" alt="">
                                             <input name="image" type="file" class="form-control" id="customFile"
-                                                   value="{{$category->image_url}}">
+                                                   value="{{old('image_url',$category->image_url)}}">
                                             @if($errors->has('image'))
                                                 <div class="alert alert-danger" role="alert">
                                                     {{ $errors->first('image') }}
@@ -99,7 +110,80 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-success">Submit</button>
+
+
+
+
+
+                            <div class="col-md-6 mb-30">
+
+                                <div class="card card-statistics h-10">
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <h5 class="card-title">Category Status</h5>
+                                            <div class="form-group mb-3">
+                                                <div class="checkbox checbox-switch switch-success">
+                                                    <label>
+                                                        <input type="checkbox" name="status_checkbox" id="status" value="{{old('status',$category->status)}} ">
+                                                        <span></span>
+                                                        Active/Inactive
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <!-- Hidden input field to store the actual status value -->
+                                            <input type="hidden" name="status" id="status_hidden" value="{{old('status',$category->status)}} ">
+                                        </div>
+                                        <div class="mb-3">
+                                            <h5 class="card-title">Featured Category</h5>
+                                            <div class="form-group mb-3">
+                                                <div class="checkbox checbox-switch switch-success">
+                                                    <label>
+                                                        <input type="checkbox"  id="featuredBook" checked="" value="{{old('featured',$category->featured)}} ">
+                                                        <span></span>
+                                                        Yes/No
+                                                    </label>
+                                                    @if($errors->has('featured'))
+                                                        <div class="alert alert-danger" role="alert">
+                                                            {{ $errors->first('featured') }}
+                                                        </div>
+                                                    @endif
+                                                    <!-- Hidden input field to store the actual status value -->
+                                                    <input type="hidden" name="featured" id="featured_hidden" value="{{old('featured',$category->featured)}} ">
+                                                    <div id="featuredError" class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label" for="meta_title">Meta Title</label>
+                                            <input name="meta_title" type="text" class="form-control"
+                                                   value=" {{old('meta_title',$category->meta_title)}}"
+                                                   id="meta_title"
+                                                   placeholder="Meta Title">
+                                            @if($errors->has('meta_title'))
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $errors->first('meta_title') }}
+                                                </div>
+                                            @endif
+                                            <div id="metaTitleError" class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="meta_description">Meta Description</label>
+                                            <textarea name="meta_description" class="form-control" id="meta_description"
+                                                      rows="2">  {{old('meta_description',$category->meta_description)}}</textarea>
+                                            @if($errors->has('meta_description'))
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $errors->first('meta_description') }}
+                                                </div>
+                                            @endif
+                                            <div id="metaDescriptionError" class="invalid-feedback"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-warning">Submit</button>
                         </div>
                     </form>
                 </div>

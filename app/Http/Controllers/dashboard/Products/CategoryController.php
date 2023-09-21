@@ -60,8 +60,11 @@ class CategoryController extends Controller
     public function store(StoreProductCategoryRequest $request)
     {
         $validated_data = $request->validated();
+//        dd($validated_data );
+
         try {
             $object = $this->model_instance::create(Arr::except($validated_data, ['image']));
+
             $object->sort_number = $object->id;
 
             if ($request->has('image')) {

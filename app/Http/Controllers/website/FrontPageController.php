@@ -19,7 +19,7 @@ class FrontPageController extends Controller
             ->where('featured', 1)
             ->get();
 
-        $categories = Category::where('status', 'active')
+        $FeaturedCategories = Category::where('status', 'active')
             ->where('featured', 1)
             ->get();
 
@@ -28,7 +28,7 @@ class FrontPageController extends Controller
         $numbOfAuthors = Author::where('status', 'active')->count();
         $numbOfAuditors = Auditor::where('status', 'active')->count();
 
-        return view('website.home', compact('products', 'categories', 'numberOfProducts', 'numberOfCategories','numbOfAuthors','numbOfAuditors'));
+        return view('website.home', compact('products', 'FeaturedCategories', 'numberOfProducts', 'numberOfCategories','numbOfAuthors','numbOfAuditors'));
     }
     public function suppliersIndex()
     {

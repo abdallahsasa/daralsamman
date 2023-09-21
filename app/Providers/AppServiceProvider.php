@@ -25,9 +25,11 @@ class AppServiceProvider extends ServiceProvider
     {
         // Retrieve the $category object
 
-        $categories = Category::where('status', '=', 'active')->get();
+        $MenuCategories = Category::where('status', '=', 'active')
+            ->orderBy('name', 'asc')
+            ->get();
 
         // Share the $category object with all views
-        View::share(compact('categories'));
+        View::share(compact('MenuCategories'));
     }
 }

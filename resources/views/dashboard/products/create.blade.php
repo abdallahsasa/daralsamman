@@ -354,6 +354,7 @@
         });
 
     </script>
+
     <script>
         $(document).ready(function () {
             // Add an event listener to update the checkbox value when the switch is toggled

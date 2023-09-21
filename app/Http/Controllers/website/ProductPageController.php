@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Author\Author;
 use App\Models\Product\Category;
 use App\Models\Product\Product;
 use App\Models\Product\ProductMedia;
@@ -15,9 +16,14 @@ class ProductPageController extends Controller
     public function index()
     {
         $products = Product::where('status', 'active')->get();
-        $categories = Category::where('status', 'active')->get();
+        $categories = Category::where('status', 'active')
+            ->orderBy('name', 'asc')
+            ->get();
+        $authors = Author::Where('status','active')
+            ->orderBy('slug', 'asc')
+            ->get();
 
-        return view ('website.products.index',compact('categories','products'));
+        return view ('website.products.index',compact('categories','products','authors'));
 
 
     }

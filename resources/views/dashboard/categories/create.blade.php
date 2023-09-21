@@ -35,20 +35,20 @@
                             <div class="col-md-6 mb-30">
                                 <div class="card card-statistics h-100">
                                     <div class="card-body">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="category_id">Parent Name</label>
-                                            <select name="parent_id" class="form-select form-select-lg mb-3" id="parent_id">
-                                                <option selected disabled>Category</option>
-                                                @foreach($categories as $category)
-                                                    <option value="{{$category->id}}">{{$category->name}}</option>@endforeach
-                                            </select>
-                                            @if($errors->has('parent_id'))
-                                                <div class="alert alert-danger" role="alert">
-                                                    {{ $errors->first('parent_id') }}
-                                                </div>
-                                            @endif
-                                            <div id="categoryError" class="invalid-feedback"></div>
-                                        </div>
+{{--                                        <div class="mb-3">--}}
+{{--                                            <label class="form-label" for="category_id">Parent Name</label>--}}
+{{--                                            <select name="parent_id" class="form-select form-select-lg mb-3" id="parent_id">--}}
+{{--                                                <option selected disabled>Category</option>--}}
+{{--                                                @foreach($categories as $category)--}}
+{{--                                                    <option value="{{$category->id}}">{{$category->name}}</option>@endforeach--}}
+{{--                                            </select>--}}
+{{--                                            @if($errors->has('parent_id'))--}}
+{{--                                                <div class="alert alert-danger" role="alert">--}}
+{{--                                                    {{ $errors->first('parent_id') }}--}}
+{{--                                                </div>--}}
+{{--                                            @endif--}}
+{{--                                            <div id="categoryError" class="invalid-feedback"></div>--}}
+{{--                                        </div>--}}
                                         <div class="mb-3">
                                             <label class="form-label" for="exampleInputEmail1">Category Name</label>
                                             <input required name="name" type="text" class="form-control"
@@ -119,19 +119,26 @@
                                             </div>
                                         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                        <div class="mb-3">
+                                            <h5 class="card-title">Featured Category</h5>
+                                            <div class="form-group mb-3">
+                                                <div class="checkbox checbox-switch switch-success">
+                                                    <label>
+                                                        <input name="featured" type="checkbox" id="featuredCategory" checked="" value="1">
+                                                        <span></span>
+                                                        Yes/No
+                                                    </label>
+                                                    <!-- Hidden input field to store the actual status value -->
+                                                    <input type="hidden" name="featured" id="featured_category_hidden" value="1">
+                                                    @if($errors->has('featured'))
+                                                        <div class="alert alert-danger" role="alert">
+                                                            {{ $errors->first('featured') }}
+                                                        </div>
+                                                    @endif
+                                                    <div id="featuredError" class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                        </div>
 
 
 
@@ -182,6 +189,19 @@
                     $("#status_hidden").val('inactive');
                 }
             });
+
+
+            // Add an event listener to update the hidden input's value when the switch is toggled
+            $("#featuredCategory").on("change", function () {
+                if ($(this).prop("checked")) {
+                    $("#featured_category_hidden").val(1);
+                } else {
+                    $("#featured_category_hidden").val(0);
+                }
+            });
+
+
+
         });
     </script>
 

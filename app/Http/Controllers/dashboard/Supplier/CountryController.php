@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\dashboard\Supplier;
 
 use App\Http\Controllers\Controller;
-use App\Models\Supplier\country;
+use App\Models\Supplier\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 

@@ -4,13 +4,10 @@
 
     <div class="page-header border-bottom mb-8">
         <div class="container">
-            <div class="d-md-flex justify-content-between align-items-center py-4">
-                <h1 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">Shop</h1>
+            <div class="d-md-flex justify-content-between align-items-center py-4 rtl-container">
                 <nav class="woocommerce-breadcrumb font-size-2">
                     <a href="{{route('website.home')}}" class="h-primary">الصفحة الرئيسية</a>
                     <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-left"></i></span>إصدارات الدار
-
-
                 </nav>
             </div>
         </div>
@@ -19,10 +16,8 @@
         <div class="container">
             <div class="row">
                 <div id="primary" class="content-area order-2">
-                    <div class="shop-control-bar d-lg-flex justify-content-between align-items-center mb-5 text-center text-md-left">
-                        <div class="shop-control-bar__left mb-4 m-lg-0">
-                            <p class="woocommerce-result-count m-0">Showing 1–12 of 126 results</p>
-                        </div>
+                    <div class="shop-control-bar d-lg-flex justify-content-between align-items-center mb-5 text-center text-md-left rtl-container">
+
                         <div class="shop-control-bar__right d-md-flex align-items-center">
                             <form class="woocommerce-ordering mb-4 m-md-0" method="get">
                                 <!-- Select -->
@@ -37,19 +32,6 @@
                                 <!-- End Select -->
                             </form>
 
-                            <form class="number-of-items ml-md-4 mb-4 m-md-0 d-none d-xl-block" method="get">
-                                <!-- Select -->
-                                <select class="js-select selectpicker dropdown-select orderby" name="orderby"
-                                        data-style="border-bottom shadow-none outline-none py-2"
-                                        data-width="fit">
-                                    <option value="show10">Show 10</option>
-                                    <option value="show15">Show 15</option>
-                                    <option value="show20" selected="selected">Show 20</option>
-                                    <option value="show25">Show 25</option>
-                                    <option value="show30">Show 30</option>
-                                </select>
-                                <!-- End Select -->
-                            </form>
 
                             <ul class="nav nav-tab ml-lg-4 justify-content-center justify-content-md-start ml-md-auto" id="pills-tab" role="tablist">
                                 <li class="nav-item border">
@@ -97,13 +79,13 @@
                                                 <a href="{{route('website.product.details',$product->id)}}" class="d-block"><img src="{{$product->featuredMedia->first()->image_url}}" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description"></a>
                                             </div>
                                             <div class="woocommerce-loop-product__body product__body pt-3 bg-white">
-                                                <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="../shop/single-product-v5.html">{{$product->category->name}}</a></div>
+                                                <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="{{route('website.product.details',$product->id)}}">{{$product->category->name}}</a></div>
                                                 <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{{route('website.product.details',$product->id)}}">{{$product->name}}</a></h2>
 
                                                 @foreach($product->author as $author)
 
                                                     <div class="font-size-2  mb-1 text-truncate">
-                                                        <a href="../others/authors-single.html" class="text-gray-700">
+                                                        <a href="{{route('website.product.details',$product->id)}}" class="text-gray-700">
                                                             <span class="m-lg-2 font-weight-medium"> @if(count($product->author)>1 )
                                                                     الكتاب:
                                                                 @else
@@ -126,6 +108,8 @@
 
                             </ul>
                             <!-- End Mockup Block -->
+                            {{$products->links()}}
+
                         </div>
                         <div class="tab-pane fade" id="pills-two-example1" role="tabpanel" aria-labelledby="pills-two-example1-tab">
                             <!-- Mockup Block -->
@@ -322,17 +306,6 @@
                     <!-- End Tab Content -->
 
 
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination pagination__custom justify-content-md-center flex-nowrap flex-md-wrap overflow-auto overflow-md-visble">
-                            <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="flex-shrink-0 flex-md-shrink-1 page-item active" aria-current="page"><a class="page-link" href="#">3</a></li>
-                            <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="flex-shrink-0 flex-md-shrink-1 page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
                 </div>
                 <div id="secondary" class="sidebar widget-area order-1" role="complementary">
                     <div id="widgetAccordion">
@@ -343,7 +316,7 @@
                                 <a class="d-flex align-items-center justify-content-between text-dark" href="#"
                                    data-toggle="collapse"
                                    data-target="#widgetCollapseOne"
-                                   aria-expanded="true"
+                                   aria-expanded="false"
                                    aria-controls="widgetCollapseOne">
 
                                     <h3 class="widget-title mb-0 font-weight-medium font-size-3">جميع الأصناف</h3>
@@ -359,12 +332,12 @@
                             </div>
 
 
-                            <div id="widgetCollapseOne" class="mt-3 widget-content collapse show"
+                            <div id="widgetCollapseOne" class="mt-3 widget-content collapse "
                                  aria-labelledby="BooksCategories"
                                  data-parent="#widgetAccordion">
                                 <ul class="product-categories">
                                     @foreach($categories as $category)
-                                    <li class="cat-item cat-item-45"><a href="#">{{$category->name}}</a></li>
+                                    <li class="cat-item cat-item-45"><a href="{{route('website.products.category.index',$category->id)}}">{{$category->name}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -377,7 +350,7 @@
                                 <a class="d-flex align-items-center justify-content-between text-dark" href="#"
                                    data-toggle="collapse"
                                    data-target="#widgetCollapse21"
-                                   aria-expanded="true"
+                                   aria-expanded="false"
                                    aria-controls="widgetCollapse21">
 
                                     <h3 class="widget-title mb-0 font-weight-medium font-size-3">المؤلفون</h3>
@@ -392,13 +365,13 @@
                                 </a>
                             </div>
 
-                            <div id="widgetCollapse21" class="mt-4 widget-content collapse show"
+                            <div id="widgetCollapse21" class="mt-4 widget-content collapse "
                                  aria-labelledby="widgetHeading21"
                                  data-parent="#widgetAccordion">
 
                                 <ul class="product-categories">
                                     @foreach($authors as $author)
-                                        <li class="cat-item cat-item-45"><a href="#">{{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</a></li>
+                                        <li class="cat-item cat-item-45"><a href="{{route('website.products.author.index',$author->id)}}">{{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</a></li>
                                     @endforeach
                                 </ul>
                             </div>

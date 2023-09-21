@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,5 +32,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Share the $category object with all views
         View::share(compact('MenuCategories'));
+        Paginator::useBootstrapFive();
+       // Paginator::useBootstrapFour();
     }
 }

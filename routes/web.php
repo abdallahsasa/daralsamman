@@ -39,6 +39,8 @@ Route::post('contact/store', [ContactUsPageController::class, 'store'])->name('w
 
 //Route::get('/products', [ProductPageController::class, 'index'])->name('website.products');
 Route::get('/books', [ProductPageController::class, 'index'])->name('website.products.index');
+Route::get('/books/category/{id}', [ProductPageController::class, 'cateoryProducts'])->name('website.products.category.index');
+Route::get('/books/author/{id}', [ProductPageController::class, 'authorProducts'])->name('website.products.author.index');
 Route::get('/book/{id}', [ProductPageController::class, 'details'])->name('website.product.details');
 
 Route::get('/solutions', [SolutionsPageController::class, 'index'])->name('website.solutions');

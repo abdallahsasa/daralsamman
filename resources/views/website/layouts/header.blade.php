@@ -61,7 +61,7 @@
                                     aria-labelledby="homeDropdownInvoker" >
                                     @if(isset($MenuCategories) && !$MenuCategories->isEmpty())
                                         @foreach($MenuCategories as $category )
-                                            <li><a href="../home/index.html"
+                                            <li><a href="{{route('website.products.category.index',$category->id)}}"
                                                    class="dropdown-item link-black-100">{{$category->name}}</a></li>
                                         @endforeach
                                     @endif

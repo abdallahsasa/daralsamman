@@ -109,8 +109,9 @@
                                     <tbody>
                                     @foreach($product->attributes as $attribute)
                                         <tr>
-                                            <th class="px-4 px-xl-5 ">{{$attribute->name}}:</th>
                                             <td>{{$attribute->value}}</td>
+
+                                            <th class="px-4 px-xl-5 ">:{{$attribute->name}}</th>
                                         </tr>
                                     @endforeach
                                     </tbody>

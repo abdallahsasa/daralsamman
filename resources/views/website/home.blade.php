@@ -194,8 +194,7 @@
                              style="background-image: url({{$category->image_url}});">
                             <div class="p-5">
 
-                                <a href="#" class="text-dark font-weight-medium text-uppercase stretched-link">مشاهدة
-                                    الكل</a>
+                                <a href="{{route('website.products.category.index',$category->id)}}" class="text-dark font-weight-medium text-uppercase stretched-link"></a>
                             </div>
                         </div>
                     </div>

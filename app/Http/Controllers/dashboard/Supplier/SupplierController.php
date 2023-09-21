@@ -5,7 +5,7 @@ namespace App\Http\Controllers\dashboard\Supplier;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSupplierRequest;
 use App\Models\Supplier\City;
-use App\Models\Supplier\country;
+use App\Models\Supplier\Country;
 use App\Models\Supplier\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

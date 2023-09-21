@@ -37,31 +37,31 @@
                     </thead>
                     <tbody>
 
+                    @if($countries)
+                        @foreach($countries as $country )
+                            <tr>
+                                <td>{{$country->name}}</td>
+                                <td><span
+                                        class="@if($country->status == 'active')text-success @else text-danger @endif ">{{$country->status}} </span>
+                                </td>
 
-                    @foreach($countries as $country )
-                        <tr>
+                                <td>
+                                    <div class="row justify-content-center">
+                                        <a class="pe-2 w-auto">
+                                            <form method="POST"
+                                                  action="{{ route('dashboard.country.destroy', $country->id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="button" class="btn-danger btn  fa fa-trash-o"
+                                                        onclick="return confirm('Are you sure you want to delete {{$country->name}}')"></button>
+                                            </form>
+                                        </a>
+                                    </div>
 
-                            <td>{{$country->name}}</td>
-                            <td><span
-                                    class="@if($country->status == 'active')text-success @else text-danger @endif ">{{$country->status}} </span>
-                            </td>
-
-                            <td>
-                                <div class="row justify-content-center">
-                                    <a class="pe-2 w-auto">
-                                        <form method="POST"
-                                              action="{{ route('dashboard.country.destroy', $country->id) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="button" class="btn-danger btn  fa fa-trash-o"
-                                                    onclick="return confirm('Are you sure you want to delete {{$country->name}}')"></button>
-                                        </form>
-                                    </a>
-                                </div>
-
-                            </td>
-                        </tr>
-                    @endforeach
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>

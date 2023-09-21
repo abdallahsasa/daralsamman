@@ -23,12 +23,13 @@ class StoreSupplierRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:3|max:200',
-            'phone' => ['required', 'regex:/^(?:(?:\+|00)([1-9]{1}[0-9]{0,2}))?[-.\s]?((?:[0-9]{3})[-.\s]?[0-9]{3}[-.\s]?[0-9]{4})$/'],
+//            'phone' => ['required', 'regex:/^(?:(?:\+|00)([1-9]{1}[0-9]{0,2}))?[-.\s]?((?:[0-9]{3})[-.\s]?[0-9]{3}[-.\s]?[0-9]{4})$/'],
+            'phone' => 'required|string',
             'email' => 'nullable|email|unique:suppliers,email',
             'description' => 'nullable|string',
             'status' => 'required|in:active,inactive',
             'country_id' => 'required|exists:countries,id',
-            'city_id' => 'required|exists:cities,id',
+            'city_id' => 'nullable|exists:cities,id',
             'sort_number' => 'nullable|integer',
             'meta_title' => 'nullable|string',
             'meta_description' => 'nullable|string',

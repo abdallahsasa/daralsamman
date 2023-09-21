@@ -15,7 +15,7 @@ class ProductPageController extends Controller
      */
     public function index()
     {
-        $products = Product::where('status', 'active')->paginate(10);
+        $products = Product::where('status', 'active')->paginate(12);
         $categories = Category::where('status', 'active')
             ->orderBy('name', 'asc')
             ->get();
@@ -54,7 +54,7 @@ class ProductPageController extends Controller
     {
         $products = Product::where('status', 'active')
             ->where('category_id',$cateoryid)
-            ->paginate(10);
+            ->paginate(12);
         $categories = Category::where('status', 'active')
             ->orderBy('name', 'asc')
             ->get();
@@ -69,7 +69,7 @@ class ProductPageController extends Controller
         $products = Author::findOrFail($authorid)
             ->products()
             ->where('status', 'active')
-            ->paginate(10);
+            ->paginate(12);
         $categories = Category::where('status', 'active')
             ->orderBy('name', 'asc')
             ->get();

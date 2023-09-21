@@ -14,7 +14,7 @@
                     <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-left"></i></span>
                     <a href="{{route('website.products.index')}}" class="h-primary">إصدارات الدار</a>
                     <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-left"></i></span>
-                    <a href="../shop/v1.html" class="h-primary">{{$product->category->name}}</a>
+                    <a href="{{route('website.products.category.index',$category->id)}}" class="h-primary">{{$product->category->name}}</a>
                     <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-left"></i></span>{{$product->name}}
                 </nav>
             </div>

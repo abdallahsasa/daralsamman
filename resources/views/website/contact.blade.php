@@ -34,7 +34,7 @@
                                             <div class="col-sm-12 mb-5">
                                                 <div class="js-form-message">
                                                     <label for="name">الاسم الكامل</label>
-                                                    <input id="name" type="text" class="form-control rounded-0"
+                                                    <input id="name" type="text" class="form-control rounded-0 text-right"
                                                            value="{{old('name')}}" name="name" required >
                                                     @if($errors->has('name'))
                                                         <div class="alert alert-danger" role="alert">
@@ -50,7 +50,7 @@
                                             <div class="col-sm-6 mb-5">
                                                 <div class="js-form-message">
                                                     <label for="email">البريد الالكتروني</label>
-                                                    <input id="email" type="email" class="form-control rounded-0"
+                                                    <input id="email" type="email" class="form-control rounded-0 text-right"
                                                      value="{{old('email')}}"      name="email" required>
                                                     @if($errors->has('email'))
                                                         <div class="alert alert-danger" role="alert">
@@ -66,7 +66,7 @@
                                             <div class="col-sm-6 mb-5">
                                                 <div class="js-form-message">
                                                     <label for="number">رقم الهاتف</label>
-                                                    <input id="number" type="text" class="form-control rounded-0"
+                                                    <input id="number" type="text" class="form-control rounded-0 text-right"
                                                          value="{{old('number')}}"  name="number" required>
                                                     @if($errors->has('number'))
                                                         <div class="alert alert-danger" role="alert">
@@ -79,9 +79,9 @@
                                             <!-- End Input -->
 
                                             <div class="col-sm-12 mb-5">
-                                                <div class="js-form-message">
+                                                <div class="js-form-message ">
                                                     <label for="subject_id">الهدف من التواصل</label>
-                                                    <select required name="subject_id" class="form-control rounded-0"
+                                                    <select required name="subject_id" class="form-control rounded-0 text-right"
                                                             id="subject_id">
                                                         <option selected disabled>الهدف من التواصل</option>
                                                         @foreach($subjects as $subject)
@@ -104,7 +104,7 @@
                                                     <div class="input-group flex-column">
                                                         <label for="message">الرسالة</label>
                                                         <textarea id="message"
-                                                                  class="form-control rounded-0 pl-3 font-size-2 placeholder-color-3"
+                                                                  class="form-control rounded-0 pl-3 font-size-2 placeholder-color-3 text-right"
                                                                   rows="6" cols="77" name="message" required> {{old('message')}}</textarea>
                                                         @if($errors->has('message'))
                                                             <div class="alert alert-danger" role="alert">

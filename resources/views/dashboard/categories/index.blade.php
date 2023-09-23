@@ -21,7 +21,6 @@
                         <table id="datatable" class="table-bordered border table table-striped dataTable p-0">
                             <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Name</th>
                                 <th>Featured</th>
                                 <th>Status</th>
@@ -31,7 +30,6 @@
                             <tbody>
                             @foreach($categories as $category)
                             <tr>
-                                <td>{{$category->sort_number}}</td>
                                 <td>{{$category->name}}</td>
                                 <td> <span class=" @if ($category->featured == '1') text-success @else text-danger @endif "> @if($category->featured == 1) Yes @else No @endif </span></td>
 

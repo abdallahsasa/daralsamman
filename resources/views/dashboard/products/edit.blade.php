@@ -458,6 +458,7 @@
             }
         });
     </script>
+
     <script>
         $(".deleteRecord").click(function(){
             var id = $(this).data("id");
@@ -478,6 +479,7 @@
 
         })
     </script>
+
     <script>
         $(document).ready(function () {
 

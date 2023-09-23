@@ -23,6 +23,7 @@ use function PHPUnit\Framework\isEmpty;
 
 class ProductController extends Controller
 {
+    private $model_instance;
 
     private $index_view;
     private $create_view;
@@ -30,14 +31,14 @@ class ProductController extends Controller
     private $edit_view;
 
 
-//    private $edit_variation_view;
-
-//    private $index_route;
-//    private $model_instance;
     private $success_message;
     private $error_message;
-//    private $update_success_message;
-//    private $update_error_message;
+
+    private $update_success_message;
+    private $update_error_message;
+
+    private $index_route;
+
 
     public function __construct()
     {

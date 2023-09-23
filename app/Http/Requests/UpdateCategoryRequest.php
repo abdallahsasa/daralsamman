@@ -11,7 +11,7 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -30,8 +30,8 @@ class UpdateCategoryRequest extends FormRequest
             'parent_id' => 'nullable|integer|min:1|max:200',
             'meta_title' => 'nullable|string',
             'meta_description' => 'nullable|string',
-            'image' => 'required|image',
-            'image.*' => 'image|mimes:jpg,jpeg,png',
+            'image' => 'nullable|',
+            'image.*' => 'required|image|mimes:jpg,jpeg,png',
         ];
     }
 }

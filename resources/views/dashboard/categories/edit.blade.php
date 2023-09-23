@@ -133,12 +133,14 @@
                                             <!-- Hidden input field to store the actual status value -->
                                             <input type="hidden" name="status" id="status_hidden" value="{{old('status',$category->status)}} ">
                                         </div>
+
+
                                         <div class="mb-3">
                                             <h5 class="card-title">Featured Category</h5>
                                             <div class="form-group mb-3">
                                                 <div class="checkbox checbox-switch switch-success">
                                                     <label>
-                                                        <input type="checkbox"  id="featuredBook" checked="" value="{{old('featured',$category->featured)}} ">
+                                                        <input type="checkbox"  id="featuredCategory" checked="" value="{{old('featured',$category->featured)}} ">
                                                         <span></span>
                                                         Yes/No
                                                     </label>
@@ -192,4 +194,66 @@
         </div>
 
     </div>
+@endsection
+
+@section('scripts')
+
+    <script>
+        $(document).ready(function () {
+
+            // Fetch the product state from the server and store it in a variable (e.g., productState)
+            var productState = "{{$category->status}}"; // Replace this with your dynamic value from the server
+            // Set the checkbox state based on the product state
+            if (productState === "active") {
+                $("#status").prop("checked", true);
+            } else {
+                $("#status").prop("checked", false);
+            }
+
+            $(document).ready(function() {
+                // Add an event listener to update the checkbox value when the switch is toggled
+                $("#status").on("change", function () {
+                    if ($(this).prop("checked")) {
+                        $(this).val("active");
+                    } else {
+                        $(this).val("inactive");
+                    }
+                });
+            });
+
+            // Add an event listener to update the hidden input's value when the switch is toggled
+            $("#status").on("change", function () {
+
+                if ($(this).prop("checked")) {
+                    $("#status_hidden").val("active");
+                } else {
+                    $("#status_hidden").val("inactive");
+                }
+            });
+
+
+
+            var featuredCategory = "{{$category->featured}}"; // Replace this with your dynamic value from the server
+            // Set the checkbox state based on the product state
+            if (featuredCategory == 1) {
+                $("#featuredCategory").prop("checked", 1);
+            } else {
+                $("#featuredCategory").prop("checked", 0);
+            }
+
+            $("#featuredCategory").on("change", function () {
+                if ($(this).prop("checked")) {
+                    $('#featured_hidden').val(1);
+                } else {
+                    $('#featured_hidden').val(0);
+                }
+            });
+        });
+
+
+    </script>
+
+
+
+
 @endsection

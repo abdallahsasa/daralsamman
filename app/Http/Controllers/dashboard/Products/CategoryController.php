@@ -4,10 +4,12 @@ namespace App\Http\Controllers\dashboard\Products;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Product\Category;
 use App\Models\UserActivity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -60,7 +62,6 @@ class CategoryController extends Controller
     public function store(StoreProductCategoryRequest $request)
     {
         $validated_data = $request->validated();
-//        dd($validated_data );
 
         try {
             $object = $this->model_instance::create(Arr::except($validated_data, ['image']));
@@ -97,16 +98,47 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
         $category = $this->model_instance::findOrFail($id);
-        $categories =  $this->model_instance::all();
-        return view($this->edit_view,compact(['category','categories']));
+        $categories = $this->model_instance::all();
+        return view($this->edit_view, compact(['category', 'categories']));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateCategoryRequest $request, string $id)
     {
-        //
+        $validated_data = $request->validated();
+//        dd($validated_data);
+        try {
+            DB::beginTransaction();
+            $object = $this->model_instance::findOrFail($id);
+            $object->update(Arr::except($validated_data, ['image']));
+
+            if ($request->has('image')) {
+
+                // Delete the old main image
+                Storage::disk('public_images')->delete($object->image_url);
+
+                $image = $request->file('image');
+                $img_file_path = Storage::disk('public_images')->put('categories', $image);
+                $image_name = $image->getClientOriginalName();
+                $image_url = getMediaUrl($img_file_path);
+                $object->image_name = $image_name;
+                $object->image_url = $image_url;
+            }
+
+            $object->save();
+            DB::commit();
+
+            return redirect()->route($this->edit_view, $object->id)->with('success', $this->update_success_message);
+
+
+        } catch (\Exception $ex) {
+            Log::error($ex->getMessage());
+//            return redirect()->route($this->edit_view, $object->id)->with('error', $ex->getMessage());
+            return redirect()->view($this->edit_view)->with('error', $this->update_error_message);
+        }
+
     }
 
     /**

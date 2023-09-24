@@ -32,6 +32,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Status</th>
+                        <th>Code</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -44,6 +45,7 @@
                                 <td><span
                                         class="@if($country->status == 'active')text-success @else text-danger @endif ">{{$country->status}} </span>
                                 </td>
+                                <td>{{$country->code}}</td>
 
                                 <td>
                                     <div class="row justify-content-center">
@@ -100,6 +102,18 @@
                                                 @endif
                                                 <div id="first_nameError" class="invalid-feedback"></div>
                                             </div>
+                                            <div class="col-sm-4 col-xl-12 col-xxl-6 mb-3 form-group ">
+                                                <label class="form-label" for="code">Code *</label>
+                                                <input type="text" class="form-control" name="code" required
+                                                       value="{{old('code')}}">
+                                                @if($errors->has('code'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ $errors->first('code') }}
+                                                    </div>
+                                                @endif
+                                                <div id="code" class="invalid-feedback"></div>
+                                            </div>
+
                                             <div class="col-sm-4 col-xl-12 col-xxl-6 mb-3">
                                                 <label class="form-label" for="name">Country Status *</label>
                                                 <div class="form-group mb-3">

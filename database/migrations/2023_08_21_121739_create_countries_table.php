@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('countries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('code');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->bigInteger('sort_number')->nullable()->default('0');
             $table->timestamps();

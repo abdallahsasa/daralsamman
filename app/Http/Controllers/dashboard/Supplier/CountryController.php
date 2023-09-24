@@ -60,6 +60,7 @@ class CountryController extends Controller
     {
         return [
             'name' => 'required|string|min:3|max:200|unique:countries,name',
+            'code' => 'required|string|min:2|max:200',
             'status' => 'required|in:active,inactive',
             'sort_number' => 'nullable|integer',
         ];

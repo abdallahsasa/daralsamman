@@ -26,9 +26,9 @@ class FrontPageController extends Controller
         $numberOfProducts = Product::where('status', 'active')->count();
         $numberOfCategories = Category::where('status', 'active')->count();
         $numbOfAuthors = Author::where('status', 'active')->count();
-        $numbOfAuditors = Auditor::where('status', 'active')->count();
+        $numbOfSuppliers = Supplier::where('status', 'active')->count();
 
-        return view('website.home', compact('products', 'FeaturedCategories', 'numberOfProducts', 'numberOfCategories','numbOfAuthors','numbOfAuditors'));
+        return view('website.home', compact('products', 'FeaturedCategories', 'numberOfProducts', 'numberOfCategories','numbOfAuthors','numbOfSuppliers'));
     }
     public function suppliersIndex()
     {

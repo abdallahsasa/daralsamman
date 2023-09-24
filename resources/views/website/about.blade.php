@@ -39,20 +39,20 @@
                 <div class="mb-5 mb-lg-7">
                     <div class="d-md-flex align-items-center justify-content-between px-xl-10">
                         <div class="text-center mb-3 mb-md-0">
-                            <div class="font-size-12 font-weight-medium ml-lg-2">45M</div>
-                            <span class="font-size-4">Active Readers</span>
+                            <div class="font-size-12 font-weight-medium ml-lg-2">{{$numberOfProducts}}</div>
+                            <span class="font-size-4"> كتاب</span>
                         </div>
                         <div class="text-center mb-3 mb-md-0">
-                            <div class="font-size-12 font-weight-medium ml-2">+6k</div>
-                            <span class="font-size-4">Total Pages</span>
+                            <div class="font-size-12 font-weight-medium ml-2">{{$numberOfCategories}}</div>
+                            <span class="font-size-4">صنف مختلف</span>
                         </div>
                         <div class="text-center mb-3 mb-md-0">
-                            <div class="font-size-12 font-weight-medium ">30.6M</div>
-                            <span class="font-size-4">Buyers Activie</span>
+                            <div class="font-size-12 font-weight-medium ">{{$numbOfAuthors}}</div>
+                            <span class="font-size-4">كاتب</span>
                         </div>
                         <div class="text-center mb-0">
-                            <div class="font-size-12 font-weight-medium ml-2">283</div>
-                            <span class="font-size-4">Cup Of Coffe</span>
+                            <div class="font-size-12 font-weight-medium ml-2">{{$numbOfSuppliers}}</div>
+                            <span class="font-size-4">موزع معتمد</span>
                         </div>
                     </div>
                 </div>

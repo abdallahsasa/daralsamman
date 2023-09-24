@@ -10,10 +10,10 @@
             <div class="col-md-6 col-xl-3">
                 <div class="border border-sh-hover transition-3d-hover space-top-2 px-3 px-wd-7 pb-6 text-center mb-5 mb-xl-0">
                     <div class="mb-2 mb-lg-10 pt-lg-3 pb-lg-1">
+                        <img style="width:25%;" class="mb-2" src="{{asset('flags/'.strtolower($country->code).'.svg')}}">
                         <h6 class="font-weight-medium font-size-5 mb-2">{{$country->name}}</h6>
-                        <i class="flag flag-{{strtolower($country->name)}}"></i>
                     </div>
-                    <ul class="list-unstyled mb-6 pb-1 text-center">
+                    <ul class="list-unstyled mb-4 pb-1 text-center">
 
                         @foreach($country->cities as $city)
                             @if(count($city->suppliers)>0)

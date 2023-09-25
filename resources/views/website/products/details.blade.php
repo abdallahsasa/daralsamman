@@ -190,48 +190,39 @@
                                  &quot;slidesToShow&quot;: 2
                                }
                             }]">
-                                <div
-                                    class="js-prev u-slick__arrow u-slick__arrow-centered--y fas fa-chevron-left u-slick__arrow-inner u-slick__arrow-inner--left ml-lg-n10 slick-arrow slick-disabled"
-                                    aria-disabled="true" style=""></div>
+
 
                                 <div class="slick-list draggable">
                                     <div class="slick-track"
                                          style="opacity: 1; width: 2240px; transform: translate3d(0px, 0px, 0px);">
-                                        @foreach($relatedProducts as $product)
-                                            <div class="product slick-slide slick-current slick-active"
-                                                 data-slick-index="0"
-                                                 aria-hidden="false" style="width: 280px; height: auto;" tabindex="0">
+                                        @foreach($relatedProducts as $RelatedProduct)
+                                            <div class="product slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 280px; height: auto;" tabindex="0">
                                                 <div class="product__inner overflow-hidden p-3 p-md-4d875">
-                                                    <div
-                                                        class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
+                                                    <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
                                                         <div class="woocommerce-loop-product__thumbnail">
-                                                            <a href="{{route('website.product.details',$product->id)}}" class="d-block"
-                                                               tabindex="0"><img src="{{$product->featuredMedia->first()->image_url}}"
-                                                                                 class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid"
-                                                                                 alt="image-description"></a>
+                                                            <a href="{{route('website.product.details',$RelatedProduct->id)}}" class="d-block" tabindex="0">
+                                                                <img src="{{$RelatedProduct->featuredMedia->first()->image_url}}" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description">
+                                                            </a>
                                                         </div>
-                                                        <div
-                                                            class="woocommerce-loop-product__body product__body pt-3 bg-white">
+
+                                                        <div class="woocommerce-loop-product__body product__body pt-3 bg-white">
                                                             <div class="text-uppercase font-size-1 mb-1 text-truncate">
-                                                                <a
-                                                                    href="{{route('website.products.category.index',$product->category->id)}}"
-                                                                    tabindex="0">{{$product->category->name}}</a>
+                                                                <a href="{{route('website.products.category.index',$RelatedProduct->category->id)}}" tabindex="0">{{$RelatedProduct->category->name}} </a>
                                                             </div>
+
                                                             <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark">
-                                                                <a href="{{route('website.product.details',$product->id)}}"
-                                                                   tabindex="0">{{$product->name}}</a></h2>
+                                                                <a href="{{route('website.product.details',$RelatedProduct->id)}}" tabindex="0">{{$RelatedProduct->name}}</a>
+                                                            </h2>
 
 
-                                                            <div class="font-size-2  mb-1 text-truncate">
-                                                                <a href="{{route('website.product.details',$product->id)}}"
-                                                                   class="text-gray-700">
-                                                            <span class="m-lg-2 font-weight-medium"> @if(count($product->author)>1 )
+                                                            <div class="font-size-2  mb-1 text-truncate"><a href="{{route('website.product.details',$RelatedProduct->id)}}"  class="text-gray-700">
+                                                               <span class="m-lg-2 font-weight-medium"> @if(count($RelatedProduct->author)>1 )
                                                                     الكتاب:
                                                                 @else
                                                                     الكاتب:
                                                                 @endif</span>
 
-                                                                    @foreach($product->author as $author)
+                                                                    @foreach($RelatedProduct->author as $author)
                                                                         <span
                                                                             class="ml-2 text-gray-600"> {{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</span>
                                                                         @if(!$loop->last)
@@ -240,12 +231,6 @@
                                                                     @endforeach
                                                                 </a>
                                                             </div>
-                                                            <div class="product__hover d-flex align-items-center">
-                                                                <p>{{$product->short_description}}</p>
-
-                                                            </div>
-
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -255,10 +240,7 @@
                                     </div>
                                 </div>
 
-                                <div
-                                    class="js-next u-slick__arrow u-slick__arrow-centered--y fas fa-chevron-right u-slick__arrow-inner u-slick__arrow-inner--right mr-lg-n10 slick-arrow"
-                                    style="" aria-disabled="false">
-                                </div>
+
                             </div>
                         </div>
                     </section>

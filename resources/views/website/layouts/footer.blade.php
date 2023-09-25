@@ -59,26 +59,14 @@
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-5 mb-md-0">
-                    <h4 class="font-size-3 font-weight-medium mb-2 mb-xl-5 pb-xl-1 text-gray-500">Customer Service</h4>
+                    <h4 class="font-size-3 font-weight-medium mb-2 mb-xl-5 pb-xl-1 text-gray-500">من أهم التصنيفات</h4>
                     <ul class="list-unstyled mb-0">
+                        @foreach($footerCategories as $category)
                         <li class="pb-2">
-                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">Help Center</a>
+                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">{{$category->name}}</a>
                         </li>
-                        <li class="py-2">
-                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">Returns</a>
-                        </li>
-                        <li class="py-2">
-                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">Product Recalls</a>
-                        </li>
-                        <li class="py-2">
-                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">Accessibility</a>
-                        </li>
-                        <li class="py-2">
-                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">Contact Us</a>
-                        </li>
-                        <li class="pt-2">
-                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">Store Pickup</a>
-                        </li>
+                        @endforeach
+
                     </ul>
                 </div>
                 <div class="col-lg-6 mb-4 mb-md-0">

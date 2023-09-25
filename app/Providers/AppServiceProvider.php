@@ -24,14 +24,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Retrieve the $category object
+        $activeCategories = Category::where('status', 'active')->orderBy('name', 'asc')->get();
 
-        $MenuCategories = Category::where('status', '=', 'active')
-            ->orderBy('name', 'asc')
-            ->get();
+        $MenuCategories = $activeCategories;
+        $footerCategories = $activeCategories->random(4);
+
 
         // Share the $category object with all views
-        View::share(compact('MenuCategories'));
+        View::share(compact('MenuCategories','footerCategories'));
         Paginator::useBootstrapFive();
        // Paginator::useBootstrapFour();
     }

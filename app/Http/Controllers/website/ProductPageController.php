@@ -37,13 +37,12 @@ class ProductPageController extends Controller
     {
         $product = Product::where('status', 'active')->findOrFail($id);
 
-//        $category = Category::where('status', 'active')->findOrFail($product->category_id);
 
         $categories = Category::where('status', 'active')->get();
 
         $relatedProducts = Product::where('status', 'active')
             ->where('id', "!=", $id)
-            ->get();
+            ->get()->random(5);
 
 // Return the view with the data
         return view('website.products.details', compact('categories', 'product', 'relatedProducts'));

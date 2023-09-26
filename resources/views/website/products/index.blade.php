@@ -383,6 +383,41 @@
                         </div>
                             @endif
 
+{{--                            @if($auditors)--}}
+                                <div id="Auditors" class="widget widget_search widget_author p-4d875 border">
+                                    <div id="widgetHeading22" class="widget-head">
+                                        <a class="d-flex align-items-center justify-content-between text-dark" href="#"
+                                           data-toggle="collapse"
+                                           data-target="#widgetCollapse22"
+                                           aria-expanded="false"
+                                           aria-controls="widgetCollapse22">
+
+                                            <h3 class="widget-title mb-0 font-weight-medium font-size-3">المحققون</h3>
+
+                                            <svg class="mins" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="2px">
+                                                <path fill-rule="evenodd" fill="rgb(22, 22, 25)" d="M0.000,-0.000 L15.000,-0.000 L15.000,2.000 L0.000,2.000 L0.000,-0.000 Z" />
+                                            </svg>
+
+                                            <svg class="plus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px">
+                                                <path fill-rule="evenodd" fill="rgb(22, 22, 25)" d="M15.000,8.000 L9.000,8.000 L9.000,15.000 L7.000,15.000 L7.000,8.000 L0.000,8.000 L0.000,6.000 L7.000,6.000 L7.000,-0.000 L9.000,-0.000 L9.000,6.000 L15.000,6.000 L15.000,8.000 Z" />
+                                            </svg>
+                                        </a>
+                                    </div>
+
+                                    <div id="widgetCollapse22" class="mt-4 widget-content collapse "
+                                         aria-labelledby="widgetHeading22"
+                                         data-parent="#widgetAccordion">
+
+                                        <ul class="product-categories">
+                                            @foreach($authors as $author)
+                                                <li class="cat-item cat-item-45"><a href="{{route('website.products.author.index',$author->id)}}">{{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+{{--                            @endif--}}
+
+
                     </div>
                 </div>
             </div>

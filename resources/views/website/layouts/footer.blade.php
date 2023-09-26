@@ -63,7 +63,7 @@
                     <ul class="list-unstyled mb-0">
                         @foreach($footerCategories as $category)
                         <li class="pb-2">
-                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="#">{{$category->name}}</a>
+                            <a class="font-size-2 text-white widgets-hover transition-3d-hover" href="{{route('website.products.category.index',$category->id)}}">{{$category->name}}</a>
                         </li>
                         @endforeach
 

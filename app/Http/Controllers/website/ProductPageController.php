@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Author\Auditor;
 use App\Models\Author\Author;
 use App\Models\Product\Category;
 use App\Models\Product\Product;
@@ -22,8 +23,11 @@ class ProductPageController extends Controller
         $authors = Author::Where('status', 'active')
             ->orderBy('slug', 'asc')
             ->get();
+        $auditors = Auditor::Where('status', 'active')
+            ->orderBy('slug', 'asc')
+            ->get();
 
-        return view('website.products.index', compact('categories', 'products', 'authors'));
+        return view('website.products.index', compact('categories', 'products', 'authors','auditors'));
 
 
     }
@@ -49,7 +53,7 @@ class ProductPageController extends Controller
 
     }
 
-    public function cateoryProducts($cateoryid)
+    public function categoryProducts($cateoryid)
     {
         $products = Product::where('status', 'active')
             ->where('category_id',$cateoryid)
@@ -60,6 +64,7 @@ class ProductPageController extends Controller
         $authors = Author::Where('status', 'active')
             ->orderBy('slug', 'asc')
             ->get();
+
 
         return view('website.products.index', compact('categories', 'products', 'authors'));
     }
@@ -77,6 +82,22 @@ class ProductPageController extends Controller
             ->get();
 
         return view('website.products.index', compact('categories', 'products', 'authors'));
+    }
+
+    public function auditorProducts($authorid)
+    {
+        $products = Auditor::findOrFail($authorid)
+            ->products()
+            ->where('status', 'active')
+            ->paginate(12);
+        $categories = Category::where('status', 'active')
+            ->orderBy('name', 'asc')
+            ->get();
+        $auditors = Auditor::Where('status', 'active')
+            ->orderBy('slug', 'asc')
+            ->get();
+
+        return view('website.products.index', compact('categories', 'products', 'auditors'));
     }
 
 }

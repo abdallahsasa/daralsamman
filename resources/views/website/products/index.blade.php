@@ -383,7 +383,7 @@
                         </div>
                             @endif
 
-{{--                            @if($auditors)--}}
+                            @if($auditors)
                                 <div id="Auditors" class="widget widget_search widget_author p-4d875 border">
                                     <div id="widgetHeading22" class="widget-head">
                                         <a class="d-flex align-items-center justify-content-between text-dark" href="#"
@@ -409,13 +409,13 @@
                                          data-parent="#widgetAccordion">
 
                                         <ul class="product-categories">
-                                            @foreach($authors as $author)
-                                                <li class="cat-item cat-item-45"><a href="{{route('website.products.author.index',$author->id)}}">{{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</a></li>
+                                            @foreach($auditors as $auditor)
+                                                <li class="cat-item cat-item-45"><a href="{{route('website.products.auditor.index',$auditor->id)}}">{{$auditor->first_name}} {{$auditor->middle_name}} {{$auditor->last_name}}</a></li>
                                             @endforeach
                                         </ul>
                                     </div>
                                 </div>
-{{--                            @endif--}}
+                            @endif
 
 
                     </div>

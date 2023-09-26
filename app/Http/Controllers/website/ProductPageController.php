@@ -64,9 +64,12 @@ class ProductPageController extends Controller
         $authors = Author::Where('status', 'active')
             ->orderBy('slug', 'asc')
             ->get();
+        $auditors = Auditor::Where('status', 'active')
+            ->orderBy('slug', 'asc')
+            ->get();
 
 
-        return view('website.products.index', compact('categories', 'products', 'authors'));
+        return view('website.products.index', compact('categories', 'products', 'authors','auditors'));
     }
     public function authorProducts($authorid)
     {
@@ -80,8 +83,11 @@ class ProductPageController extends Controller
         $authors = Author::Where('status', 'active')
             ->orderBy('slug', 'asc')
             ->get();
+        $auditors = Auditor::Where('status', 'active')
+            ->orderBy('slug', 'asc')
+            ->get();
 
-        return view('website.products.index', compact('categories', 'products', 'authors'));
+        return view('website.products.index', compact('categories', 'products', 'authors','auditors'));
     }
 
     public function auditorProducts($authorid)
@@ -93,11 +99,14 @@ class ProductPageController extends Controller
         $categories = Category::where('status', 'active')
             ->orderBy('name', 'asc')
             ->get();
+        $authors = Author::Where('status', 'active')
+            ->orderBy('slug', 'asc')
+            ->get();
         $auditors = Auditor::Where('status', 'active')
             ->orderBy('slug', 'asc')
             ->get();
 
-        return view('website.products.index', compact('categories', 'products', 'auditors'));
+        return view('website.products.index', compact('categories', 'products','authors', 'auditors'));
     }
 
 }

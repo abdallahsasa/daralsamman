@@ -27465,7 +27465,7 @@ Slick Pagination
 }
 
 .text-lh-md.text-height-2 {
-    height: 2rem;
+    height: auto;
 }
 
 .text-lh-lg {
@@ -27492,7 +27492,6 @@ Slick Pagination
   Crop Text
 ------------------------------------*/
 .crop-text-2 {
-    overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -28784,4 +28783,7 @@ File for your custom SCSS style
 ------------------------------------*/
 .rtl-container{
     flex-direction: row-reverse!important;
+}
+.text-truncate a{
+    text-wrap: balance;
 }

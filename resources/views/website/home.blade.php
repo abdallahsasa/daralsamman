@@ -168,8 +168,18 @@
                                         <a href="{{route('website.product.details',$product->id)}}">{{$product->name}}</a>
                                     </h2>
                                     <div class="font-size-2  mb-1 text-truncate">
-                                        @foreach($product->author as $author)
-                                            <a href="{{route('website.products.author.index',$author->id)}}" class="text-gray-700">{{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</a>
+                                        @foreach($product->author as $index => $author)
+                                            <a href="{{route('website.products.author.index',$author->id)}}" class="text-gray-700">
+                                                <span class="m-lg-2 font-weight-medium">
+                                                    @if($index === 0)
+                                                        @if(count($product->author) > 1)
+                                                            المؤلفون:
+                                                        @else
+                                                            المؤلف:
+                                                        @endif
+                                                    @endif
+                                                            </span>
+                                                {{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</a>
                                         @if(!$loop->last) , @endif
                                         @endforeach
                                     </div>
@@ -254,7 +264,16 @@
                                                                 <a href="{{route('website.product.details',$product->id)}}" tabindex="0">{{$product->name}}</a>
                                                             </h2>
                                                             <div class="font-size-2  mb-1 text-truncate">
-                                                                @foreach($product->author as $author)
+                                                                @foreach($product->author as $index => $author)
+
+                                                                    @if($index === 0)
+                                                                        @if(count($product->author) > 1)
+                                                                            المؤلفون:
+                                                                        @else
+                                                                            المؤلف:
+                                                                        @endif
+                                                                    @endif
+
                                                                     <a href="{{route('website.products.author.index',$author->id)}}" class="text-gray-700" tabindex="0">{{$author->first_name }} {{$author->middle_name }} {{$author->last_name}}</a>
                                                                 @endforeach
                                                             </div>

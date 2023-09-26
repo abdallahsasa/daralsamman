@@ -66,9 +66,9 @@
                                 @if($product->author)
                                     <div class="font-size-3 mb-4">
                                         <span class="ml-3 font-weight-medium"> @if(count($product->author)>1 )
-                                                الكتاب:
+                                                المؤلفون:
                                             @else
-                                                الكاتب:
+                                                المؤلف:
                                             @endif</span>
                                         @foreach($product->author as $author)
                                             <span
@@ -232,9 +232,9 @@
                                                                 <a href="{{route('website.product.details',$RelatedProduct->id)}}" class="text-gray-700">
                                                                     <span class="m-lg-2 font-weight-medium">
                                                                         @if(count($RelatedProduct->author)>1 )
-                                                                            الكتاب:
+                                                                            المؤلفون:
                                                                         @else
-                                                                            الكاتب:
+                                                                            المؤلف:
                                                                         @endif
                                                                     </span>
 

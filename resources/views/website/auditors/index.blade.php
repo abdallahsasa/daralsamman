@@ -6,11 +6,11 @@
                 <div class="page-header border-bottom">
                     <div class="container">
                         <div class="d-md-flex justify-content-between align-items-center py-4">
-                            <h1 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">المؤلفون</h1>
+                            <h1 class="page-title font-size-3 font-weight-medium m-0 text-lh-lg">المحققون</h1>
                             <nav class="woocommerce-breadcrumb font-size-2">
                                 <a href="../home/index.html" class="h-primary">الصفحة الرئيسية</a>
                                 <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-left"></i></span>
-                                <span>المؤلفون</span>
+                                <span>المحققون</span>
                             </nav>
                         </div>
                     </div>
@@ -67,16 +67,16 @@
                           ]'>
 
                             <!-- Item -->
-                            @foreach($authors as $author)
-                            <div class="cbp-item graphic">
-                                <a class="cbp-caption" href="../others/authors-single.html">
-                                    <img class="rounded-circle img-fluid mb-3" src="https://placehold.it/140x140" alt="Image Description">
-                                    <div class="py-3 text-center">
-                                        <h4 class="h6 text-dark">{{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</h4>
-                                        <span class="font-size-2 text-secondary-gray-700">21,658 Published Books</span>
-                                    </div>
-                                </a>
-                            </div>
+                            @foreach($auditors as $auditor)
+                                <div class="cbp-item graphic">
+                                    <a class="cbp-caption" href="../others/authors-single.html">
+                                        <img class="rounded-circle img-fluid mb-3" src="https://placehold.it/140x140" alt="Image Description">
+                                        <div class="py-3 text-center">
+                                            <h4 class="h6 text-dark">{{$auditor->first_name}} {{$auditor->middle_name}} {{$auditor->last_name}}</h4>
+                                            <span class="font-size-2 text-secondary-gray-700">21,658 Published Books</span>
+                                        </div>
+                                    </a>
+                                </div>
                             @endforeach
                             <!-- End Item -->
                         </div>

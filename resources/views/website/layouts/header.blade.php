@@ -71,7 +71,7 @@
                             <li class="nav-item"><a href="{{route('website.suppliers.index')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الموزعون المعتمدون</a></li>
 
                             <li class="nav-item dropdown">
-                                <a id="homeDropdownInvoker" href="{{route('website.products.index')}}"
+                                <a id="homeDropdownInvoker" href="javascript:void(0)"
                                    class="dropdown-toggle nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium d-flex align-items-center"
                                    aria-haspopup="true"
                                    aria-expanded="false"
@@ -91,7 +91,7 @@
 
                                     <li><a href="{{route('website.authors.index')}}"
                                            class="dropdown-item link-black-100">المؤلفون</a></li>
-                                    <li><a href="{{route('website.authors.index')}}"
+                                    <li><a href="{{route('website.auditors.index')}}"
                                            class="dropdown-item link-black-100">المحققون</a></li>
                                 </ul>
                             </li>

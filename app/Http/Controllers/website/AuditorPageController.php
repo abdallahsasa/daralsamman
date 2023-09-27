@@ -14,4 +14,10 @@ class AuditorPageController extends Controller
 
         $this->index_view = 'website.auditors.index';
     }
+    public function index()
+    {
+        $auditors = $this->model_instance::where('status', 'active')->get();
+
+        return view($this->index_view, compact('auditors'));
+    }
 }

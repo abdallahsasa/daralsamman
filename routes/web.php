@@ -11,6 +11,7 @@ use App\Http\Controllers\dashboard\Supplier\CountryController;
 use App\Http\Controllers\dashboard\Supplier\SupplierController;
 use App\Http\Controllers\website\AboutUsPageController;
 use App\Http\Controllers\website\AuthorPageController;
+use App\Http\Controllers\website\AuditorPageController;
 use App\Http\Controllers\website\ContactUsPageController;
 use App\Http\Controllers\website\FrontPageController;
 use App\Http\Controllers\website\NewsPageController;
@@ -48,6 +49,10 @@ Route::get('/solutions', [SolutionsPageController::class, 'index'])->name('websi
 Route::get('/news', [NewsPageController::class, 'index'])->name('website.news');
 
 Route::get('/authors', [AuthorPageController::class, 'index'])->name('website.authors.index');
+Route::get('/auditors', [AuditorPageController::class, 'index'])->name('website.auditors.index');
+
+
+
 Route::get('/suppliers', [FrontPageController::class, 'suppliersIndex'])->name('website.suppliers.index');
 //---------------- End of Website ---------------- //
 

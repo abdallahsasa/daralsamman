@@ -40,6 +40,9 @@
         // initialization of show animations
         $.HSCore.components.HSShowAnimation.init('.js-animation-link');
 
+        // initialization of cubeportfolio
+        $.HSCore.components.HSCubeportfolio.init('.cbp');
+
         // init zeynepjs
         var zeynep = $('.zeynep').zeynep({
             onClosed: function () {

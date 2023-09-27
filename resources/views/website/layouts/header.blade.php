@@ -97,10 +97,10 @@
                             </li>
 
 
-                            <li class="nav-item"><a href="#"
+                            <li class="nav-item"><a href="javascript:void(0)"
                                                     class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">اللجنة
                                     العلمية</a></li>
-                            <li class="nav-item"><a href="#"
+                            <li class="nav-item"><a href="javascript:void(0)"
                                                     class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">مقالات</a>
                             </li>
                             <li class="nav-item"><a href="{{route('website.about')}}"

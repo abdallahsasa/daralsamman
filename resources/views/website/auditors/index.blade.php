@@ -67,8 +67,8 @@
                             <!-- Item -->
                             @foreach($auditors as $auditor)
                                 <div class="cbp-item graphic">
-                                    <a class="cbp-caption" href="../others/authors-single.html">
-                                        <img class="rounded-circle img-fluid mb-3" src="https://placehold.it/140x140" alt="Image Description">
+                                    <a class="cbp-caption" href="{{route('website.products.auditor.index',$auditor->id)}}">
+                                        <img class="rounded-circle img-fluid mb-3" src="https://placehold.it/140x140" alt="{{$auditor->image_name}}">
                                         <div class="py-3 text-center">
                                             <h4 class="h6 text-dark">{{$auditor->first_name}} {{$auditor->middle_name}} {{$auditor->last_name}}</h4>
                                             <span class="font-size-2 text-secondary-gray-700">21,658 Published Books</span>

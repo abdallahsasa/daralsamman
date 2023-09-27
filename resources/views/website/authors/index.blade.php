@@ -67,8 +67,8 @@
                             <!-- Item -->
                             @foreach($authors as $author)
                             <div class="cbp-item graphic">
-                                <a class="cbp-caption" href="../others/authors-single.html">
-                                    <img class="rounded-circle img-fluid mb-3" src="https://placehold.it/140x140" alt="Image Description">
+                                <a class="cbp-caption" href="{{route('website.products.author.index',$author->id)}}">
+                                    <img class="rounded-circle img-fluid mb-3" src=" @if(!is_null($author->image_url)) {{$author->image_url}} @else {{ asset('uploads/user.png') }} @endif  " alt="{{$author->image_name}}">
                                     <div class="py-3 text-center">
                                         <h4 class="h6 text-dark">{{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</h4>
                                         <span class="font-size-2 text-secondary-gray-700">21,658 Published Books</span>

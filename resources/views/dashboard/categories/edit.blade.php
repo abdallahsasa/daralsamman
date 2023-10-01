@@ -41,7 +41,7 @@
                                             <select name="parent_id" class="form-select form-select-lg mb-3" id="parent_id">
                                                 <option value="">Category</option>
                                                 @foreach($categories as $ParentCategory)
-                                                    <option value="{{ $ParentCategory->id }}" {{ old('parent_id', $ParentCategory->id) == $category->id || (is_null(old('parent_id')) && is_null($category->parent_id)) ? 'selected' : '' }}>
+                                                    <option value="{{ $ParentCategory->id }}" {{ $ParentCategory->id==$category->parent_id ? 'selected' : '' }}>
                                                         {{ $ParentCategory->name }}
                                                     </option>
                                                 @endforeach

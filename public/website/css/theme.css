@@ -25778,7 +25778,7 @@ html:not(.no-transition) body,
 
 .dropdown-sub-menu {
     top: 0;
-    left: 100% !important;
+    left: -101% !important;
     margin-top: 0 !important;
 }
 
@@ -25792,9 +25792,7 @@ html:not(.no-transition) body,
     margin-right: .5rem;
 }
 
-.dropdown-toggle.dropdown-item__sub-menu::after {
-    content: "";
-}
+
 
 .vertical-menu {
     font-size: 15px;

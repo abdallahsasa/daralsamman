@@ -39,38 +39,6 @@
                     <div class="site-navigation mr-auto d-none d-xl-block">
                         <ul class="nav pl-xl-4">
                             <li class="nav-item"><a href="{{route('website.home')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الصفحة الرئيسية</a></li>
-
-                            <li class="nav-item dropdown">
-                                <a id="homeDropdownInvoker"
-                                   href="{{route('website.products.index')}}"
-                                   class="dropdown-toggle nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium d-flex align-items-center"
-                                   aria-haspopup="true"
-                                   aria-expanded="false"
-                                   data-unfold-event="hover"
-                                   data-unfold-target="#homeDropdownMenu"
-                                   data-unfold-type="css-animation"
-                                   data-unfold-duration="200"
-                                   data-unfold-delay="50"
-                                   data-unfold-hide-on-scroll="false"
-                                   data-unfold-animation-in="slideInUp"
-                                   data-unfold-animation-out="fadeOut">
-                                    اصدارات الدار
-                                </a>
-                                <ul id="homeDropdownMenu"
-                                    class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900"
-                                    aria-labelledby="homeDropdownInvoker" >
-                                    @if(isset($MenuCategories) && !$MenuCategories->isEmpty())
-                                        @foreach($MenuCategories as $category )
-                                            <li><a href="{{route('website.products.category.index',$category->id)}}" class="dropdown-item link-black-100">{{$category->name}}</a></li>
-                                        @endforeach
-                                    @endif
-
-                                </ul>
-                            </li>
-
-
-
-
 {{--                            Start NEW--}}
                             <li class="nav-item dropdown">
                                 <a id="shopDropdownInvoker"
@@ -93,13 +61,14 @@
                                     @foreach($MenuCategories as $category )
                                         @if($category->parent_id==0)
                                             <li class="position-relative">
+
                                                 <a id="shopDropdownsubmenu{{$category->id}}Invoker"
                                                    href="{{route('website.products.category.index',$category->id)}}"
-                                                   class="dropdown-toggle dropdown-item dropdown-item__sub-menu link-black-100 d-flex align-items-center justify-content-between"
+                                                   class="@if(count($category->subcategories)>0) dropdown-toggle  dropdown-item__sub-menu  d-flex align-items-center justify-content-between @endif dropdown-item link-black-100"
                                                    aria-haspopup="true"
                                                    aria-expanded="false"
                                                    data-unfold-event="hover"
-                                                   data-unfold-target="#shopDropdownsubMenuone{{$loop->index}}"
+                                                   data-unfold-target="#shopDropdownsubMenuone{{$category->id}}"
                                                    data-unfold-type="css-animation"
                                                    data-unfold-duration="200"
                                                    data-unfold-delay="100"
@@ -108,12 +77,13 @@
                                                    data-unfold-animation-out="fadeOut">
                                                     {{$category->name}}
                                                 </a>
-
-                                                @foreach($category->subcategories as $sub )
-                                                    <ul id="shopDropdownsubMenuone{{$loop->index}}" class="dropdown-unfold dropdown-menu dropdown-sub-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="shopDropdownsubmenu{{$category->id}}Invoker">
+                                                @if(count($category->subcategories)>0)
+                                                <ul id="shopDropdownsubMenuone{{$category->id}}" class="dropdown-unfold dropdown-menu dropdown-sub-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="shopDropdownsubmenu{{$category->id}}Invoker">
+                                                    @foreach($category->subcategories as $sub )
                                                         <li> <a href="{{route('website.products.category.index',$sub->id)}}" class="dropdown-item link-black-100">{{$sub->name}}</a> </li>
-                                                    </ul>
-                                                @endforeach
+                                                    @endforeach
+                                                </ul>
+                                                @endif
                                             </li>
 
                                         @endif

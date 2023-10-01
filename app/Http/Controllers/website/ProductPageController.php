@@ -55,9 +55,14 @@ class ProductPageController extends Controller
 
     public function categoryProducts($cateoryid)
     {
-        $products = Product::where('status', 'active')
-            ->where('category_id',$cateoryid)
+        $products = Product::where('products.status', 'active')
+            ->join('product_categories', 'products.category_id', '=', 'product_categories.id')
+            ->where(function ($query) use ($cateoryid) {
+                $query->where('product_categories.id', $cateoryid)
+                    ->orWhere('product_categories.parent_id', $cateoryid);
+            })
             ->paginate(12);
+
         $categories = Category::where('status', 'active')
             ->orderBy('name', 'asc')
             ->get();

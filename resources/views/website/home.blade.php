@@ -15,7 +15,7 @@
                          data-arrow-right-classes="flaticon-next u-slick__arrow-inner u-slick__arrow-inner--right text-dark mr-lg-3">
                         <div class="px-4 px-md-6 px-lg-7 px-xl-10 d-flex min-height-530">
                             <div class="max-width-565 my-auto">
-                                <div class="media">
+                                <div class="media " style="display: none;">
                                     <div class="media-body align-self-center mb-4 mb-lg-0">
                                         <p class="banner__pretitle text-uppercase text-gray-400 font-weight-bold mb-2"
                                            data-scs-animation-in="fadeInUp"

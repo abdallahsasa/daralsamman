@@ -36,24 +36,24 @@
                                 <div class="card card-statistics h-100">
                                     <div class="card-body">
 
-{{--                                        <div class="mb-3">--}}
-{{--                                            <label class="form-label" for="parent_id">Parent Name</label>--}}
-{{--                                            <select name="parent_id" class="form-select form-select-lg mb-3" id="parent_id">--}}
-{{--                                                <option value="">Category</option>--}}
-{{--                                                @foreach($categories as $category)--}}
-{{--                                                    <option value="{{ $category->id }}" {{ old('parent_id', $category->id) == $category->id || (is_null(old('parent_id')) && is_null($category->parent_id)) ? 'selected' : '' }}>--}}
-{{--                                                        {{ $category->name }}--}}
-{{--                                                    </option>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
+                                        <div class="mb-3">
+                                            <label class="form-label" for="parent_id">Parent Name</label>
+                                            <select name="parent_id" class="form-select form-select-lg mb-3" id="parent_id">
+                                                <option value="">Category</option>
+                                                @foreach($categories as $ParentCategory)
+                                                    <option value="{{ $ParentCategory->id }}" {{ old('parent_id', $ParentCategory->id) == $category->id || (is_null(old('parent_id')) && is_null($category->parent_id)) ? 'selected' : '' }}>
+                                                        {{ $ParentCategory->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
 
-{{--                                            @if($errors->has('parent_id'))--}}
-{{--                                                <div class="alert alert-danger" role="alert">--}}
-{{--                                                    {{ $errors->first('parent_id') }}--}}
-{{--                                                </div>--}}
-{{--                                            @endif--}}
-{{--                                            <div id="categoryError" class="invalid-feedback"></div>--}}
-{{--                                        </div>--}}
+                                            @if($errors->has('parent_id'))
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $errors->first('parent_id') }}
+                                                </div>
+                                            @endif
+                                            <div id="categoryError" class="invalid-feedback"></div>
+                                        </div>
 
 
 

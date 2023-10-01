@@ -38,11 +38,11 @@
                 <div class="d-flex align-items-center justify-content-center position-relative">
                     <div class="site-navigation mr-auto d-none d-xl-block">
                         <ul class="nav pl-xl-4">
-                            <li class="nav-item"><a href="{{route('website.home')}}"
-                                                    class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الصفحة
-                                    الرئيسية</a></li>
+                            <li class="nav-item"><a href="{{route('website.home')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الصفحة الرئيسية</a></li>
+
                             <li class="nav-item dropdown">
-                                <a id="homeDropdownInvoker" href="{{route('website.products.index')}}"
+                                <a id="homeDropdownInvoker"
+                                   href="{{route('website.products.index')}}"
                                    class="dropdown-toggle nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium d-flex align-items-center"
                                    aria-haspopup="true"
                                    aria-expanded="false"
@@ -51,7 +51,7 @@
                                    data-unfold-type="css-animation"
                                    data-unfold-duration="200"
                                    data-unfold-delay="50"
-                                   data-unfold-hide-on-scroll="true"
+                                   data-unfold-hide-on-scroll="false"
                                    data-unfold-animation-in="slideInUp"
                                    data-unfold-animation-out="fadeOut">
                                     اصدارات الدار
@@ -61,15 +61,85 @@
                                     aria-labelledby="homeDropdownInvoker" >
                                     @if(isset($MenuCategories) && !$MenuCategories->isEmpty())
                                         @foreach($MenuCategories as $category )
-                                            <li><a href="{{route('website.products.category.index',$category->id)}}"
-                                                   class="dropdown-item link-black-100">{{$category->name}}</a></li>
+                                            <li><a href="{{route('website.products.category.index',$category->id)}}" class="dropdown-item link-black-100">{{$category->name}}</a></li>
                                         @endforeach
                                     @endif
 
                                 </ul>
                             </li>
-                            <li class="nav-item"><a href="{{route('website.suppliers.index')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الموزعون المعتمدون</a></li>
 
+
+
+
+{{--                            Start NEW--}}
+                            <li class="nav-item dropdown">
+                                <a id="shopDropdownInvoker"
+                                   href="{{route('website.products.index')}}"
+                                   class="dropdown-toggle nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium d-flex align-items-center"
+                                   aria-haspopup="true"
+                                   aria-expanded="false"
+                                   data-unfold-event="hover"
+                                   data-unfold-target="#shopDropdownMenu"
+                                   data-unfold-type="css-animation"
+                                   data-unfold-duration="200"
+                                   data-unfold-delay="50"
+                                   data-unfold-hide-on-scroll="true"
+                                   data-unfold-animation-in="slideInUp"
+                                   data-unfold-animation-out="fadeOut">
+                                    اصدارات الدار
+                                </a>
+
+                                <ul id="shopDropdownMenu" class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="shopDropdownInvoker">
+                                    @foreach($MenuCategories as $category )
+                                        @if($category->parent_id==0)
+                                            <li class="position-relative">
+                                                <a id="shopDropdownsubmenu{{$category->id}}Invoker"
+                                                   href="{{route('website.products.category.index',$category->id)}}"
+                                                   class="dropdown-toggle dropdown-item dropdown-item__sub-menu link-black-100 d-flex align-items-center justify-content-between"
+                                                   aria-haspopup="true"
+                                                   aria-expanded="false"
+                                                   data-unfold-event="hover"
+                                                   data-unfold-target="#shopDropdownsubMenuone{{$loop->index}}"
+                                                   data-unfold-type="css-animation"
+                                                   data-unfold-duration="200"
+                                                   data-unfold-delay="100"
+                                                   data-unfold-hide-on-scroll="true"
+                                                   data-unfold-animation-in="slideInUp"
+                                                   data-unfold-animation-out="fadeOut">
+                                                    {{$category->name}}
+                                                </a>
+
+                                                @foreach($category->subcategories as $sub )
+                                                    <ul id="shopDropdownsubMenuone{{$loop->index}}" class="dropdown-unfold dropdown-menu dropdown-sub-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="shopDropdownsubmenu{{$category->id}}Invoker">
+                                                        <li> <a href="{{route('website.products.category.index',$sub->id)}}" class="dropdown-item link-black-100">{{$sub->name}}</a> </li>
+                                                    </ul>
+                                                @endforeach
+                                            </li>
+
+                                        @endif
+                                    @endforeach
+
+                                </ul>
+                            </li>
+
+
+
+{{--End NEW--}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <li class="nav-item"><a href="{{route('website.suppliers.index')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الموزعون المعتمدون</a></li>
                             <li class="nav-item dropdown">
                                 <a id="homeDropdownInvoker" href="javascript:void(0)"
                                    class="dropdown-toggle nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium d-flex align-items-center"
@@ -95,20 +165,10 @@
                                            class="dropdown-item link-black-100">المحققون</a></li>
                                 </ul>
                             </li>
-
-
-                            <li class="nav-item"><a href="javascript:void(0)"
-                                                    class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">اللجنة
-                                    العلمية</a></li>
-                            <li class="nav-item"><a href="javascript:void(0)"
-                                                    class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">مقالات</a>
-                            </li>
-                            <li class="nav-item"><a href="{{route('website.about')}}"
-                                                    class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">تأسيس
-                                    الدار</a></li>
-                            <li class="nav-item"><a href="{{route('website.contact')}}"
-                                                    class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">تواصل
-                                    معنا</a></li>
+                            <li class="nav-item"><a href="javascript:void(0)" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">اللجنة العلمية</a></li>
+                            <li class="nav-item"><a href="javascript:void(0)" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">مقالات</a></li>
+                            <li class="nav-item"><a href="{{route('website.about')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">تأسيس الدار</a></li>
+                            <li class="nav-item"><a href="{{route('website.contact')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">تواصل معنا</a></li>
                         </ul>
                     </div>
 

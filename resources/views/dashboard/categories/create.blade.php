@@ -35,20 +35,20 @@
                             <div class="col-md-6 mb-30">
                                 <div class="card card-statistics h-100">
                                     <div class="card-body">
-{{--                                        <div class="mb-3">--}}
-{{--                                            <label class="form-label" for="category_id">Parent Name</label>--}}
-{{--                                            <select name="parent_id" class="form-select form-select-lg mb-3" id="parent_id">--}}
-{{--                                                <option selected disabled>Category</option>--}}
-{{--                                                @foreach($categories as $category)--}}
-{{--                                                    <option value="{{$category->id}}">{{$category->name}}</option>@endforeach--}}
-{{--                                            </select>--}}
-{{--                                            @if($errors->has('parent_id'))--}}
-{{--                                                <div class="alert alert-danger" role="alert">--}}
-{{--                                                    {{ $errors->first('parent_id') }}--}}
-{{--                                                </div>--}}
-{{--                                            @endif--}}
-{{--                                            <div id="categoryError" class="invalid-feedback"></div>--}}
-{{--                                        </div>--}}
+                                        <div class="mb-3">
+                                            <label class="form-label" for="category_id">Parent Name</label>
+                                            <select name="parent_id" class="form-select form-select-lg mb-3" id="parent_id">
+                                                <option selected disabled>Category</option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>@endforeach
+                                            </select>
+                                            @if($errors->has('parent_id'))
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ $errors->first('parent_id') }}
+                                                </div>
+                                            @endif
+                                            <div id="categoryError" class="invalid-feedback"></div>
+                                        </div>
                                         <div class="mb-3">
                                             <label class="form-label" for="exampleInputEmail1">Category Name</label>
                                             <input required name="name" type="text" class="form-control"

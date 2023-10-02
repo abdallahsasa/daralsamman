@@ -55,7 +55,9 @@ class ProductPageController extends Controller
 
     public function categoryProducts($cateoryid)
     {
-        $products = Product::where('products.status', 'active')
+
+        $products = Product::select('products.*')
+            ->distinct()
             ->join('product_categories', 'products.category_id', '=', 'product_categories.id')
             ->where(function ($query) use ($cateoryid) {
                 $query->where('product_categories.id', $cateoryid)

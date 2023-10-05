@@ -38,7 +38,7 @@
                                         <div class="mb-3">
                                             <label class="form-label" for="category_id">Parent Name</label>
                                             <select name="parent_id" class="form-select form-select-lg mb-3" id="parent_id">
-                                                <option selected disabled>Category</option>
+                                                <option selected disabled value="0">Category</option>
                                                 @foreach($categories as $category)
                                                     <option value="{{$category->id}}">{{$category->name}}</option>@endforeach
                                             </select>

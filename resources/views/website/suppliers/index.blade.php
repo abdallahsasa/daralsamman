@@ -11,7 +11,7 @@
                         <div class="space-bottom-2 space-bottom-lg-3 faq-accordion">
                             <div class="pb-lg-1">
                                 <div class="mb-2 pb-1 text-center">
-                                    <img style="width:50%;" class="mb-2"
+                                    <img style="width:30%;" class="mb-2"
                                          src="{{asset('flags/'.strtolower($country->code).'.svg')}}">
                                     <h6 class="font-weight-medium font-size-4 mb-2">{{$country->name}}</h6>
                                     @foreach($country->cities as $city)

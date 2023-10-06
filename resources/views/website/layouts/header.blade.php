@@ -21,7 +21,7 @@
                                 </select>
                             </div>
                             <input type="text" class="form-control px-3 bg-gray-200 bg-focus__1"
-                                   placeholder="Search for books by keyword"
+                                   placeholder="البحث عن الكتب عن طريق الكلمات الرئيسية"
                                    aria-label="Amount (to the nearest dollar)">
                             <div class="input-group-append">
                                 <button class="btn btn-primary px-3 py-2" type="submit"><i

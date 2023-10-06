@@ -15,10 +15,10 @@
                                 <h6 class="font-weight-medium font-size-4 mb-2">{{$country->name}}</h6>
                                 @foreach($country->cities as $city)
 
-                                <div id="{{$city->name}}">
+                                <div id="{{$city->name}}{{$city->id}}">
                                     <div class="card rounded-0 border-0">
-                                        <div class="card-collapse card-header p-0 bg-transparent border-bottom-0" id="{{$city->name}}">
-                                            <button type="button" class="collapse-link btn btn-block d-flex align-items-center justify-content-between card-btn py-3 px-0 px-md-4 border rounded-0 shadow-none collapsed" data-toggle="collapse" data-target="#basicsCollapseOne" aria-expanded="false" aria-controls="basicsCollapseOne">
+                                        <div class="card-collapse card-header p-0 bg-transparent border-bottom-0" id="{{$city->id}}">
+                                            <button type="button" class=" rtl-container collapse-link btn btn-block d-flex align-items-center justify-content-between card-btn py-3 px-0 px-md-4 border rounded-0 shadow-none collapsed" data-toggle="collapse" data-target="#city{{$city->id}}" aria-expanded="false" aria-controls="basicsCollapseOne">
                                                 <span class="mx-md-1">{{$city->name}}</span>
                                                 <svg class="minus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="2px">
                                                     <path fill-rule="evenodd" fill="rgb(22, 22, 25)" d="M0.000,-0.000 L15.000,-0.000 L15.000,2.000 L0.000,2.000 L0.000,-0.000 Z"></path>
@@ -28,7 +28,7 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                        <div id="basicsCollapseOne" class="collapse" aria-labelledby="basicsHeadingOne" data-parent="#{{$city->name}}" style="">
+                                        <div id="city{{$city->id}}" class="collapse" aria-labelledby="basicsHeadingOne" data-parent="#{{$city->name}}{{$city->id}}" style="">
                                             <div class="card-body p-3 p-md-4">
                                                 @if(count($city->suppliers)>0)
                                                 <div class="mx-md-1">

@@ -28785,3 +28785,6 @@ File for your custom SCSS style
 .text-truncate a{
     text-wrap: balance;
 }
+.supplier-container{
+    border: solid 2px;
+}

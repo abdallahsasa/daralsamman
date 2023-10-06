@@ -15,7 +15,7 @@
                                          src="{{asset('flags/'.strtolower($country->code).'.svg')}}">
                                     <h6 class="font-weight-medium font-size-4 mb-2">{{$country->name}}</h6>
                                     @foreach($country->cities as $city)
-                                        <div id="{{$city->name}}{{$city->id}}">
+                                        <div id="{{str_replace(' ', '', $city->name)}}{{$city->id}}">
                                             <div class="card rounded-0 border-0">
                                                 <div
                                                     class="card-collapse card-header p-0 bg-transparent border-bottom-0"
@@ -41,7 +41,7 @@
                                                 </div>
                                                 <div id="city{{$city->id}}" class="collapse"
                                                      aria-labelledby="basicsHeadingOne"
-                                                     data-parent="#{{$city->name}}{{$city->id}}" style="">
+                                                     data-parent="#{{str_replace(' ', '', $city->name)}}{{$city->id}}" style="">
                                                     <div class="card-body p-3 p-md-4">
                                                         @if(count($city->suppliers)>0)
                                                             <div class="mx-md-1">

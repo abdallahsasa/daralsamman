@@ -7,7 +7,7 @@
         <div class="space-bottom-1 space-bottom-lg-3 pricing-table">
             <div class="row no-gutters-xl pb-lg-3">
                 @foreach($countries as $country)
-                    <div class="col-lg-4 mx-auto pt-4 pr-5 pl-5 supplier-container" >
+                    <div class="col-lg-3 mx-auto pt-4 pr-5 pl-5 supplier-container" >
                         <div class="space-bottom-2 space-bottom-lg-3 faq-accordion">
                             <div class="pb-lg-1">
                                 <div class="mb-2 pb-1 text-center">

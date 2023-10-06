@@ -21,7 +21,7 @@
                                                     class="card-collapse card-header p-0 bg-transparent border-bottom-0"
                                                     id="{{$city->id}}">
                                                     <button type="button"
-                                                            class=" rtl-container collapse-link btn btn-block d-flex align-items-center justify-content-between card-btn py-3 px-0 px-md-4 border rounded-0 shadow-none collapsed"
+                                                            class=" rtl-container collapse-link btn btn-block d-flex align-items-center justify-content-between card-btn py-3 px-2 px-md-4 border rounded-0 shadow-none collapsed"
                                                             data-toggle="collapse" data-target="#city{{$city->id}}"
                                                             aria-expanded="false" aria-controls="basicsCollapseOne">
                                                         <span class="mx-md-1">{{$city->name}}</span>

@@ -28785,11 +28785,12 @@ File for your custom SCSS style
 .text-truncate a{
     text-wrap: balance;
 }
-.supplier-container{
-    border: double 2px rgba(0, 0, 0, 0.125);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
+.supplier-container {
+    border: double 2px rgba(76, 93, 46, 0.125);
+    box-shadow: 0 0 10px rgba(76, 93, 46, 0.125);
     transition: box-shadow 0.2s ease;
 }
+
 .supplier-container:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 20px rgba(76, 93, 46, 0.25);
 }

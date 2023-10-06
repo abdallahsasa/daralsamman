@@ -19,7 +19,7 @@
 
                                         </div>
                                         <div class="col-6">
-                                            <img style="width:30%;" class="mb-2" src="{{asset('flags/'.strtolower($country->code).'.svg')}}">
+                                            <img style="width:30%;" class="mb-2 country-image" src="{{asset('flags/'.strtolower($country->code).'.svg')}}">
                                         </div>
 
                                     </div>

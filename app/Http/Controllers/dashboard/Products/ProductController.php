@@ -323,7 +323,7 @@ class ProductController extends Controller
             // $log_message = trans('products.update_log') . '#' . $object->id;
             // UserActivity::logActivity($log_message);
 
-            return redirect()->route($this->edit_route, $object->id)->with('success', $this->update_success_message);
+            return redirect()->route($this->index_view)->with('success', $this->update_success_message);
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->route($this->edit_route, $object->id)->with('error', $this->update_error_message);

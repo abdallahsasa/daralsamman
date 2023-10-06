@@ -15,6 +15,16 @@
     </div>
     <div class="row">
         <div class="col-xl-12 mb-30">
+            @if(session()->get('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session()->get('error') }}
+                </div>
+            @endif
+            @if(session()->get('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session()->get('success') }}
+                </div>
+            @endif
             <div class="card card-statistics h-100">
                 <div class="card-body">
                     <div class="table-responsive">

@@ -130,13 +130,13 @@ class CategoryController extends Controller
             $object->save();
             DB::commit();
 
-            return redirect()->route($this->edit_view, $object->id)->with('success', $this->update_success_message);
+            return redirect()->route($this->index_view)->with('success', $this->update_success_message);
 
 
         } catch (\Exception $ex) {
             Log::error($ex->getMessage());
-//            return redirect()->route($this->edit_view, $object->id)->with('error', $ex->getMessage());
-            return redirect()->view($this->edit_view)->with('error', $this->update_error_message);
+            return redirect()->route($this->edit_view, $object->id)->with('error', $ex->getMessage());
+//            return redirect()->route($this->edit_view,$object->id)->with('error', $this->update_error_message);
         }
 
     }

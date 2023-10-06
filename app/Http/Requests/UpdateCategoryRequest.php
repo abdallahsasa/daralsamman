@@ -27,7 +27,7 @@ class UpdateCategoryRequest extends FormRequest
             'description' => 'nullable|string',
             'status' => 'required|in:active,inactive',
             'featured'=>'required|in:1,0',
-            'parent_id' => 'nullable|integer|min:1|max:200',
+            'parent_id' => 'nullable|integer',
             'meta_title' => 'nullable|string',
             'meta_description' => 'nullable|string',
             'image' => 'nullable|',

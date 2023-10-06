@@ -7,8 +7,8 @@
         <div class="space-bottom-1 space-bottom-lg-3 pricing-table">
             <div class="row no-gutters-xl pb-lg-3">
                 @foreach($countries as $country)
-                    <div class="col-lg-4 mx-auto pt-4 pr-5 pl-5 supplier-container" >
-                        <div class="space-bottom-2 space-bottom-lg-3 faq-accordion">
+                    <div class="col-lg-4 mx-auto pt-4 pr-3 pl-3 supplier-container" >
+                        <div class="space-bottom-1 space-bottom-lg-1 faq-accordion">
                             <div class="pb-lg-1">
                                 <div class="mb-2 pb-1 text-center">
                                     <img style="width:30%;" class="mb-2"

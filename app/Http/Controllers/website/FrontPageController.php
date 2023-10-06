@@ -34,8 +34,11 @@ class FrontPageController extends Controller
     {
         $suppliers=Supplier::where('status','active')
             ->get();
-        $countries=Country::where('status','active')
+        $countries = Country::where('status', 'active')
+            ->withCount('cities') // Count the number of cities for each country
+            ->orderByDesc('cities_count') // Sort by the cities_count column in descending order
             ->get();
+
         return view('website.suppliers.index', compact('suppliers','countries'));
     }
 

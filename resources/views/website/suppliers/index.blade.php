@@ -52,6 +52,7 @@
                                                                         class=" mb-2 pb-1 text-center">{{$supplier->phone}}</span>
                                                                 @endforeach
                                                             </div>
+                                                            <br/>
                                                         @endif
                                                     </div>
                                                 </div>

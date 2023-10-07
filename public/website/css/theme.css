@@ -28791,7 +28791,7 @@ File for your custom SCSS style
     box-shadow: 0 0 10px rgba(76, 93, 46, 0.125);
     transition: box-shadow 0.2s ease;
 }
-span,p,.card,.pricing-table{
+span,p,.card,.pricing-table,.rtl,input{
     direction: rtl!important;
 }
 #site-header > div > div.container.pt-3.pt-md-4.pb-3.pb-md-5 > div,

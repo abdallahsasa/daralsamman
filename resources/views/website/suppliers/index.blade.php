@@ -11,17 +11,13 @@
                         <div class="space-bottom-1 space-bottom-lg-1 faq-accordion">
                             <div class="pb-lg-1">
                                 <div class="mb-2 pb-1 text-center">
-                                    <div class="row">
-                                        <div class="col-6">
+                                    <div class="">
+                                        <div class="col-12">
+                                            <img style="width:15%;" class="mb-2 country-image" src="{{asset('flags/'.strtolower($country->code).'.svg')}}">
+                                        </div>
+                                        <div class="col-12">
                                             <h6 class="font-weight-medium font-size-4 mb-2">{{$country->name}}</h6>
-
-
-
                                         </div>
-                                        <div class="col-6">
-                                            <img style="width:30%;" class="mb-2 country-image" src="{{asset('flags/'.strtolower($country->code).'.svg')}}">
-                                        </div>
-
                                     </div>
 
                                     @foreach($country->cities as $city)
@@ -31,7 +27,7 @@
                                                     class="card-collapse card-header p-0 bg-transparent border-bottom-0"
                                                     id="{{$city->id}}">
                                                     <button type="button"
-                                                            class=" rtl-container collapse-link btn btn-block d-flex align-items-center justify-content-between card-btn py-3 px-2 px-md-4 border rounded-0 shadow-none collapsed"
+                                                            class="  collapse-link btn btn-block d-flex align-items-center justify-content-between card-btn py-3 px-2 px-md-4 border rounded-0 shadow-none collapsed"
                                                             data-toggle="collapse" data-target="#city{{$city->id}}"
                                                             aria-expanded="false" aria-controls="basicsCollapseOne">
                                                         <span class="mx-md-1">{{$city->name}}</span>
@@ -54,12 +50,12 @@
                                                      data-parent="#{{str_replace(' ', '', $city->name)}}{{$city->id}}" style="">
                                                     <div class="card-body p-3 p-md-4">
                                                         @if(count($city->suppliers)>0)
-                                                            <div class="mx-md-1">
+                                                            <div class="mx-md-1 text-right">
                                                                 @foreach($city->suppliers as $supplier)
                                                                     <span
-                                                                        class=" mb-2 pb-1 text-center"><strong>{{$supplier->name}}</strong></span>
+                                                                        class=" mb-2 pb-1 text-left"><strong>{{$supplier->name}}:</strong></span>
                                                                     <span
-                                                                        class=" mb-2 pb-1 text-center">{{$supplier->phone}}</span>
+                                                                        class=" mb-2 pb-1 text-left" style="direction: ltr!important;" dir="ltr">{{$supplier->phone}}</span>
                                                                     <br/>
                                                                 @endforeach
                                                             </div>

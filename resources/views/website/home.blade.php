@@ -198,7 +198,7 @@
     @foreach($FeaturedCategories as $category)
         <section class="space-bottom-3">
             <div class="container">
-                <div class="row align-items-center @if($loop->index%2==0) rtl-container @endif ">
+                <div class="row align-items-center @if($loop->index%2!=0) rtl-container @endif ">
                     <div class="col-md-5 col-lg-4 col-xl-3 mb-4 mb-md-0">
                         <div class="bg-img-hero min-height-440 rounded" style="background-image: url({{$category->image_url}});">
                             <div class="p-5">

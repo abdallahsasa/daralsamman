@@ -7,13 +7,23 @@
         <div class="space-bottom-1 space-bottom-lg-3 pricing-table">
             <div class="row no-gutters-xl pb-lg-3">
                 @foreach($countries as $country)
-                    <div class="col-lg-4 mx-auto pt-4 pr-5 pl-5 supplier-container" >
-                        <div class="space-bottom-2 space-bottom-lg-3 faq-accordion">
+                    <div class="col-lg-4 mx-auto pt-4 pr-3 pl-3 supplier-container" >
+                        <div class="space-bottom-1 space-bottom-lg-1 faq-accordion">
                             <div class="pb-lg-1">
                                 <div class="mb-2 pb-1 text-center">
-                                    <img style="width:30%;" class="mb-2"
-                                         src="{{asset('flags/'.strtolower($country->code).'.svg')}}">
-                                    <h6 class="font-weight-medium font-size-4 mb-2">{{$country->name}}</h6>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h6 class="font-weight-medium font-size-4 mb-2">{{$country->name}}</h6>
+
+
+
+                                        </div>
+                                        <div class="col-6">
+                                            <img style="width:30%;" class="mb-2 country-image" src="{{asset('flags/'.strtolower($country->code).'.svg')}}">
+                                        </div>
+
+                                    </div>
+
                                     @foreach($country->cities as $city)
                                         <div id="{{str_replace(' ', '', $city->name)}}{{$city->id}}">
                                             <div class="card rounded-0 border-0">

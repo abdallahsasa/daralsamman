@@ -28791,13 +28791,14 @@ File for your custom SCSS style
     box-shadow: 0 0 10px rgba(76, 93, 46, 0.125);
     transition: box-shadow 0.2s ease;
 }
-div,span,p{
+span,p,.card,.pricing-table{
     direction: rtl!important;
 }
 #site-header > div > div.container.pt-3.pt-md-4.pb-3.pb-md-5 > div,
 #site-header > div > div.container.pt-3.pt-md-4.pb-3.pb-md-5 > div > div.site-search.ml-xl-0.ml-md-auto.w-r-100.flex-grow-1.mr-md-5.mt-2.mt-md-0.order-1.order-md-0
 ,#site-header > div > div.container.pt-3.pt-md-4.pb-3.pb-md-5 > div > div.site-search.ml-xl-0.ml-md-auto.w-r-100.flex-grow-1.mr-md-5.mt-2.mt-md-0.order-1.order-md-0 > form > div,
-#site-header > div > div:nth-child(2) > div > div > div{
+#site-header > div > div:nth-child(2) > div > div > div
+,.slick-track{
     direction: ltr!important;
 }
 

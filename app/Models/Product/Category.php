@@ -23,4 +23,19 @@ class Category extends Model
         return $this->hasMany(Category::class,'parent_id');
 
     }
+    public function getAllProducts()
+    {
+        // Start with an empty collection to store the products.
+        $products = collect();
+
+        // Add products directly associated with this category.
+        $products = $products->merge($this->products);
+
+        // Recursively fetch products from child categories.
+        foreach ($this->subcategories as $child) {
+            $products = $products->merge($child->getAllProducts());
+        }
+        return $products;
+
+    }
 }

@@ -217,7 +217,7 @@
                                  data-responsive='[{
                                "breakpoint": 1500,
                                "settings": {
-                                 "slidesToShow": 3
+                                 "slidesToShow": 5
                                }
                             }, {
                                "breakpoint": 1199,
@@ -230,7 +230,7 @@
                                  "slidesToShow": 2
                                }
                             }]'>
-                                @foreach($category->products as $product)
+                                @foreach($category->getAllProducts() as $product)
                                     @if($product->status =='active')
                                 <div class="product product__no-border border-right">
                                     <div class="product__inner overflow-hidden px-3 px-md-4d875">

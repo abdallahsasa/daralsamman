@@ -52,10 +52,8 @@
                                                         @if(count($city->suppliers)>0)
                                                             <div class="mx-md-1 text-right">
                                                                 @foreach($city->suppliers as $supplier)
-                                                                    <span
-                                                                        class=" mb-2 pb-1 text-left"><strong>{{$supplier->name}}:</strong></span>
-                                                                    <span
-                                                                        class=" mb-2 pb-1 text-left" style="direction: ltr!important;" dir="ltr">{{$supplier->phone}}</span>
+                                                                    <span class=" mb-2 pb-1 text-left"><strong>{{$supplier->name}}:</strong></span>
+                                                                    <span class=" mb-2 pb-1 text-left" style="direction: ltr!important;" dir="ltr">{{$supplier->phone}}</span>
                                                                     <br/>
                                                                 @endforeach
                                                             </div>
@@ -69,10 +67,9 @@
                                     @if(count($country->cities)==0)
                                         <div class="card-body p-3 p-md-4">
                                             @foreach($country->suppliers as $supplier)
-                                                <div class="mx-md-1">
-                                                    <span
-                                                        class=" mb-2 pb-1 text-center"><strong>{{$supplier->name}}</strong></span>
-                                                    <span class=" mb-2 pb-1 text-center">{{$supplier->phone}}</span>
+                                                <div class="mx-md-1 text-right">
+                                                    <span class="mb-2 pb-1 text-left"><strong>{{$supplier->name}}</strong></span>
+                                                    <span class="mb-2 pb-1 text-center" style="direction: ltr!important;" dir="ltr">{{$supplier->phone}}</span>
                                                 </div>
                                             @endforeach
                                         </div>

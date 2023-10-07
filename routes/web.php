@@ -54,6 +54,8 @@ Route::get('/auditors', [AuditorPageController::class, 'index'])->name('website.
 
 
 Route::get('/suppliers', [FrontPageController::class, 'suppliersIndex'])->name('website.suppliers.index');
+Route::get('/scientific', [FrontPageController::class, 'scientificIndex'])->name('website.scientific.index');
+
 //---------------- End of Website ---------------- //
 
 //---------------- Dashboard ---------------- //

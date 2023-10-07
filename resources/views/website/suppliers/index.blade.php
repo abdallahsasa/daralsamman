@@ -50,12 +50,18 @@
                                                      data-parent="#{{str_replace(' ', '', $city->name)}}{{$city->id}}" style="">
                                                     <div class="card-body p-3 p-md-4">
                                                         @if(count($city->suppliers)>0)
-                                                            <div class="mx-md-1 text-right">
-                                                                @foreach($city->suppliers as $supplier)
-                                                                    <span class=" mb-2 pb-1 text-left"><strong>{{$supplier->name}}:</strong></span>
-                                                                    <span class=" mb-2 pb-1 text-left" style="direction: ltr!important;" dir="ltr">{{$supplier->phone}}</span>
-                                                                    <br/>
-                                                                @endforeach
+
+                                                            <div class="table-responsive mb-4">
+                                                                <table class="table">
+                                                                    <tbody>
+                                                                    @foreach($city->suppliers as $supplier)
+                                                                        <tr>
+                                                                            <td>{{$supplier->name}}</td>
+                                                                            <th class="px-4 px-xl-5 " style="direction: ltr!important;" dir="ltr">{{$supplier->phone}}</th>
+                                                                        </tr>
+                                                                    @endforeach
+                                                                    </tbody>
+                                                                </table>
                                                             </div>
                                                         @endif
                                                     </div>
@@ -66,15 +72,20 @@
                                     @endforeach
                                     @if(count($country->cities)==0)
                                         <div class="card-body p-3 p-md-4">
-                                            @foreach($country->suppliers as $supplier)
-                                                <div class="mx-md-1 text-right">
-                                                    <span class="mb-2 pb-1 text-left"><strong>{{$supplier->name}}</strong></span>
-                                                    <span class="mb-2 pb-1 text-center" style="direction: ltr!important;" dir="ltr">{{$supplier->phone}}</span>
-                                                </div>
-                                            @endforeach
+                                            <div class="table-responsive mb-4">
+                                                <table class="table">
+                                                    <tbody>
+                                                    @foreach($country->suppliers as $supplier)
+                                                        <tr>
+                                                            <td>{{$supplier->name}}</td>
+                                                            <th class="px-4 px-xl-5 " style="direction: ltr!important;" dir="ltr">{{$supplier->phone}}</th>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     @endif
-
                                 </div>
                             </div>
                         </div>

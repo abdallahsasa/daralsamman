@@ -31,8 +31,10 @@
 
                             <div class="ml-xl-4">
                                 <p class="font-weight-medium font-italic">وختامًا: فإن إصدارات دار السمان تتواجد في أكثر من 25 دولة في العالم، وشاركت في أكثر من 30 معرضاً دولياً متخصصاً في الكتاب.</p>
+                                <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fdar.alsamman%2Fvideos%2F179720279999773%2F&show_text=false&width=560&t=0" width="100%" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
 
                             </div>
+
                         </div>
                     </div>
                 </div>

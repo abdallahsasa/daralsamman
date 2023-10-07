@@ -105,10 +105,6 @@
 
 
 
-
-
-
-
                             <li class="nav-item"><a href="{{route('website.suppliers.index')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الموزعون المعتمدون</a></li>
                             <li class="nav-item dropdown">
                                 <a id="homeDropdownInvoker" href="javascript:void(0)"
@@ -135,7 +131,7 @@
                                            class="dropdown-item link-black-100">المحققون</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a href="javascript:void(0)" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">اللجنة العلمية</a></li>
+                            <li class="nav-item"><a href="{{route('website.scientific.index')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">اللجنة العلمية</a></li>
                             <li class="nav-item"><a href="javascript:void(0)" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">مقالات</a></li>
                             <li class="nav-item"><a href="{{route('website.about')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">تأسيس الدار</a></li>
                             <li class="nav-item"><a href="{{route('website.contact')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">تواصل معنا</a></li>

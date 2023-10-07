@@ -42,6 +42,11 @@ class FrontPageController extends Controller
         return view('website.suppliers.index', compact('suppliers','countries'));
     }
 
+    public function scientificIndex()
+    {
+        return view('website.scientific.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

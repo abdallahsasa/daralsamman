@@ -299,7 +299,7 @@
 
     </section>
 
-    <section  class="home-latest-news space-bottom-3">
+    <section  class="home-latest-news space-bottom-3" style="display: none;">
         <div class="container">
             <header class="border-bottom d-md-flex justify-content-between align-items-center mb-10d75 pb-4d75">
                 <h2 class="font-size-7 mb-3 mb-md-0">Latest News</h2>

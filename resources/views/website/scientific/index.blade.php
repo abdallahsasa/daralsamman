@@ -7,7 +7,7 @@
                 <h6 class="font-weight-medium font-size-7 text-center my-1">اللّجنة العلميّة</h6>
             </div>
 {{--            <img class="img-fluid" src="https://placehold.it/1920x650" alt="Image-Description">--}}
-            <img class="img-fluid" src="{{asset('website/img/banner/img1.jpg')}}" alt="Image-Description">
+            <img class="img-fluid" src="{{asset('website/img/banner/scientific.jpg')}}" alt="Image-Description">
             <div class="container rtl">
                 <div class="mb-lg-8">
                     <div class="col-lg-9 mx-auto">

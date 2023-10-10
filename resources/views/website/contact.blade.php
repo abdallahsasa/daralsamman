@@ -5,9 +5,9 @@
         <div class="py-3 py-lg-7">
             <h6 class="font-weight-medium font-size-7 text-center my-1">تواصل معنا</h6>
         </div>
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835253576489!2d144.95372995111143!3d-37.817327679652266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sin!4v1581584770980!5m2!1sen!2sin"
-            height="500" style="border:0; width:100%;" allowfullscreen=""></iframe>
+{{--        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835253576489!2d144.95372995111143!3d-37.817327679652266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sin!4v1581584770980!5m2!1sen!2sin" height="500" style="border:0; width:100%;" allowfullscreen=""></iframe>--}}
+        <img class="img-fluid" src="{{asset('website/img/banner/contact.jpg')}}" alt="Image-Description">
+
         <div class="container">
             <div class="space-bottom-1 space-bottom-lg-2">
                 <div class="pb-4">

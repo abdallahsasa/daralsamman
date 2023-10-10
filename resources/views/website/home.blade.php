@@ -18,7 +18,7 @@
 
 
 
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="{{asset('website/img/slider/slider-1.png')}}" class="d-block w-100" alt="...">

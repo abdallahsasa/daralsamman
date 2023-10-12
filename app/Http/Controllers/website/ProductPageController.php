@@ -48,7 +48,6 @@ class ProductPageController extends Controller
             ->where('id', "!=", $id)
             ->get()->random(5);
 
-// Return the view with the data
         return view('website.products.details', compact('categories', 'product', 'relatedProducts'));
 
     }
@@ -63,6 +62,7 @@ class ProductPageController extends Controller
                 $query->where('product_categories.id', $cateoryid)
                     ->orWhere('product_categories.parent_id', $cateoryid);
             })
+            ->where('products.status', 'active')
             ->paginate(12);
 
         $categories = Category::where('status', 'active')

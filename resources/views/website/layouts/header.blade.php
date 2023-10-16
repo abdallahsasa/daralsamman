@@ -4,7 +4,7 @@
             <div class="d-flex align-items-center position-relative flex-wrap">
                 <div class="site-branding pl-7">
                     <a href="{{route('website.home')}}" class="d-block mb-1">
-                        <img src="{{asset('website/img/logo/Logo.png')}}" class="logo">
+                        <img src="{{asset('website/img/logo/Logo.png')}}" class="logo" alt="دار السّمان">
                     </a>
                 </div>
                 <div class="site-search ml-xl-0 ml-md-auto w-r-100 flex-grow-1 mr-md-5 mt-2 mt-md-0 order-1 order-md-0">
@@ -89,19 +89,6 @@
 
                                 </ul>
                             </li>
-
-
-
-{{--End NEW--}}
-
-
-
-
-
-
-
-
-
 
                             <li class="nav-item"><a href="{{route('website.suppliers.index')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الموزعون المعتمدون</a></li>
                             <li class="nav-item dropdown">

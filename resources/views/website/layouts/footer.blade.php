@@ -101,7 +101,7 @@
                             </li>
                             <li class="btn">
                                 <a class="text-white" href="#">
-                                    <span class="fab fa-twitter"></span>
+                                    <span class="fab fa-whatsapp"></span>
                                 </a>
                             </li>
                         </ul>
@@ -114,7 +114,9 @@
         <div class="container">
             <div class="d-lg-flex text-center text-lg-left justify-content-between align-items-center">
 
-                <p class="mb-3 mb-lg-0 font-size-2 text-gray-500">©2023. All rights reserved</p>
+                <p class="mb-3 mb-lg-0 font-size-2 text-gray-500">Copyright Dar Alsamman © 2023. All Rights Reserved. </p>
+
+
 
             </div>
         </div>

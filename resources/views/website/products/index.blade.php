@@ -19,7 +19,7 @@
                     <div class="shop-control-bar d-lg-flex justify-content-between align-items-center mb-5 text-center text-md-left rtl-container">
 
                         <div class="shop-control-bar__right d-md-flex align-items-center">
-                            <form class="woocommerce-ordering mb-4 m-md-0" method="get">
+                            <form class="woocommerce-ordering mb-4 m-md-0" method="get" style="display: none;">
                                 <!-- Select -->
                                 <select class="js-select selectpicker dropdown-select orderby" name="orderby"
                                         data-style="border-bottom shadow-none outline-none py-2">
@@ -76,7 +76,7 @@
                                     <div class="product__inner overflow-hidden p-3 p-md-4d875">
                                         <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
                                             <div class="woocommerce-loop-product__thumbnail">
-                                                <a href="{{route('website.product.details',$product->id)}}" class="d-block"><img src="{{$product->featuredMedia->first()->image_url}}" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description"></a>
+                                                <a href="{{route('website.product.details',$product->id)}}" class="d-block"><img src="{{$product->featuredMedia->first()->image_url}}" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="{{$product->name}}"></a>
                                             </div>
                                             <div class="woocommerce-loop-product__body product__body pt-3 bg-white">
                                                 <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="{{route('website.product.details',$product->id)}}">{{$product->category->name}}</a></div>
@@ -116,196 +116,51 @@
                             {{$products->links()}}
 
                         </div>
+
                         <div class="tab-pane fade" id="pills-two-example1" role="tabpanel" aria-labelledby="pills-two-example1-tab">
                             <!-- Mockup Block -->
                             <ul class="products list-unstyled mb-6">
+                                @foreach($products as $product)
                                 <li class="product product__list">
                                     <div class="product__inner overflow-hidden p-3 p-md-4d875">
                                         <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link row position-relative">
-                                            <div class="col-md-auto woocommerce-loop-product__thumbnail mb-3 mb-md-0">
-                                                <a href="../shop/single-product-v5.html" class="d-block"><img src="https://placehold.it/120x180" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description"></a>
+                                            <div class="col-md-auto woocommerce-loop-product__thumbnail mb-3 mb-md-0 pills-two-image">
+                                                <a href="{{route('website.product.details',$product->id)}}" class="d-block"><img src="{{$product->featuredMedia->first()->image_url}}" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="{{$product->name}}"></a>
+{{--                                                <a href="{{route('website.product.details',$product->id)}}" class="d-block"><img src="{{$product->featuredMedia->first()->image_url}}" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description"></a>--}}
                                             </div>
                                             <div class="col-md woocommerce-loop-product__body product__body pt-3 bg-white mb-3 mb-md-0">
-                                                <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="../shop/single-product-v5.html">Paperback</a></div>
-                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 crop-text-2 h-dark"><a href="../shop/single-product-v5.html" tabindex="0">The Overdue Life of Amy Byler</a></h2>
-                                                <div class="font-size-2  mb-2 text-truncate"><a href="../others/authors-single.html" class="text-gray-700">Jay Shetty</a></div>
-                                                <p class="font-size-2 mb-2 crop-text-2">After disappearing for three years, Artemis Fowl has returned to a life different from the one he left. And spends his days teaching his twin siblings the</p>
-                                                <div class="price d-flex align-items-center font-weight-medium font-size-3">
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>29</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-auto d-flex align-items-center">
-                                                <a href="../shop/single-product-v5.html" class="text-uppercase text-dark h-dark font-weight-medium mr-4" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART">
-                                                    <span class="product__add-to-cart">ADD TO CART</span>
-                                                    <span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="mr-1 h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-switch"></i>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                                <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="{{route('website.product.details',$product->id)}}">{{$product->category->name}}</a></div>
+                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{{route('website.product.details',$product->id)}}">{{$product->name}}</a></h2>
 
-                                <li class="product product__list">
-                                    <div class="product__inner overflow-hidden p-3 p-md-4d875">
-                                        <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link row position-relative">
-                                            <div class="col-md-auto woocommerce-loop-product__thumbnail mb-3 mb-md-0">
-                                                <a href="../shop/single-product-v5.html" class="d-block"><img src="https://placehold.it/120x180" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description"></a>
-                                            </div>
-                                            <div class="col-md woocommerce-loop-product__body product__body pt-3 bg-white mb-3 mb-md-0">
-                                                <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="../shop/single-product-v5.html">Paperback</a></div>
-                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 crop-text-2 h-dark"><a href="../shop/single-product-v5.html" tabindex="0">All You Can Ever Know: A Memoir</a></h2>
-                                                <div class="font-size-2  mb-2 text-truncate"><a href="../others/authors-single.html" class="text-gray-700">Jay Shetty</a></div>
-                                                <p class="font-size-2 mb-2 crop-text-2">After disappearing for three years, Artemis Fowl has returned to a life different from the one he left. And spends his days teaching his twin siblings the</p>
-                                                <div class="price d-flex align-items-center font-weight-medium font-size-3">
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>29</span>
+                                                <div class="font-size-2 mb-2 text-truncate">
+                                                    @foreach($product->author as $index => $author)
+                                                        <a href="{{ route('website.product.details', $product->id) }}" class="text-gray-700">
+                                                            <span class="m-lg-2 font-weight-medium">
+                                                                @if($index === 0)
+                                                                    @if(count($product->author) > 1)
+                                                                        المؤلفون:
+                                                                    @else
+                                                                        المؤلف:
+                                                                    @endif
+                                                                @endif
+                                                            </span>
+                                                            {{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}
+                                                        </a>
+                                                        @if(!$loop->last)
+                                                            ,
+                                                        @endif
+                                                    @endforeach
                                                 </div>
-                                            </div>
-                                            <div class="col-md-auto d-flex align-items-center">
-                                                <a href="../shop/single-product-v5.html" class="text-uppercase text-dark h-dark font-weight-medium mr-4" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART">
-                                                    <span class="product__add-to-cart">ADD TO CART</span>
-                                                    <span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="mr-1 h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-switch"></i>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-heart"></i>
-                                                </a>
+                                                <p>{{$product->short_description}}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
+                                @endforeach
 
-                                <li class="product product__list">
-                                    <div class="product__inner overflow-hidden p-3 p-md-4d875">
-                                        <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link row position-relative">
-                                            <div class="col-md-auto woocommerce-loop-product__thumbnail mb-3 mb-md-0">
-                                                <a href="../shop/single-product-v5.html" class="d-block"><img src="https://placehold.it/120x180" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description"></a>
-                                            </div>
-                                            <div class="col-md woocommerce-loop-product__body product__body pt-3 bg-white mb-3 mb-md-0">
-                                                <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="../shop/single-product-v5.html">Paperback</a></div>
-                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 crop-text-2 h-dark"><a href="../shop/single-product-v5.html" tabindex="0">The Cinderella Reversal</a></h2>
-                                                <div class="font-size-2  mb-2 text-truncate"><a href="../others/authors-single.html" class="text-gray-700">Jay Shetty</a></div>
-                                                <p class="font-size-2 mb-2 crop-text-2">After disappearing for three years, Artemis Fowl has returned to a life different from the one he left. And spends his days teaching his twin siblings the</p>
-                                                <div class="price d-flex align-items-center font-weight-medium font-size-3">
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>29</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-auto d-flex align-items-center">
-                                                <a href="../shop/single-product-v5.html" class="text-uppercase text-dark h-dark font-weight-medium mr-4" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART">
-                                                    <span class="product__add-to-cart">ADD TO CART</span>
-                                                    <span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="mr-1 h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-switch"></i>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="product product__list">
-                                    <div class="product__inner overflow-hidden p-3 p-md-4d875">
-                                        <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link row position-relative">
-                                            <div class="col-md-auto woocommerce-loop-product__thumbnail mb-3 mb-md-0">
-                                                <a href="../shop/single-product-v5.html" class="d-block"><img src="https://placehold.it/120x180" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description"></a>
-                                            </div>
-                                            <div class="col-md woocommerce-loop-product__body product__body pt-3 bg-white mb-3 mb-md-0">
-                                                <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="../shop/single-product-v5.html">Paperback</a></div>
-                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 crop-text-2 h-dark"><a href="../shop/single-product-v5.html" tabindex="0">Scot Under the Covers: The Wild Wicked</a></h2>
-                                                <div class="font-size-2  mb-2 text-truncate"><a href="../others/authors-single.html" class="text-gray-700">Jay Shetty</a></div>
-                                                <p class="font-size-2 mb-2 crop-text-2">After disappearing for three years, Artemis Fowl has returned to a life different from the one he left. And spends his days teaching his twin siblings the</p>
-                                                <div class="price d-flex align-items-center font-weight-medium font-size-3">
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>29</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-auto d-flex align-items-center">
-                                                <a href="../shop/single-product-v5.html" class="text-uppercase text-dark h-dark font-weight-medium mr-4" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART">
-                                                    <span class="product__add-to-cart">ADD TO CART</span>
-                                                    <span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="mr-1 h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-switch"></i>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="product product__list">
-                                    <div class="product__inner overflow-hidden p-3 p-md-4d875">
-                                        <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link row position-relative">
-                                            <div class="col-md-auto woocommerce-loop-product__thumbnail mb-3 mb-md-0">
-                                                <a href="../shop/single-product-v5.html" class="d-block"><img src="https://placehold.it/120x180" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description"></a>
-                                            </div>
-                                            <div class="col-md woocommerce-loop-product__body product__body pt-3 bg-white mb-3 mb-md-0">
-                                                <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="../shop/single-product-v5.html">Paperback</a></div>
-                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 crop-text-2 h-dark"><a href="../shop/single-product-v5.html" tabindex="0">Winter Garden</a></h2>
-                                                <div class="font-size-2  mb-2 text-truncate"><a href="../others/authors-single.html" class="text-gray-700">Jay Shetty</a></div>
-                                                <p class="font-size-2 mb-2 crop-text-2">After disappearing for three years, Artemis Fowl has returned to a life different from the one he left. And spends his days teaching his twin siblings the</p>
-                                                <div class="price d-flex align-items-center font-weight-medium font-size-3">
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>29</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-auto d-flex align-items-center">
-                                                <a href="../shop/single-product-v5.html" class="text-uppercase text-dark h-dark font-weight-medium mr-4" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART">
-                                                    <span class="product__add-to-cart">ADD TO CART</span>
-                                                    <span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="mr-1 h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-switch"></i>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="product product__list">
-                                    <div class="product__inner overflow-hidden p-3 p-md-4d875">
-                                        <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link row position-relative">
-                                            <div class="col-md-auto woocommerce-loop-product__thumbnail mb-3 mb-md-0">
-                                                <a href="../shop/single-product-v5.html" class="d-block"><img src="https://placehold.it/120x180" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description"></a>
-                                            </div>
-                                            <div class="col-md woocommerce-loop-product__body product__body pt-3 bg-white mb-3 mb-md-0">
-                                                <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="../shop/single-product-v5.html">Paperback</a></div>
-                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 crop-text-2 h-dark"><a href="../shop/single-product-v5.html" tabindex="0">Call Me By Your Name</a></h2>
-                                                <div class="font-size-2  mb-2 text-truncate"><a href="../others/authors-single.html" class="text-gray-700">Jay Shetty</a></div>
-                                                <p class="font-size-2 mb-2 crop-text-2">After disappearing for three years, Artemis Fowl has returned to a life different from the one he left. And spends his days teaching his twin siblings the</p>
-                                                <div class="price d-flex align-items-center font-weight-medium font-size-3">
-                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>29</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-auto d-flex align-items-center">
-                                                <a href="../shop/single-product-v5.html" class="text-uppercase text-dark h-dark font-weight-medium mr-4" data-toggle="tooltip" data-placement="right" title="" data-original-title="ADD TO CART">
-                                                    <span class="product__add-to-cart">ADD TO CART</span>
-                                                    <span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="mr-1 h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-switch"></i>
-                                                </a>
-                                                <a href="../shop/single-product-v5.html" class="h-p-bg btn btn-outline-primary border-0">
-                                                    <i class="flaticon-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
                             </ul>
                             <!-- End Mockup Block -->
+                            {{$products->links()}}
                         </div>
                     </div>
                     <!-- End Tab Content -->

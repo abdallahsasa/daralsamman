@@ -27,11 +27,12 @@ class AppServiceProvider extends ServiceProvider
         $activeCategories = Category::where('status', 'active')->orderBy('name', 'asc')->get();
 
         $MenuCategories = $activeCategories;
+        $SearchBarCategories = $activeCategories->where('parent_id',0);
         $footerCategories = $activeCategories->random(4);
 
 
         // Share the $category object with all views
-        View::share(compact('MenuCategories','footerCategories'));
+        View::share(compact('MenuCategories','footerCategories','SearchBarCategories'));
         Paginator::useBootstrapFive();
        // Paginator::useBootstrapFour();
     }

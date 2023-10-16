@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="{{asset('website/vendor/font-awesome/css/fontawesome-all.min.css')}}">
     <link rel="stylesheet" href="{{asset('website/vendor/flaticon/font/flaticon.css')}}">
     <link rel="stylesheet" href="{{asset('website/vendor/slick-carousel/slick/slick.css')}}"/>
+    <link rel="stylesheet" href="{{asset('website/vendor/fancybox/jquery.fancybox.css')}}"/>
+
+
+
     <link rel="stylesheet" href="{{asset('website/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
     <link rel="stylesheet" href="{{asset('website/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
     <link rel="stylesheet" href="{{asset('website/vendor/cubeportfolio/css/cubeportfolio.min.css')}}">

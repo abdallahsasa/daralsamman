@@ -32,8 +32,7 @@
                                 <div class="js-slick-carousel u-slick slick-initialized slick-slider slick-dotted"
                                      data-pagi-classes="text-center u-slick__pagination my-4">
                                     <div class="slick-list draggable">
-                                        <div class="slick-track"
-                                             style="opacity: 1; width: 1698px; transform: translate3d(0px, 0px, 0px);">
+                                        <div class="slick-track" style="opacity: 1; width: 1698px; transform: translate3d(0px, 0px, 0px);">
                                             @if($product->media)
                                                 @foreach($product->media as $image)
                                                     @if($image->is_featured=='true')
@@ -65,17 +64,10 @@
 
                                 @if($product->author)
                                     <div class="font-size-3 mb-4">
-                                        <span class="ml-3 font-weight-medium"> @if(count($product->author)>1 )
-                                                المؤلفون:
-                                            @else
-                                                المؤلف:
-                                            @endif</span>
+                                        <span class="ml-3 font-weight-medium"> @if(count($product->author)>1 )المؤلفون:@elseالمؤلف:@endif</span>
+
                                         @foreach($product->author as $author)
-                                            <span
-                                                class="ml-2 text-gray-600"> {{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</span>
-                                            @if(!$loop->last)
-                                                ,
-                                            @endif
+                                            <span class="ml-2 text-gray-600"> {{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}</span>@if(!$loop->last),@endif
                                         @endforeach
                                     </div>
                                 @endif
@@ -158,6 +150,8 @@
                         <!-- End Tab Content -->
                     @endif
 
+
+
                     <section class="space-bottom-3 ">
                         <div class="container">
                             <header class="mb-5 d-md-flex justify-content-between align-items-center">
@@ -208,8 +202,7 @@
                                                         <div class="woocommerce-loop-product__thumbnail">
                                                             <a href="{{route('website.product.details',$RelatedProduct->id)}}"
                                                                class="d-block" tabindex="0">
-                                                                <img
-                                                                    src="{{$RelatedProduct->featuredMedia->first()->image_url}}"
+                                                                <img src="{{$RelatedProduct->featuredMedia->first()->image_url}}"
                                                                     class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid"
                                                                     alt="image-description">
                                                             </a>

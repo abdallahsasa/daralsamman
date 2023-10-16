@@ -52,6 +52,23 @@ class ProductPageController extends Controller
 
     }
 
+
+    public function detailss($id)
+    {
+        $product = Product::where('status', 'active')->findOrFail($id);
+
+
+        $categories = Category::where('status', 'active')->get();
+
+        $relatedProducts = Product::where('status', 'active')
+            ->where('id', "!=", $id)
+            ->get()->random(5);
+
+        return view('website.products.new', compact('categories', 'product', 'relatedProducts'));
+
+    }
+
+
     public function categoryProducts($cateoryid)
     {
 

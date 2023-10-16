@@ -6,8 +6,8 @@
 <script src="{{asset('website/vendor/slick-carousel/slick/slick.js')}}"></script>
 <script src="{{asset('website/vendor/multilevel-sliding-mobile-menu/dist/jquery.zeynep.js')}}"></script>
 <script src="{{asset('website/vendor/hs-megamenu/src/hs.megamenu.js')}}"></script>
-<script src="{{asset('website/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
 <script src="{{asset('website/vendor/cubeportfolio/js/jquery.cubeportfolio.min.js')}}"></script>
+<script src="{{asset('website/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
 <script src="{{asset('website/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{asset('website/vendor/slick-carousel/slick/slick.min.js')}}"></script>
 
@@ -15,10 +15,19 @@
 <script src="{{asset('website/js/hs.core.js')}}"></script>
 <script src="{{asset('website/js/components/hs.unfold.js')}}"></script>
 <script src="{{asset('website/js/components/hs.malihu-scrollbar.js')}}"></script>
+<script src="{{asset('website/js/components/hs.fancybox.js')}}"></script>
 <script src="{{asset('website/js/components/hs.slick-carousel.js')}}"></script>
 <script src="{{asset('website/js/components/hs.selectpicker.js')}}"></script>
-<script src="{{asset('website/js/components/hs.cubeportfolio.js')}}"></script>
 <script src="{{asset('website/js/components/hs.show-animation.js')}}"></script>
+<script src="{{asset('website/js/components/hs.onscroll-animation.js')}}"></script>
+<script src="{{asset('website/js/components/hs.quantity-counter.js')}}"></script>
+<script src="{{asset('website/js/components/hs.scroll-nav.js')}}"></script>
+
+<script src="{{asset('website/js/components/hs.cubeportfolio.js')}}"></script>
+
+
+
+
 
 <!-- JS Bookworm -->
 <!-- <script src="../../assets/js/bookworm.js"></script> -->
@@ -37,11 +46,25 @@
         // initialization of malihu scrollbar
         $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
 
+        // initialization of quantity counter
+        $.HSCore.components.HSQantityCounter.init('.js-quantity');
+
+        // initialization of popups
+        $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
         // initialization of show animations
         $.HSCore.components.HSShowAnimation.init('.js-animation-link');
 
         // initialization of cubeportfolio
         $.HSCore.components.HSCubeportfolio.init('.cbp');
+
+        // initialization of HSScrollNav component
+        $.HSCore.components.HSScrollNav.init($('.js-scroll-nav'), {
+            duration: 700
+        });
+
+
+
 
         // init zeynepjs
         var zeynep = $('.zeynep').zeynep({
@@ -57,6 +80,7 @@
 
                 console.log('the side menu is opened.');
             }
+
         });
 
         // handle zeynep overlay click

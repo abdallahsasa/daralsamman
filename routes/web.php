@@ -44,6 +44,7 @@ Route::get('/books/category/{id}', [ProductPageController::class, 'categoryProdu
 Route::get('/books/author/{id}', [ProductPageController::class, 'authorProducts'])->name('website.products.author.index');
 Route::get('/books/auditor/{id}', [ProductPageController::class, 'auditorProducts'])->name('website.products.auditor.index');
 Route::get('/book/{id}', [ProductPageController::class, 'details'])->name('website.product.details');
+Route::get('/bookk/{id}', [ProductPageController::class, 'detailss'])->name('website.product.details');
 
 Route::get('/solutions', [SolutionsPageController::class, 'index'])->name('website.solutions');
 Route::get('/news', [NewsPageController::class, 'index'])->name('website.news');

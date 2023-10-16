@@ -72,7 +72,7 @@
                 <div class="col-lg-6 mb-4 mb-md-0">
                     <div class="pb-md-6">
                         <a href="{{route('website.home')}}" class="d-inline-block mb-5">
-                            <img src="{{asset('website/img/logo/logo-white.png')}}" class="logo">
+                            <img src="{{asset('website/img/logo/logo-white.png')}}" class="logo" alt="دار السّمان">
                         </a>
                         <address class="font-size-2 mb-5">
                                 <span class="mb-2 font-weight-normal text-white">

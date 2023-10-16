@@ -119,4 +119,15 @@
 </script>
 <!--End of Tawk.to Script-->
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6MJZEC42GY"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-6MJZEC42GY');
+</script>
+<!-- End Google tag (gtag.js) -->
+
 

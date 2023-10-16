@@ -15,16 +15,22 @@
                 <!-- Example Code -->
 
 
-
-
-
                 <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="{{asset('website/img/slider/slider-1.png')}}" class="d-block w-100" alt="...">
+                            <img src="{{asset('website/img/slider/1.jpg')}}" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{asset('website/img/slider/slider-2.png')}}" class="d-block w-100" alt="...">
+                            <img src="{{asset('website/img/slider/2.jpg')}}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{asset('website/img/slider/3.jpg')}}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{asset('website/img/slider/4.jpg')}}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{asset('website/img/slider/5.jpg')}}" class="d-block w-100" alt="...">
                         </div>
                     </div>
 

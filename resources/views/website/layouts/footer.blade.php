@@ -85,12 +85,12 @@
                         </div>
                         <ul class="list-unstyled mb-0 d-flex">
                             <li class="btn pr-0">
-                                <a class="text-white" href="#">
-                                    <span class="fab fa-instagram"></span>
+                                <a class="text-white" href="https://twitter.com/daralsamman?lang=en" target="_blank">
+                                    <span class="fab fa-twitter"></span>
                                 </a>
                             </li>
                             <li class="btn">
-                                <a class="text-white" href="https://www.facebook.com/dar.alsamman">
+                                <a class="text-white" href="https://www.facebook.com/dar.alsamman" target="_blank">
                                     <span class="fab fa-facebook-f"></span>
                                 </a>
                             </li>
@@ -100,7 +100,7 @@
                                 </a>
                             </li>
                             <li class="btn">
-                                <a class="text-white" href="#">
+                                <a class="text-white" href="https://wa.me/message/OBTLDVAQ5NVFC1" target="_blank">
                                     <span class="fab fa-whatsapp"></span>
                                 </a>
                             </li>

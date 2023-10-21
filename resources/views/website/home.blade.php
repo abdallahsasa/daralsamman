@@ -104,7 +104,7 @@
         <div class="container">
             <header class="mb-5 d-md-flex justify-content-between align-items-center">
                 <h2 class="font-size-7 mb-3 mb-md-0">صدر حديثاً</h2>
-                <a href="{{route('website.products.index')}}" class="h-primary d-block">مشاهدة الكل <i
+                <a href="{{route('website.products.index')}}" class="h-primary d-block">مشاهدة جميع الإصدارات<i
                         class="glyph-icon flaticon-next"></i></a>
             </header>
             <div class="js-slick-carousel products no-gutters border-top border-left border-right"

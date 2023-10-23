@@ -19,7 +19,7 @@
                                 </select>
                             </div>
                             <input type="text" class="form-control px-3 bg-gray-200 bg-focus__1"
-                                   placeholder="ابحث عن الكتب باستخدام الكلمات المفتاحية"
+                                   placeholder="ابحث عن اسم الكتاب"
                                    aria-label="Amount (to the nearest dollar)">
                             <div class="input-group-append">
                                 <button class="btn btn-primary px-3 py-2" type="submit"><i
@@ -52,7 +52,7 @@
                                    data-unfold-hide-on-scroll="true"
                                    data-unfold-animation-in="slideInUp"
                                    data-unfold-animation-out="fadeOut">
-                                    اصدارات الدار
+                                    إصدارات الدار
                                 </a>
 
                                 <ul id="shopDropdownMenu" class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="shopDropdownInvoker">

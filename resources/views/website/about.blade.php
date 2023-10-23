@@ -4,7 +4,7 @@
     <main id="content">
         <div class="mb-5 space-bottom-lg-3">
             <div class="py-3 py-lg-7">
-                <h6 class="font-weight-medium font-size-7 text-center my-1">معلومات عنا</h6>
+                <h6 class="font-weight-medium font-size-7 text-center my-1">معلومات عن تأسيس دار السمان</h6>
             </div>
 {{--            <img class="img-fluid" src="https://placehold.it/1920x650" alt="Image-Description">--}}
             <img class="img-fluid" src="{{asset('website/img/banner/about.jpg')}}" alt="Image-Description">

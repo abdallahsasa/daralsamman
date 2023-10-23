@@ -29,9 +29,12 @@
                         <div class="col-md-5 woocommerce-product-gallery woocommerce-product-gallery--with-images images">
                             <figure class="woocommerce-product-gallery__wrapper pt-8 mb-0">
                                 <div class="js-slick-carousel u-slick book-image" data-pagi-classes="text-center u-slick__pagination my-4">
+                                    @foreach($product->media as $media)
                                     <div class="js-slide ">
-                                        <img src="{{$product->featuredMedia->first()->image_url}}" alt="Image Description" class="mx-auto img-fluid">
+{{--                                        <img src="{{$product->featuredMedia->first()->image_url}}" alt="Image Description" class="mx-auto img-fluid">--}}
+                                            <img src="{{$media->image_url}}" alt="{{$media->image_name}}" class="mx-auto img-fluid">
                                     </div>
+                                    @endforeach
                                 </div>
                             </figure>
                         </div>

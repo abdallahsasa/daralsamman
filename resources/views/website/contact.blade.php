@@ -49,7 +49,7 @@
                                             <!-- Input -->
                                             <div class="col-sm-6 mb-5">
                                                 <div class="js-form-message">
-                                                    <label for="email">البريد الالكتروني</label>
+                                                    <label for="email">البريد الإلكتروني</label>
                                                     <input id="email" type="email" class="form-control rounded-0 text-right"
                                                      value="{{old('email')}}"      name="email" required>
                                                     @if($errors->has('email'))

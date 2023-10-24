@@ -102,7 +102,7 @@
                                             <div class="col-sm-12 mb-5">
                                                 <div class="js-form-message">
                                                     <div class="input-group flex-column">
-                                                        <label for="message">الرسالة</label>
+                                                        <label for="message">نبذة مختصرة عن هدف التواصل</label>
                                                         <textarea id="message"
                                                                   class="form-control rounded-0 pl-3 font-size-2 placeholder-color-3 text-right"
                                                                   rows="6" cols="77" name="message" required> {{old('message')}}</textarea>

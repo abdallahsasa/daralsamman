@@ -21,7 +21,8 @@ class ContactUsPageController extends Controller
 
         $this->index_route = 'website.contact';
 
-        $this->success_message = 'شكراً لتواصلكم معنا';
+        $this->success_message = 'شكراً لتواصلكم معنا.
+تم إستلام رسالتكم وسيتم الرد عليكم بأقرب وقت.';
         $this->error_message = "فشل في إرسال رسالة ، يمكنك المحاولة مرة أخرى";
 
     }

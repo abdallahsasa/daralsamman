@@ -26809,14 +26809,14 @@ footer .widget .sub-menu a:focus {
     z-index: 1;
     line-height: 0;
     display: inline-block;
-    color: #eae8e4;
+    color: #4d5b2f;
     background-color: #fff;
     width: 2.813rem;
     height: 2.813rem;
     font-size: 0.875rem;
     cursor: pointer;
     transition: 0.3s;
-    border: 1px solid #eae8e4;
+    border: 1px solid #4d5b2f;
 }
 
 .u-slick__arrow:hover {
@@ -27923,6 +27923,7 @@ footer .widget select.custom-select, .widget_search .custom-select.search-field 
 
 .height-60 {
     height: 3.75rem;
+    width: 15rem;
 }
 
 .height-80 {

@@ -28831,3 +28831,15 @@ span,p,.card,.pricing-table,.rtl,input{
 .book-image{
     width: 466px;
 }
+.hmenu{
+    display:none;
+}
+@media(max-width:480px)
+{
+    .hmenu{
+        display:block;
+    }
+    .mobile-reverse{
+        flex-direction: column-reverse;
+    }
+}

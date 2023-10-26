@@ -2,31 +2,25 @@
 <footer class="site-footer_v8">
     <div class="bg-primary">
         <div class="container">
-
             <div class="space-2">
-                <div class="row">
-                    <div class="col-lg-4">
+                <div class="row mobile-reverse">
+                    <div class="col-lg-4 mb-3">
                         <div class="pr-lg-10">
-
-                            <div class="form-row justify-content-center">
+                            <div class="form-row justify-content-center ">
                                 <a href="{{route('website.contact')}}">
                                     <div class="col-md-2">
                                         <button class="btn btn-dark btn-wide py-2 height-60 font-weight-medium">اشترك الان</button>
                                     </div>
                                 </a>
-
-
                             </div>
-
                         </div>
                     </div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 mb-3">
                         <div>
                             <h5 class="font-size-7 font-weight-medium text-white" dir="ltr"> <span dir="ltr"> "المقالات"</span> اشترك في صفحة</h5>
                             <p class="text-white font-size-2 mb-0">وكن واحداً ممن تُنشر مقالاته لدى موقع دار السمان</p>
                         </div>
                     </div>
-
                 </div>
             </div>
 

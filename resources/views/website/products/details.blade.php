@@ -32,7 +32,7 @@
                                     @foreach($product->media as $media)
                                     <div class="js-slide ">
 {{--                                        <img src="{{$product->featuredMedia->first()->image_url}}" alt="Image Description" class="mx-auto img-fluid">--}}
-                                            <img src="{{$media->image_url}}" alt="{{$media->image_name}}" class="mx-auto img-fluid">
+                                            <img src="{{$media->image_url}}" alt="{{$media->image_name}}" class="w-60  img-fluid">
                                     </div>
                                     @endforeach
                                 </div>
@@ -103,7 +103,7 @@
                         <div class="woocommerce-tabs wc-tabs-wrapper  2 mx-lg-auto">
                             <div>
                                 <div class="border-top border-bottom">
-                                    <ul class="container tabs wc-tabs nav justify-content-md-center flex-nowrap flex-md-wrap overflow-auto overflow-md-visble">
+                                    <ul class="container tabs wc-tabs nav justify-content-md-center flex-nowrap flex-md-wrap overflow-auto overflow-md-visble rtl-container">
                                         <li class="flex-shrink-0 flex-md-shrink-1 nav-item active">
                                             <a class="nav-link py-4 font-weight-medium active">
                                                 شرح عن الكتاب

@@ -1,8 +1,8 @@
 <header id="site-header" class="site-header__v9 site-header__white-text">
     <div class="masthead">
         <div class="container pt-3 pt-md-4 pb-3 pb-md-5">
-            <div class="d-flex align-items-center position-relative flex-wrap">
-                <div class="site-branding pl-7">
+            <div class="d-flex align-items-center position-relative flex-wrap justify-content-center">
+                <div class="site-branding ">
                     <a href="{{route('website.home')}}" class="d-block mb-1">
                         <img src="{{asset('website/img/logo/Logo.png')}}" class="logo" alt="دار السّمان">
                     </a>

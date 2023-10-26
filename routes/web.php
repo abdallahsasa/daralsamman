@@ -61,7 +61,7 @@ Route::get('/scientific', [FrontPageController::class, 'scientificIndex'])->name
 
 
 
-Route::group(['prefix' => 'dashboard'], function () {
+Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function () {
 
 Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard.home');
 
@@ -124,5 +124,5 @@ Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard
 
 
 Auth::routes();
-
+//Auth::routes(['register' => false]);
 

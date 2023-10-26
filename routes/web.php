@@ -123,6 +123,5 @@ Route::get('/index', [DashboardPageController::class, 'index'])->name('dashboard
 });
 
 
-Auth::routes();
-//Auth::routes(['register' => false]);
+Auth::routes(['register' => false]);
 

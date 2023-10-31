@@ -25464,8 +25464,8 @@ html:not(.no-transition) body,
     margin-right: 0.75rem;
 }
 
-.zeynep ul > li.has-submenu > a::after {
-    content: "\f054";
+.zeynep ul > li.has-submenu > a::before {
+    content: "\f053";
 }
 
 /* zeynepjs submenu styles */
@@ -28842,4 +28842,9 @@ span,p,.card,.pricing-table,.rtl,input{
     .mobile-reverse{
         flex-direction: column-reverse;
     }
+}
+.zeynep .submenu-header > a:before, .zeynep ul > li.has-submenu > a:before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    font-size: 0.75rem;
 }

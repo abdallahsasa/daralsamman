@@ -26809,20 +26809,24 @@ footer .widget .sub-menu a:focus {
     z-index: 1;
     line-height: 0;
     display: inline-block;
-    color: #4d5b2f;
-    background-color: #fff;
+    color: #ffff;
+    background-color: #0a0a0b;
     width: 2.813rem;
     height: 2.813rem;
     font-size: 0.875rem;
     cursor: pointer;
     transition: 0.3s;
     border: 1px solid #4d5b2f;
+
+    transition: 0.3s;
+    filter: blur(0);
 }
 
 .u-slick__arrow:hover {
     color: #fff;
-    background-color: #161619;
-    border-color: #161619;
+    background-color: #4d5b2f;
+    border-color: #4d5b2ff;
+    filter: blur(0.5px); /* Apply blur on hover */
 }
 
 .u-slick__arrow-inner:before {

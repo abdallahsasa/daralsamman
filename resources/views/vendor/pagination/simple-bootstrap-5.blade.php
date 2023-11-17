@@ -9,8 +9,7 @@
             @else
                 <li class="page-item">
                     <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">
-                        {!! __('pagination.previous') !!}
-                    </a>
+السابق                    </a>
                 </li>
             @endif
 

@@ -15,7 +15,7 @@
     <div class="site-content space-bottom-3" id="content">
         <div class="container">
             <div class="row">
-                <div id="primary" class="content-area order-2">
+                <div id="primary" class="content-area order-1">
                     <div class="shop-control-bar d-lg-flex justify-content-between align-items-center mb-5 text-center text-md-left rtl-container">
 
                         <div class="shop-control-bar__right d-md-flex align-items-center">
@@ -167,7 +167,7 @@
 
 
                 </div>
-                <div id="secondary" class="sidebar widget-area order-1" role="complementary">
+                <div id="secondary" class="sidebar widget-area order-2" role="complementary">
                     <div id="widgetAccordion">
                         @if($categories)
                         <div id="woocommerce_product_categories-2" class="widget p-4d875 border woocommerce widget_product_categories">

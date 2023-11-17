@@ -28846,9 +28846,7 @@ span,p,.card,.pricing-table,.rtl,input{
     .mobile-reverse{
         flex-direction: column-reverse;
     }
-    body > section:nth-child(3) > div > header > a{
-        float:left;
-    }
+
 }
 .zeynep .submenu-header > a:before, .zeynep ul > li.has-submenu > a:before{
     font-family: "Font Awesome 5 Free";

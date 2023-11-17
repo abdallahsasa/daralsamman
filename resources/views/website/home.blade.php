@@ -112,7 +112,7 @@
                  data-arrows-classes="d-none d-xl-block u-slick__arrow u-slick__arrow-centered--y"
                  data-arrow-left-classes="fas fa-chevron-left u-slick__arrow-inner u-slick__arrow-inner--left ml-lg-n10"
                  data-arrow-right-classes="fas fa-chevron-right u-slick__arrow-inner u-slick__arrow-inner--right mr-lg-n10"
-                 data-slides-show="5" data-responsive='[{
+                 data-slides-show="4" data-responsive='[{
                    "breakpoint": 1500,
                    "settings": {
                      "slidesToShow": 4

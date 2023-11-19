@@ -246,7 +246,7 @@
                                                     <a href="{{route('website.products.category.index',$product->category->id)}}" tabindex="0">{{$product->category->name}}</a>
                                                 </div>
                                                 <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark">
-                                                    <a href="{{route('website.product.details',$product->id)}}" tabindex="0">{{ Str::limit($product->name, 38)}}</a>                                                </h2>
+                                                    <a href="{{route('website.product.details',$product->id)}}" tabindex="0">{{ Str::limit($product->name, 36)}}</a>                                                </h2>
                                                 <div class="font-size-2  mb-1 text-truncate">
                                                     @foreach($product->author as $index => $author)
 

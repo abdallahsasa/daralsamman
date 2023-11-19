@@ -151,12 +151,6 @@
                                }
                             },
                             {
-                               "breakpoint": 1400,
-                               "settings": {
-                                 "slidesToShow": 3
-                               }
-                            },
-                            {
                                "breakpoint": 1199,
                                "settings": {
                                  "slidesToShow": 3

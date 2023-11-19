@@ -28846,7 +28846,7 @@ span,p,.card,.pricing-table,.rtl,input{
     .mobile-reverse{
         flex-direction: column-reverse;
     }
-    .slick-track{
+    .slick-track,.slick-active{
         width:70%!important;
     }
 

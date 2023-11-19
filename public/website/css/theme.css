@@ -28846,6 +28846,9 @@ span,p,.card,.pricing-table,.rtl,input{
     .mobile-reverse{
         flex-direction: column-reverse;
     }
+    .slick-track{
+        width:70%!important;
+    }
 
 }
 .zeynep .submenu-header > a:before, .zeynep ul > li.has-submenu > a:before{
@@ -28853,3 +28856,4 @@ span,p,.card,.pricing-table,.rtl,input{
     font-weight: 700;
     font-size: 0.75rem;
 }
+

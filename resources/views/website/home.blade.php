@@ -206,21 +206,31 @@
                                  data-arrow-right-classes="fas fa-chevron-right u-slick__arrow-inner u-slick__arrow-inner--right mr-lg-n8 mr-wd-n4"
                                  data-slides-show="4"
                                  data-responsive='[{
-                               "breakpoint": 1500,
-                               "settings": {
-                                 "slidesToShow": 5
-                               }
+                            "breakpoint": 1500,
+                            "settings": {
+                            "slidesToShow": 4
+                            }
                             },
-                             {
-                               "breakpoint": 1199,
-                               "settings": {
-                                 "slidesToShow": 2
-                               }
+                            {
+                            "breakpoint": 1300,
+                            "settings": {
+                            "slidesToShow": 3
+                            }
+                            },{
+                            "breakpoint": 992,
+                            "settings": {
+                            "slidesToShow": 2
+                            }
                             }, {
-                               "breakpoint": 554,
-                               "settings": {
-                                 "slidesToShow": 2
-                               }
+                            "breakpoint": 768,
+                            "settings": {
+                            "slidesToShow": 2
+                            }
+                            }, {
+                            "breakpoint": 554,
+                            "settings": {
+                            "slidesToShow": 2
+                            }
                             }]'>
                                 @foreach($category->getAllProducts() as $product)
                                     @if($product->status =='active')

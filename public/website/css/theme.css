@@ -28849,6 +28849,9 @@ span,p,.card,.pricing-table,.rtl,input{
     .slick-track,#slick-slide00,#main > div > div.container > div > div.col-md-5.woocommerce-product-gallery.woocommerce-product-gallery--with-images.images > figure > div > div > div > div{
         width:70%!important;
     }
+    .hide-mobile{
+        display: none;
+    }
 
 }
 .zeynep .submenu-header > a:before, .zeynep ul > li.has-submenu > a:before{

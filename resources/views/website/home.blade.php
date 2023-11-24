@@ -46,41 +46,6 @@
                 </div>
 
 
-
-
-                <!-- End Example Code -->
-
-
-{{--                <div class="bg-img-hero img-fluid rounded-md" style="background-image: url({{asset('website/img/slider/slider-1.png')}});">--}}
-{{--                    <div class="js-slick-carousel u-slick"--}}
-{{--                         data-pagi-classes="d-lg-none text-center u-slick__pagination mt-5 position-absolute left-0 right-0"--}}
-{{--                         data-arrows-classes="d-none d-lg-block u-slick__arrow u-slick__arrow--v4 u-slick__arrow-centered--y"--}}
-{{--                         data-arrow-left-classes="flaticon-back u-slick__arrow-inner u-slick__arrow-inner--left text-gray-360 ml-lg-3"--}}
-{{--                         data-arrow-right-classes="flaticon-next u-slick__arrow-inner u-slick__arrow-inner--right text-dark mr-lg-3">--}}
-{{--                        <div class="px-4 px-md-6 px-lg-7 px-xl-10 d-flex min-height-530">--}}
-{{--                            <div class="max-width-565 my-auto">--}}
-{{--                                <div class="media " style="display: none">--}}
-{{--                                    <div class="media-body align-self-center mb-4 mb-lg-0">--}}
-{{--                                        <p class="banner__pretitle text-uppercase text-gray-400 font-weight-bold mb-2"--}}
-{{--                                           data-scs-animation-in="fadeInUp"--}}
-{{--                                           data-scs-animation-delay="200">THE BOOKWORM EDITORS’</p>--}}
-{{--                                        <h2 class="font-size-15 mb-3 pb-1"--}}
-{{--                                            data-scs-animation-in="fadeInUp"--}}
-{{--                                            data-scs-animation-delay="300">--}}
-{{--                                            <span class="hero__title-line-1 font-weight-normal d-block">Feature Books Of The </span>--}}
-{{--                                            <span class="hero__title-line-2 font-weight-bold d-block">Fabruary</span>--}}
-{{--                                        </h2>--}}
-{{--                                        <a href="../shop/v3.html"--}}
-{{--                                           class="banner_btn btn btn-wide bg-dark text-white rounded-xs"--}}
-{{--                                           data-scs-animation-in="fadeInLeft"--}}
-{{--                                           data-scs-animation-delay="400">See More</a>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
             </div>
 
 
@@ -103,7 +68,7 @@
     <section class="space-bottom-3">
         <div class="container">
             <header class="mb-5 d-md-flex justify-content-between align-items-center">
-                <h2 class="font-size-7 mb-3 mb-md-0">صدر حديثاً</h2>
+                <h2 class="font-size-7 mb-3 mb-md-0 hide-mobile">صدر حديثاً</h2>
                 <a href="{{route('website.products.index')}}" class="h-primary d-block">مشاهدة جميع الإصدارات<i
                         class="glyph-icon flaticon-next"></i></a>
             </header>
@@ -212,7 +177,7 @@
                             }
                             },
                             {
-                            "breakpoint": 1300,
+                            "breakpoint": 1199,
                             "settings": {
                             "slidesToShow": 3
                             }
@@ -251,7 +216,7 @@
                                                     <a href="{{route('website.products.category.index',$product->category->id)}}" tabindex="0">{{$product->category->name}}</a>
                                                 </div>
                                                 <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark">
-                                                    <a href="{{route('website.product.details',$product->id)}}" tabindex="0">{{ Str::limit($product->name, 36)}}</a>                                                </h2>
+                                                    <a href="{{route('website.product.details',$product->id)}}" tabindex="0">{{ Str::limit($product->name, 30)}}</a>                                                </h2>
                                                 <div class="font-size-2  mb-1 text-truncate">
                                                     @foreach($product->author as $index => $author)
 

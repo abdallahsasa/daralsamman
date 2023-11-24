@@ -28838,20 +28838,7 @@ span,p,.card,.pricing-table,.rtl,input{
 .hmenu{
     display:none;
 }
-@media(max-width:480px)
-{
-    .hmenu{
-        display:block;
-    }
-    .mobile-reverse{
-        flex-direction: column-reverse;
-    }
 
-    .hide-mobile{
-        display: none;
-    }
-
-}
 .zeynep .submenu-header > a:before, .zeynep ul > li.has-submenu > a:before{
     font-family: "Font Awesome 5 Free";
     font-weight: 700;

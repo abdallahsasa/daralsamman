@@ -106,7 +106,7 @@
                                     <ul class="container tabs wc-tabs nav justify-content-md-center flex-nowrap flex-md-wrap overflow-auto overflow-md-visble rtl-container">
                                         <li class="flex-shrink-0 flex-md-shrink-1 nav-item active">
                                             <a class="nav-link py-4 font-weight-medium active">
-                                                شرح عن الكتاب
+                                                نبذة عن الكتاب
                                             </a>
                                         </li>
 
@@ -177,21 +177,28 @@
                                             </div>
                                             <div class="woocommerce-loop-product__body product__body pt-3 bg-white">
                                                 <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="{{route('website.products.category.index',$RelatedProduct->category->id)}}">{{$RelatedProduct->category->name}}</a></div>
-                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{{route('website.product.details',$RelatedProduct->id)}}">{{ Str::limit($RelatedProduct->name, 30) }}</a></h2>
-                                                <div class="font-size-2  mb-1 text-truncate"><a href="{{route('website.product.details',$RelatedProduct->id)}}" class="text-gray-700">@if(count($RelatedProduct->author)>1 )المؤلفون:@elseالمؤلف:@endif
+                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{{route('website.product.details',$RelatedProduct->id)}}">{{ Str::limit($RelatedProduct->name, 40) }}</a></h2>
 
-                                                        @foreach($RelatedProduct->author as $author)
-                                                            {{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}
-                                                            @if(!$loop->last)
-                                                                ,
-                                                            @endif
-                                                        @endforeach
-
-                                                    </a></div>
 
                                             </div>
                                             <div class="product__hover d-flex align-items-center">
-                                                <p>{{$RelatedProduct->short_description}}</p>
+{{--                                                <p>{{$RelatedProduct->short_description}}</p>--}}
+                                                <div class="font-size-2 mb-1 text-truncate">
+                                                    <a href="{{route('website.product.details',$RelatedProduct->id)}}" class="text-gray-700">
+                                                        @if(count($RelatedProduct->author)>1 )
+                                                            المؤلفون:
+                                                        @else
+                                                            المؤلف:
+                                                        @endif
+
+                                                        @foreach($RelatedProduct->author as $author)
+                                                                {{$author->first_name}} {{$author->middle_name}} {{$author->last_name}}
+                                                                @if(!$loop->last)
+                                                                    ,
+                                                                @endif
+                                                            @endforeach
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

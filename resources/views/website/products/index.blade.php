@@ -80,8 +80,12 @@
                                             </div>
                                             <div class="woocommerce-loop-product__body product__body pt-3 bg-white">
                                                 <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="{{route('website.product.details',$product->id)}}">{{$product->category->name}}</a></div>
-                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{{route('website.product.details',$product->id)}}">{{ Str::limit($product->name, 30)}}</a></h2>
+                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{{route('website.product.details',$product->id)}}">{{ Str::limit($product->name, 50)}}</a></h2>
 
+
+                                            </div>
+                                            <div class="product__hover d-flex align-items-center">
+{{--                                                <p>{{$product->short_description}}</p>--}}
                                                 <div class="font-size-2 mb-1 text-truncate">
                                                     @foreach($product->author as $index => $author)
                                                         <a href="{{ route('website.product.details', $product->id) }}" class="text-gray-700">
@@ -101,9 +105,6 @@
                                                         @endif
                                                     @endforeach
                                                 </div>
-                                            </div>
-                                            <div class="product__hover d-flex align-items-center">
-                                                <p>{{$product->short_description}}</p>
 
                                             </div>
                                         </div>
@@ -130,7 +131,7 @@
                                             </div>
                                             <div class="col-md woocommerce-loop-product__body product__body pt-3 bg-white mb-3 mb-md-0">
                                                 <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="{{route('website.product.details',$product->id)}}">{{$product->category->name}}</a></div>
-                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{{route('website.product.details',$product->id)}}">{{ Str::limit($product->name, 22)}}</a></h2>
+                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{{route('website.product.details',$product->id)}}">{{ Str::limit($product->name, 50)}}</a></h2>
 
                                                 <div class="font-size-2 mb-2 text-truncate">
                                                     @foreach($product->author as $index => $author)
@@ -151,7 +152,7 @@
                                                         @endif
                                                     @endforeach
                                                 </div>
-                                                <p>{{$product->short_description}}</p>
+{{--                                                <p>{{$product->short_description}}</p>--}}
                                             </div>
                                         </div>
                                     </div>

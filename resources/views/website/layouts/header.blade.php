@@ -183,22 +183,44 @@
                                         <ul>
                                             <li class="nav-item"><a href="{{route('website.home')}}" class="nav-link link-black-100 mx-3 px-0 py-3 font-size-2 font-weight-medium">الصفحة الرئيسية</a></li>
                                             <li class="has-submenu">
-                                                <a href="#" data-submenu="travel">                                    إصدارات الدار
-                                                </a>
+                                                <a href="#" data-submenu="travel"> إصدارات الدار</a>
                                                 <div id="travel" class="submenu">
                                                     <div class="submenu-header" data-submenu-close="travel">
-                                                        <a href="#">                                    إصدارات الدار
-                                                        </a>
+                                                        <a href="#">إصدارات الدار</a>
                                                     </div>
 
                                                     <ul>
                                                         <li>
                                                             <a href="{{route('website.products.index')}}">الكل</a>
                                                         </li>
-                                                        @foreach($MenuCategories as $category )
-                                                                    <li>
-                                                                        <a href="{{route('website.products.category.index',$category->id)}}">{{$category->name}}</a>
-                                                                    </li>
+
+                                                        @foreach($MenuCategories as $category)
+                                                            @if ($category->parent_id === 0)
+                                                                <li>
+                                                                    @if (count($category->subcategories) > 0)
+                                                                        <ul>
+                                                                            <li class="has-submenu">
+                                                                                <a data-submenu="off-home"> {{ $category->name }}</a>
+
+                                                                                <div id="off-home" class="submenu js-scrollbar">
+                                                                                    <div class="submenu-header" data-submenu-close="off-home">
+                                                                                        <a href="#">{{ $category->name }}</a>
+                                                                                    </div>
+
+                                                                                    <ul class="">
+                                                                                        <li> <a href="{{ route('website.products.category.index', $category->id) }}">الكل</a> </li>
+                                                                                        @foreach ($category->subcategories as $sub)
+                                                                                            <li> <a href="{{ route('website.products.category.index', $sub->id) }}"> {{ $sub->name }} </a> </li>
+                                                                                        @endforeach
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    @else
+                                                                        <a href="{{ route('website.products.category.index', $category->id) }}"> {{ $category->name }} </a>
+                                                                    @endif
+                                                                </li>
+                                                            @endif
                                                         @endforeach
                                                     </ul>
                                                 </div>

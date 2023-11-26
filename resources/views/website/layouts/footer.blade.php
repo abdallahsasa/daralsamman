@@ -71,7 +71,7 @@
                         </address>
                         <div class="mb-4">
                             <a href="mailto:info@daralsamman.com" class="font-size-2 d-block text-white mb-1">info@daralsamman.com</a>
-                            <a href="tel:+905050839104" class="font-size-2 d-block text-white">+90 505 083 9104</a>
+                            <a href="tel:+905011035559" class="font-size-2 d-block text-white">+90 501 103 55 59</a>
                         </div>
                         <ul class="list-unstyled mb-0 d-flex">
                             <li class="btn pr-0">

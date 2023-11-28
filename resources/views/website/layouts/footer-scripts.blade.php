@@ -130,4 +130,19 @@
 </script>
 <!-- End Google tag (gtag.js) -->
 
+<script>
+    function updateProductNameLimits() {
+        const isMobile = window.innerWidth <= 768; // or your mobile breakpoint
+        document.querySelectorAll('.product-name').forEach(element => {
+            const fullName = element.getAttribute('data-full-name');
+            const limit = isMobile ? element.getAttribute('data-limit-mobile') : element.getAttribute('data-limit-desktop');
+            element.textContent = fullName.length > limit ? fullName.substring(0, limit) + '...' : fullName;
+        });
+    }
+
+    // Run on load and on resize
+    window.addEventListener('resize', updateProductNameLimits);
+    document.addEventListener('DOMContentLoaded', updateProductNameLimits);
+</script>
+
 

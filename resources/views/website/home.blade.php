@@ -201,7 +201,10 @@
                                                             </div>
                                                             <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark text-right">
                                                                 <a href="{{route('website.product.details',$product->id)}}"
-                                                                   tabindex="0">{{ Str::limit($product->name, 40)}}</a>
+                                                                   tabindex="0"  data-full-name="{{ $product->name }}"
+                                                                   data-limit-desktop="40"
+                                                                   data-limit-mobile="28">
+                                                                    {{ Str::limit($product->name, 40)}}</a>
                                                             </h2>
 
 

@@ -30,6 +30,31 @@ class FrontPageController extends Controller
 
         return view('website.home', compact('products', 'FeaturedCategories', 'numberOfProducts', 'numberOfCategories','numbOfAuthors','numbOfSuppliers'));
     }
+    public function search(Request $request)
+    {
+        $key=$request->input('key');
+        $categoryid=$request->input('category');
+        $productsQuery = Product::where('status', 'active')
+            ->where('name', 'LIKE', "%{$key}%");
+       // Add category condition only if $categoryid is not 'all'
+        if ($categoryid !== 'all') {
+            $productsQuery = $productsQuery->where('category_id', 'LIKE', "%{$categoryid}%");
+        }
+        $products = $productsQuery->paginate(12);
+        $categories = Category::where('status', 'active')
+            ->orderBy('name', 'asc')
+            ->get();
+        $authors = Author::Where('status', 'active')
+            ->orderBy('slug', 'asc')
+            ->get();
+        $auditors = Auditor::Where('status', 'active')
+            ->orderBy('slug', 'asc')
+            ->get();
+
+        return view('website.products.index', compact('categories', 'products', 'authors','auditors'));
+
+
+    }
     public function suppliersIndex()
     {
         $suppliers=Supplier::where('status','active')

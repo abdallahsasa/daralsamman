@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home', [FrontPageController::class, 'index'])->name('home');
 Route::get('/', [FrontPageController::class, 'index'])->name('website.home');
+Route::get('/search', [FrontPageController::class, 'search'])->name('website.search');
 Route::get('about', [AboutUsPageController::class, 'index'])->name('website.about');
 Route::get('contact', [ContactUsPageController::class, 'index'])->name('website.contact');
 Route::post('contact/store', [ContactUsPageController::class, 'store'])->name('website.contact.store');

@@ -8,17 +8,17 @@
                     </a>
                 </div>
                 <div class="site-search ml-xl-0 ml-md-auto w-r-100 flex-grow-1 mr-md-5 mt-2 mt-md-0 order-1 order-md-0">
-                    <form class="form-inline my-2 my-xl-0">
+                    <form class="form-inline my-2 my-xl-0" action="{{ route('website.search') }}" method="GET">
                         <div class="input-group input-group-borderless w-100">
                             <div class="input-group-prepend border-right mr-0 d-none d-xl-block">
-                                <select class="custom-select pl-7 pr-5 rounded-left-0 height-5 shadow-none border-0 text-dark bg-gray-200" id="inputGroupSelect01">
-                                    <option selected>جميع الأصناف</option>
-                                    @foreach($SearchBarCategories as $SearchBarCategorie)
-                                        <option value="{{$SearchBarCategorie->name}}">{{$SearchBarCategorie->name}}</option>
+                                <select name="category" class="custom-select pl-7 pr-5 rounded-left-0 height-5 shadow-none border-0 text-dark bg-gray-200" id="inputGroupSelect01">
+                                    <option selected value="all">جميع الأصناف</option>
+                                    @foreach($SearchBarCategories as $SearchBarCategory)
+                                        <option value="{{$SearchBarCategory->id}}">{{$SearchBarCategory->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <input type="text" class="form-control px-3 bg-gray-200 bg-focus__1"
+                            <input name="key" type="text" class="form-control px-3 bg-gray-200 bg-focus__1"
                                    placeholder="ابحث عن اسم الكتاب"
                                    aria-label="Amount (to the nearest dollar)">
                             <div class="input-group-append">

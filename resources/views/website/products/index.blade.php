@@ -80,7 +80,9 @@
                                             </div>
                                             <div class="woocommerce-loop-product__body product__body pt-3 bg-white">
                                                 <div class="text-uppercase font-size-1 mb-1 text-truncate"><a href="{{route('website.product.details',$product->id)}}">{{$product->category->name}}</a></div>
-                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{{route('website.product.details',$product->id)}}">{{ Str::limit($product->name, 50)}}</a></h2>
+                                                <h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{{route('website.product.details',$product->id)}}" class="product-name" data-full-name="{{ $product->name }}"
+                                                                                                                                                                  data-limit-desktop="50"
+                                                                                                                                                                  data-limit-mobile="28">{{ Str::limit($product->name, 50)}}</a></h2>
 
 
                                             </div>

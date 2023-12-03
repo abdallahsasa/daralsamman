@@ -32,7 +32,7 @@
                                     @foreach($product->media as $media)
                                     <div class="js-slide ">
 {{--                                        <img src="{{$product->featuredMedia->first()->image_url}}" alt="Image Description" class="mx-auto img-fluid">--}}
-                                            <img src="{{$media->image_url}}" alt="{{$media->image_name}}" class="mx-auto  img-fluid">
+                                            <img src="{{$media->image_url}}" alt="{{$media->image_name}}" class="mx-auto  img-fluid book-image">
                                     </div>
                                     @endforeach
                                 </div>

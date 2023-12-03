@@ -28846,6 +28846,9 @@ span,p,.card,.pricing-table,.rtl,input{
     .hide-mobile{
         display: none;
     }
+    .book-image{
+        width:70%!important;l
+    }
 
 }
 .zeynep .submenu-header > a:before, .zeynep ul > li.has-submenu > a:before{

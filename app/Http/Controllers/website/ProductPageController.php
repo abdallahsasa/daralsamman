@@ -8,6 +8,8 @@ use App\Models\Author\Author;
 use App\Models\Product\Category;
 use App\Models\Product\Product;
 use App\Models\Product\ProductMedia;
+use Artesaos\SEOTools\Facades\SEOTools;
+use Artesaos\SEOTools\Facades\SEOMeta;
 
 class ProductPageController extends Controller
 {
@@ -40,6 +42,9 @@ class ProductPageController extends Controller
     public function details($id)
     {
         $product = Product::where('status', 'active')->findOrFail($id);
+        
+        $productTitle = SEOTools::setTitle($product->slug);
+
 
 
         $categories = Category::where('status', 'active')->get();
@@ -48,7 +53,9 @@ class ProductPageController extends Controller
             ->where('id', "!=", $id)
             ->get()->random(5);
 
-        return view('website.products.details', compact('categories', 'product', 'relatedProducts'));
+
+        
+            return view('website.products.details', compact('categories', 'product', 'relatedProducts'));
 
     }
 

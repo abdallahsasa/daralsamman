@@ -8,9 +8,13 @@ use App\Models\Author\Author;
 use App\Models\Product\Category;
 use App\Models\Product\Product;
 use App\Models\Product\ProductMedia;
+use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
+use Illuminate\Support\Facades\URL;
+
 
 class ProductPageController extends Controller
 {
+    use SEOToolsTrait;
     /**
      * Display a listing of the resource.
      */
@@ -39,8 +43,15 @@ class ProductPageController extends Controller
 
     public function details($id)
     {
+
         $product = Product::where('status', 'active')->findOrFail($id);
 
+        $this->seo()->setTitle($product->name);
+        $this->seo()->setDescription($product->meta_title);
+        $this->seo()->opengraph()->setUrl(Url::current());
+        $this->seo()->opengraph()->addProperty('type', 'articles');
+        $this->seo()->twitter()->setSite($product->name);
+        $this->seo()->jsonLd()->setType('Article');
 
         $categories = Category::where('status', 'active')->get();
 
@@ -55,9 +66,15 @@ class ProductPageController extends Controller
 
     public function detailss($id)
     {
+
         $product = Product::where('status', 'active')->findOrFail($id);
 
-
+        $this->seo()->setTitle($product->name);
+        $this->seo()->setDescription($product->meta_title);
+        $this->seo()->opengraph()->setUrl(Url::current());
+        $this->seo()->opengraph()->addProperty('type', 'articles');
+        $this->seo()->twitter()->setSite($product->name);
+        $this->seo()->jsonLd()->setType('Article');
         $categories = Category::where('status', 'active')->get();
 
         $relatedProducts = Product::where('status', 'active')
@@ -71,7 +88,13 @@ class ProductPageController extends Controller
 
     public function categoryProducts($cateoryid)
     {
-
+        $category=Category::findOrFail($cateoryid);
+        $this->seo()->setTitle($category->name);
+        $this->seo()->setDescription($category->meta_title);
+        $this->seo()->opengraph()->setUrl(Url::current());
+        $this->seo()->opengraph()->addProperty('type', 'articles');
+        $this->seo()->twitter()->setSite($category->name);
+        $this->seo()->jsonLd()->setType('Article');
         $products = Product::select('products.*')
             ->distinct()
             ->join('product_categories', 'products.category_id', '=', 'product_categories.id')

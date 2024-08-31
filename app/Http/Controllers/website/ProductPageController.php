@@ -31,6 +31,15 @@ class ProductPageController extends Controller
             ->orderBy('slug', 'asc')
             ->get();
 
+        
+        $this->seo()->setTitle('إصدارات الدار');
+        // $this->seo()->setDescription($category->meta_title);
+        $this->seo()->opengraph()->setUrl(Url::current());
+        $this->seo()->opengraph()->addProperty('type', 'articles');
+        // $this->seo()->twitter()->setSite($category->name);
+         $this->seo()->jsonLd()->setType('Article');
+
+
         return view('website.products.index', compact('categories', 'products', 'authors','auditors'));
 
 

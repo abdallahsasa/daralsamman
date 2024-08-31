@@ -11,8 +11,13 @@ use App\Models\Supplier\Country;
 use App\Models\Supplier\Supplier;
 use Illuminate\Http\Request;
 
+use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
+use Illuminate\Support\Facades\URL;
+
 class FrontPageController extends Controller
 {
+    use SEOToolsTrait;
+
     public function index()
     {
         $products = Product::where('status', 'active')
@@ -57,18 +62,36 @@ class FrontPageController extends Controller
     }
     public function suppliersIndex()
     {
+
+        $this->seo()->setTitle('الموزعون المعتمدون');
+        // $this->seo()->setDescription($category->meta_title);
+        $this->seo()->opengraph()->setUrl(Url::current());
+        $this->seo()->opengraph()->addProperty('type', 'articles');
+        // $this->seo()->twitter()->setSite($category->name);
+        $this->seo()->jsonLd()->setType('Article');
+
+
         $suppliers=Supplier::where('status','active')
             ->get();
         $countries = Country::where('status', 'active')
             ->withCount('cities') // Count the number of cities for each country
             ->orderByDesc('cities_count') // Sort by the cities_count column in descending order
             ->get();
+            
 
         return view('website.suppliers.index', compact('suppliers','countries'));
     }
 
     public function scientificIndex()
     {
+
+        $this->seo()->setTitle('اللجنة العلمية');
+        // $this->seo()->setDescription($category->meta_title);
+        $this->seo()->opengraph()->setUrl(Url::current());
+        $this->seo()->opengraph()->addProperty('type', 'articles');
+        // $this->seo()->twitter()->setSite($category->name);
+        $this->seo()->jsonLd()->setType('Article');
+
         return view('website.scientific.index');
     }
 

@@ -9,9 +9,14 @@ use App\Models\Contact\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
+use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
+use Illuminate\Support\Facades\URL;
+
 
 class ContactUsPageController extends Controller
 {
+    use SEOToolsTrait;
+
     public function __construct()
     {
         $this->model_instance = Message::class;
@@ -31,6 +36,15 @@ class ContactUsPageController extends Controller
     public function index()
     {
         $subjects = Subject::all();
+
+        $this->seo()->setTitle('تواصل معنا');
+        // $this->seo()->setDescription($category->meta_title);
+        $this->seo()->opengraph()->setUrl(Url::current());
+        $this->seo()->opengraph()->addProperty('type', 'articles');
+        // $this->seo()->twitter()->setSite($category->name);
+        $this->seo()->jsonLd()->setType('Article');
+
+
         return view($this->index_view, compact('subjects'));
     }
 
